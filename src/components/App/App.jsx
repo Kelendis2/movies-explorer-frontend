@@ -1,25 +1,26 @@
-import logo from '../../logo.svg';
+ // import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import Preloader from "../Movies/Preloader/Preloader";
+import AboutProject from "../Main/AboutProject/AboutProject";
+import Movies from "../Movies/Movies";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import Profile from "../Profile/Profile";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+      <Routes>
+            <Route path="*" element={<Preloader />} />
+            <Route path="/" element ={<AboutProject />}/>
+            <Route path="/movies" element ={<Movies />}/>
+            <Route path="/saved-movies" element ={<SavedMovies />}/>
+            <Route path="/profile" element ={<Profile />}/>
+            <Route path="/signin" element ={<Login />}/>
+            <Route path="/signup" element ={<Register />}/>
+            </Routes>
+
 }
 
 export default App;
