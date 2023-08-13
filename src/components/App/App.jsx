@@ -1,7 +1,6 @@
-// import App fron "./App.css";
+// import App from "./App.css";
 // import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
 import Preloader from "../Movies/Preloader/Preloader";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
