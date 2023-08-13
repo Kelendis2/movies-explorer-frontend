@@ -1,5 +1,6 @@
+
 function AboutProject (){
-  console.log ('AboutProject');
+  console.log ('hi');
 };
 
 
