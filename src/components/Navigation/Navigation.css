@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+  gap: 30px;
+}
+.navigation__link {
+  margin: 0;
+  padding-top: 11px;
+  color: white;
+  color: #fff;
+  text-align: right;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.navigation__button {
+  margin-top: 3px;
+  border-radius: 3px;
+  background-color: #3ddc84;
+  width: 76px;
+  height: 32px;
+  text-align: center;
+  color: #000;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
