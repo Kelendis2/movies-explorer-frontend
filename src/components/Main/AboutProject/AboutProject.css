@@ -1,0 +1,93 @@
+.about-project {
+  background-color: #202020;
+  margin-top: -1px;
+  padding-top: 110px;
+  color: white;
+}
+.about-project__title.section__title {
+  border-bottom: 1px solid #dadada;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+}
+.about-project__tablel {
+  display: flex;
+  gap: 40px;
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+}
+.tablel__item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.tablel__item_title {
+  margin: 0;
+  margin-top: 70px;
+  padding: 0;
+  width: 550px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+.table__item_text {
+  margin: 0;
+  margin-bottom: 110px;
+  padding: 0;
+  width: 550px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+.about-project__line {
+  display: flex;
+  margin: 0 auto;
+  padding: 0;
+  width: 1140px;
+}
+.about-project__week-one {
+  width: 228px;
+  height: 36px;
+  background-color: #3ddc84;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+}
+.about-project__week-four {
+  width: 912px;
+  height: 36px;
+  background-color: #303030;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+}
+.about-project__line-captions {
+  display: flex;
+  width: 1000px;
+  gap: 390px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+.about-project__line-caption {
+  margin: 0;
+  width: 200px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  color: #8b8b8b;
+}

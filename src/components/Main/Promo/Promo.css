@@ -1,7 +1,7 @@
 .promo {
   background-color: #073042;
   margin-top: -1px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   color: white;
   display: flex;
   gap: 255px;
