@@ -1,0 +1,40 @@
+.about-me {
+  background-color: #202020;
+  color: white;
+  margin-top: -1px;
+  padding-top: 110px;
+}
+
+.about-me__student-info {
+  display: flex;
+  gap: 270px;
+  width: 1140px;
+  margin: 0 auto;
+}
+.about-me__text-content {
+  width: 600px;
+}
+.about-me__text-content_subtitle {
+  margin: 18px;
+  text-align: left;
+}
+.about-me__text-content_caption {
+  width: 600px 0 99px 0;
+}
+.about-me__student_photo {
+  margin-top: 66px;
+  border-radius: 10px;
+}
+.about-me__link-github {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 1140px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: #fff;
+  text-decoration: none;
+}
+
