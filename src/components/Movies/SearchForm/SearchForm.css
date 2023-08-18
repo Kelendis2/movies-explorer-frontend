@@ -1,0 +1,30 @@
+.serach {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+}
+.serach__form {
+  margin: 70px 0 0 0;
+  display: flex;
+  gap: 5px;
+}
+.serach__form_input {
+  width: 1140px;
+  margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #424242;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.serach__form_button {
+  margin: -5px 0 0 -85px;
+  background-image: url(../../../images/find.svg);
+  background-color: transparent;
+  width: 80px;
+  height: 34px;
+  background-repeat: no-repeat;
+  border: none;
+}

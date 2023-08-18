@@ -5,10 +5,9 @@ function Login (){
   return(
     <section className="login">
       <form className="login__form form">
-        <span className="login__form_span form_span">E-mail</span>
+        <label className="login__form_label form_label">E-mail</label>
         <input className="login__form_input form_input"></input>
-        <span className="login__form_span-error  form_span"></span>
-        <span className="login__form_span form_span">Пароль</span>
+        <label className="login__form_label form_label">Пароль</label>
         <input className="login__form_input form_input"></input>
         <span className="login__form_span-error form_span-error"></span>
         <button className="login__form_button form_button" type="button">

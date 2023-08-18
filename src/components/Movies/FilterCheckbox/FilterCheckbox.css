@@ -1,0 +1,23 @@
+.filterCheckbox {
+  width: 1140px;
+  margin: 33px auto;
+  display: flex;
+  gap: 14px;
+  color: #fff;
+}
+.filterCheckbox__slider {
+  background-image: url(../../../images/smalltumb.svg);
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 20px;
+}
+.filterCheckbox__slider_off {
+  background-image: url(../../../images/smalltumboff.svg);
+}
+.filterCheckbox__span {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}

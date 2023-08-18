@@ -1,0 +1,21 @@
+.moviesCardList{
+  width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  list-style-type: none;
+  row-gap: 32px;
+  column-gap: 20px;
+}
+.moviesCardList_place_seved{
+  width: 1140px;
+  margin: 0 auto;
+  padding-bottom: ;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  list-style-type: none;
+  row-gap: 32px;
+  column-gap: 20px;
+}

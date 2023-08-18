@@ -1,0 +1,46 @@
+.moviesCard {
+  width: 270px;
+  height: 218px;
+  margin: 70px 0 0 0;
+  border-radius: 10px;
+  background-color: #222;
+}
+.moviesCard__photo {
+  width: 270px;
+  height: 151px;
+  border-radius: 10px;
+}
+.moviesCard__about {
+  margin: 14px auto 0;
+  display: flex;
+  gap: 24px;
+  width: 246px;
+}
+.moviesCard__about_text-content {
+  width: 206px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.moviesCard__about_text-content_type_name {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.moviesCard__about_text-content_type_time {
+  color: #8b8b8b;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.moviesCard__about_checkBox {
+  background-image: url(../../../images/save8d.svg);
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: contain;
+
+}

@@ -1,5 +1,6 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
+
 .page{
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
