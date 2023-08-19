@@ -4,7 +4,7 @@
 }
 .navigation__main {
   display: flex;
-  gap: 375px;
+  gap: 390px;
 }
 
 .navigation__link {
@@ -49,14 +49,15 @@
 .navigation__profile{
   display: flex;
   gap:9.5px;
+  margin-right: 70px;
 }
 .navigation__movie{
   display: flex;
   gap:16px;
 }
 .navigation__profile-logo{
-  width: 26px;
-height: 26px;
-margin: -3px 0 0 0;
+  width: 150px;
+height: 50px;
+margin: -15px 0 0 0;
 
 }

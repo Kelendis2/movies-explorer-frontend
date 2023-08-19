@@ -15,10 +15,11 @@
   background-color: #202020;
 }
 .header_login {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1280px;
+  max-width: 396px;
   max-height: 217px;
   background-color: #202020;
 }

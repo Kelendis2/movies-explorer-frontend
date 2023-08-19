@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import { Link, useLocation } from "react-router-dom";
-import profileLogo from "../../images/profile.svg";
+import profileLogo from "../../images/goprofile.svg";
 
 function Header() {
 
@@ -15,7 +15,7 @@ function Header() {
     if (pathname === "/") {
       className = `${className} header_main`;
     }
-    else if (pathname === "/movies" || pathname === "/saved-movies") {
+    else if (pathname === "/movies" || pathname === "/saved-movies" || pathname === "/profile" ) {
       className = `${className} header_movie`;
     }
     else if (pathname === "/signin") {
@@ -30,7 +30,7 @@ function Header() {
   const navContent = () =>{
     if (pathname === "/") {
       return (
-          <Navigation>
+          <Navigation >
             <Link className="navigation__link" to="/signup">
               Регистрация
             </Link>
@@ -40,9 +40,9 @@ function Header() {
           </Navigation>
       );
 
-    } else if (pathname === "/movies" || pathname === "/saved-movies") {
+    } else if (pathname === "/movies" || pathname === "/saved-movies" || pathname === "/profile") {
       return (
-          <Navigation>
+          <Navigation className="navigation__main">
             <div className="navigation__movie">
               <Link className="navigation__nav-link" to="/movies">
                 Фильмы
@@ -56,9 +56,6 @@ function Header() {
               </Link>
             </div>
             <div className="navigation__profile">
-              <Link className="navigation__nav-link" to="/profile">
-                Аккаунт
-              </Link>
               <Link
                 className="navigation__nav-link"
                 type="button"

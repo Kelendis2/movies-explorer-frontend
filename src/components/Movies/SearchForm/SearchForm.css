@@ -18,9 +18,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  outline:none;
 }
 .serach__form_button {
-  margin: -5px 0 0 -85px;
+  margin: 0 0 0 -85px;
   background-image: url(../../../images/find.svg);
   background-color: transparent;
   width: 80px;
