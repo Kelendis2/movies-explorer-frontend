@@ -1,0 +1,18 @@
+.addMoviesTable {
+  margin: 30px 0 0 0;
+}
+.addMoviesTable__button {
+  display: block;
+  width: 320px;
+  height: 36px;
+  margin: 50px auto 160px;
+  background-color: transparent;
+  border: 2px solid #424242;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

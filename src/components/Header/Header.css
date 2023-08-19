@@ -1,15 +1,35 @@
-.header{
+.header {
   display: flex;
-  max-width: 1280;
-  max-height: 74;
+  max-width: 1280px;
+  max-height: 74px;
   padding: 18px 70px;
   background-color: #073042;
   justify-content: space-between;
+}
+.header_movie {
+  display: flex;
+  max-width: 1280px;
+  max-height: 74px;
+  padding: 18px 70px;
+  gap: 426px;
+  background-color: #202020;
+}
+.header_login {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1280px;
+  max-height: 217px;
+  background-color: #202020;
 }
 .header__logo {
   width: 38px;
   display: block;
 }
-.heder__movies{
-  background-color: #073042;
+.heder__title {
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }

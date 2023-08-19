@@ -2,10 +2,14 @@
   display: flex;
   gap: 30px;
 }
+.navigation__main {
+  display: flex;
+  gap: 375px;
+}
+
 .navigation__link {
   margin: 0;
   padding-top: 11px;
-  color: white;
   color: #fff;
   text-align: right;
   font-family: Inter;
@@ -31,4 +35,28 @@
   line-height: 30px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.navigation__nav-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+.navigation__profile{
+  display: flex;
+  gap:9.5px;
+}
+.navigation__movie{
+  display: flex;
+  gap:16px;
+}
+.navigation__profile-logo{
+  width: 26px;
+height: 26px;
+margin: -3px 0 0 0;
+
 }

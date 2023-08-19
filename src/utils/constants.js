@@ -114,28 +114,4 @@ const moviesList = [
   },
 ];
 
-const SavedMoviesList = [
-  {
-    duration: "1ч42м",
-    image: image14,
-    movieId: 14,
-    nameRU: "33 слова о дизайне",
-  },
-  {
-    duration: "1ч42м",
-    image: image15,
-    movieId: 15,
-    nameRU: "33 слова о дизайне",
-  },
-  {
-    duration: "1ч42м",
-    image: image16,
-    movieId: 16,
-    nameRU: "33 слова о дизайне",
-  },
-
-]
-
-
-
-export { moviesList, SavedMoviesList };
+export { moviesList };
