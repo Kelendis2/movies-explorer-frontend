@@ -7,14 +7,28 @@ import profileLogo from "../../images/profile.svg";
 
 function Header() {
 
-  let content = null;
   const location = useLocation();
   let className = "header";
   const { pathname } = location;
 
   const classNameHeader = () => {
     if (pathname === "/") {
-      className = `${className}`;
+      className = `${className} header_main`;
+    }
+    else if (pathname === "/movies" || pathname === "/saved-movies") {
+      className = `${className} header_movie`;
+    }
+    else if (pathname === "/signin") {
+      className = `${className} header_login`;
+    }
+    else if (pathname === "/signup") {
+      className = `${className} header_login`;
+    }
+    return className;
+  };
+
+  const navContent = () =>{
+    if (pathname === "/") {
       return (
           <Navigation>
             <Link className="navigation__link" to="/signup">
@@ -27,7 +41,6 @@ function Header() {
       );
 
     } else if (pathname === "/movies" || pathname === "/saved-movies") {
-      className = `${className} header_movie`;
       return (
           <Navigation>
             <div className="navigation__movie">
@@ -62,25 +75,22 @@ function Header() {
       );
 
     } else if (pathname === "/signin") {
-      className = `${className} header_login`;
       return (
           <h2 className="heder__title">Рады видеть!</h2>
       );
 
     } else if (pathname === "/signup") {
-      className = `${className} header_login`;
       return (
           <h2 className="heder__title">Добро пожаловать!</h2>
       );
     }
-    return className;
   };
 
-  return <header className={className}>
+  return <header className = {classNameHeader()}>
     <Link className="heder__link" to="/">
             <img className="header__logo" alt="logo" src={logo} />
           </Link>
-          {classNameHeader()}
+          { navContent()}
           </header>;
 }
 
