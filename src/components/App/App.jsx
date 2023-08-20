@@ -11,6 +11,7 @@ import Login from "../Login/Login";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import NotFound from '../NotFound/NotFound';
 // import { Context } from "../../contexts/CurrentUserContext";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="*" element={<Preloader />} />
+          <Route path="*" element={<NotFound />} />
           <Route
             path="/"
             element={

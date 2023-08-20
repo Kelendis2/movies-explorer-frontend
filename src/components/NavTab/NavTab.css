@@ -1,0 +1,55 @@
+.navigate {
+  position: absolute;
+  width: 520px;
+  height: 100%;
+  right: 0px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+}
+.navigate__button-close {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 22.45px;
+  right: 22.44px;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-image: url(../../images/close.svg);
+}
+
+.navigate__text-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 159px auto 0;
+  width: 340px;
+}
+.navigate__button {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  border: none;
+}
+.navigate__button_active {
+  text-decoration: underline;
+}
+
+.navigate__button-profile {
+  background-image: url(../../images/goprofile.svg);
+  position: absolute;
+  left: 210px;
+  bottom: 90px;
+  width: 100px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+}
