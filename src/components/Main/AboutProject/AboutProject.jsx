@@ -19,10 +19,10 @@ function AboutProject (){
         <p className="about-project__week-one">1 неделя</p>
         <p className="about-project__week-four">4 недели</p>
       </div>
-      <p className="about-project__line-captions">
-      <p  className="about-project__line-caption">Back-end</p>
-      <div className="about-project__line-caption">Front-end</div>
-      </p>
+      <div className="about-project__line-captions">
+      <span className="about-project__line-caption line-caption_one">Back-end</span>
+      <span className="about-project__line-caption line-caption_two">Front-end</span>
+      </div>
 
 
     </section>

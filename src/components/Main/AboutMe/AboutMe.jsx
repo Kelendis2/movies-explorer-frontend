@@ -9,14 +9,14 @@ function AboutMe() {
       <h2 className="about-me__title section__title">Студент</h2>
       <div className="about-me__student-info">
         <div className="about-me__text-content">
-          <h3 className="about-me__text-content_subtitle section__subtitle">
+          <h3 className="about-me__text-content_subtitle">
             {" "}
             Виталий
           </h3>
           <p className="about-me__text-content_student-major">
             Фронтенд-разработчик, 30 лет
           </p>
-          <p className="about-me__text-content_caption section__caption section__caption">
+          <p className="about-me__text-content_caption  section__caption">
             Я родился и живу в Саратове, закончил факультет экономики СГУ. У
             меня есть жена и дочь. Я люблю слушать музыку, а ещt увлекаюсь
             бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ

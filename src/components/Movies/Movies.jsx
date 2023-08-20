@@ -14,7 +14,6 @@ function Movies (){
        moviesList={moviesList.slice(0)}
        />
       <AddMoviesTable />
-      <NavTab />
     </section>
   )
 }
