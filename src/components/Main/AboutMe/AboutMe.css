@@ -94,7 +94,6 @@
     margin: 66px 0;
     width: 270px;
     height: 327px;
-    border-radius: 12px;
   }
   .about-me__link-github {
     margin: 40px auto;
@@ -106,7 +105,6 @@
     margin: 35px 0;
     width: 255px;
     height: 307px;
-    border-radius: 12px;
   }
 }
 @media screen and (max-width: 620px) {
@@ -127,7 +125,6 @@
   }
   .about-me__student_photo {
     margin: 35px auto;
-    border-radius: 12px;
   }
   .about-me__text-content{
     max-width: 292px;
@@ -163,7 +160,6 @@
   .about-me__student_photo {
     width: 292px;
     height: 352px;
-    border-radius: 12px;
     margin: 0 auto;
   }
 }
