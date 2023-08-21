@@ -7,7 +7,7 @@
 .section__title {
   border-bottom: 1px solid #dadada;
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   padding-bottom: 25px;
   font-size: 22px;
   font-style: normal;
@@ -29,7 +29,7 @@
 }
 .tablel__item_title {
   margin: 0;
-  margin-top: 70px;
+  margin-top: 8px;
   padding: 0;
   max-width: 550px;
   font-size: 20px;
@@ -110,8 +110,15 @@
     font-size: 12px;
     line-height: 18px;
   }
+  .section__title {
+    margin: 0 auto 30px;
+  }
+  .tablel__item_title {
+    margin-top: 40px;
+  }
+
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .about-project {
     padding: 70px 18px 90px;
   }
@@ -184,3 +191,5 @@
     width: 184px;
   }
 }
+
+

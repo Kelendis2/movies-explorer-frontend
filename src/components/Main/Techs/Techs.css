@@ -63,6 +63,7 @@
   list-style-type: none;
 }
 
+
 @media screen and (max-width: 768px) {
   .techs {
     padding: 90px 50px 88px;
@@ -88,7 +89,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .techs {
     padding: 48px 18px 88px;
   }

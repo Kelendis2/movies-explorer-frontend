@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 30px 70px 160px 70px;
+  padding: 0 70px 160px 70px;
 }
 .portfolio__title {
   max-width: 1140px;
-  margin: 50px 0;
+  margin: 0 0 51px;
   padding: 0;
   color: #8b8b8b;
   font-size: 18px;
@@ -34,31 +34,35 @@
   font-style: normal;
   font-weight: 400;
   line-height: 50px;
-  letter-spacing: -1.2px;
 }
 .about-me__portfolio-link_image{
   background-image: url(../../../images/strelka.svg);
+  margin: 13px 6px;
   width: 18px;
   height: 28px;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 @media screen and (max-width: 768px) {
   .portfolio {
-    padding: 40px 50px 125px 50px;
+    padding: 50px 50px 125px 50px;
   }
   .portfolio-link__text {
     padding-bottom: 19px;
     font-size: 28px;
-    letter-spacing: -1.12px;
   }
   .about-me__portfolio-link_image{
+    margin: 15px 5px 0;
     background-image: url(../../../images/strelkaM.svg);
+  }
+  .portfolio__title {
+    margin: 5px 0 50px;
   }
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .portfolio {
     padding: 30px 14px 110px;
   }
@@ -66,7 +70,6 @@
     padding:0 0 19px;
     font-size: 18px;
     line-height: 28px;
-    letter-spacing: -0.72px;
   }
   .portfolio__title {
     margin: 0;
@@ -84,6 +87,7 @@
   }
   .about-me__portfolio-link_image{
     background-image: url(../../../images/strelkaS.svg);
+    margin: 0;
   }
 }
 

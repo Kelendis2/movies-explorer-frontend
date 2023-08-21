@@ -16,23 +16,24 @@ function AboutMe() {
           <p className="about-me__text-content_student-major">
             Фронтенд-разработчик, 30 лет
           </p>
-          <p className="about-me__text-content_caption  section__caption">
+          <p className="about-me__text-content_caption">
             Я родился и живу в Саратове, закончил факультет экономики СГУ. У
             меня есть жена и дочь. Я люблю слушать музыку, а ещt увлекаюсь
             бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
             Контур». После того, как прошёл курс по веб-разработке, начал
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
-        </div>
-        <img className="about-me__student_photo" alt="student" src={student} />
-      </div>
-      <Link
+          <Link
         className="about-me__link-github"
         type="link"
         to="https://github.com/Kelendis2"
       >
         Github
       </Link>
+        </div>
+        <img className="about-me__student_photo" alt="student" src={student} />
+      </div>
+
     </section>
   );
 }
