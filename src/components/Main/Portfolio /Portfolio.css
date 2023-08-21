@@ -25,6 +25,7 @@
   max-width: 1140px;
   margin: 0px 0 20px 0;
 }
+
 .portfolio-link__text {
   color: #fff;
   margin: 0;
@@ -34,6 +35,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: 50px;
+}
+.portfolio-link__text:hover{
+  opacity: .7;
 }
 .about-me__portfolio-link_image{
   background-image: url(../../../images/strelka.svg);

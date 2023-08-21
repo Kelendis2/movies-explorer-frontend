@@ -52,6 +52,9 @@
   line-height: normal;
   color: white;
 }
+.form_button:hover{
+  opacity: .8;
+}
 .form_link {
   color: #4285f4;
   text-decoration: none;

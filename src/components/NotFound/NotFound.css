@@ -35,3 +35,6 @@
   background-color: transparent;
   border: none;
 }
+.notFound__button :hover{
+  opacity: .7;
+}

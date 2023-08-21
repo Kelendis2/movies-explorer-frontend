@@ -46,6 +46,9 @@
   border: 1px solid rgba(255, 255, 255, 0.6);
   background-color: transparent;
 }
+.promo__button:hover{
+  opacity: .8;
+}
 
 .promo__image {
   margin-top: 75px;

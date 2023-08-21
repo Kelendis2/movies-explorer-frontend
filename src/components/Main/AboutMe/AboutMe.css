@@ -53,6 +53,9 @@
   color: #fff;
   text-decoration: none;
 }
+.about-me__link-github:hover{
+  opacity: .7;
+}
 .about-me__student_photo {
   margin: 6px 0;
   width: 270px;

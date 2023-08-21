@@ -29,6 +29,9 @@
   background-repeat: no-repeat;
   border: none;
 }
+.serach__form_button:hover{
+  opacity: .8;
+}
 @media screen and (max-width:768px) {
 }
 
