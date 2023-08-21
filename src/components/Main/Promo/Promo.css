@@ -86,3 +86,30 @@
     margin: 140px auto 0;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .promo {
+    gap: 44px;
+    padding: 0 10px 30px;
+  }
+  .promo__text {
+    padding: 0;
+    max-width: 675px;
+  }
+  .promo__text-title {
+    max-width: 300px;
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+    line-height: 38px; /* 126.667% */
+    letter-spacing: -1.2px;
+  }
+  .promo__text-subtitle {
+    margin: 22px auto 85px;
+  }
+  .promo__image {
+    margin: 70px auto 0;
+    max-width: 210.001px;
+    max-height: 206px;
+  }
+}

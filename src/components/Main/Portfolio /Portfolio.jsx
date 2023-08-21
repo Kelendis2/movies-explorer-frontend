@@ -12,10 +12,8 @@ function Portfolio (){
       to="https://github.com/Kelendis2/how-to-learn"
     >
       <p className="portfolio-link__text">Статичный сайт</p>
-      <img
-        className="portfolio-link__image"
-        alt="strelka"
-        src={strelka}
+      <div
+        className="about-me__portfolio-link_image"
       />
     </Link>
     <Link
@@ -25,10 +23,8 @@ function Portfolio (){
     >
       <p className="portfolio-link__text">Адаптивный сайт</p>
 
-      <img
+      <div
         className="about-me__portfolio-link_image"
-        alt="strelka"
-        src={strelka}
       />
     </Link>
     <Link
@@ -37,10 +33,8 @@ function Portfolio (){
       to="https://github.com/Kelendis2/react-mesto-api-full-gha"
     >
       <p className="portfolio-link__text">Одностраничное приложение</p>
-      <img
+      <div
         className="about-me__portfolio-link_image"
-        alt="strelka"
-        src={strelka}
       />
     </Link>
   </section>
