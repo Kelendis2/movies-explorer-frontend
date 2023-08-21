@@ -1,10 +1,6 @@
 .navigation {
   display: flex;
-  gap: 30px;
-}
-.navigation__main {
-  display: flex;
-  justify-content: space-between;
+  gap: 150px;
 }
 
 .navigation__link {
@@ -46,19 +42,28 @@
   font-weight: 400;
   line-height: 18px;
 }
-.navigation__profile {
+
+.navigation__main {
+  margin: 10px auto 0;
   display: flex;
-  gap: 9.5px;
-  margin-right: 70px;
+  justify-content: space-between;
+  width: 800px;
+}
+.navigation__profile {
+  display: block;
+  align-items: end;
+  width: 150px;
+  height: 32px;
+
 }
 .navigation__movie {
   display: flex;
   gap: 16px;
 }
 .navigation__profile-logo {
-  width: 150px;
-  height: 50px;
-  margin: -15px 0 0 0;
+  width: 200px;
+  height: 60px;
+  margin: -18px  0;
 }
 
 @media screen and (max-width: 320px) {

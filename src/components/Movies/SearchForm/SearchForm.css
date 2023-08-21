@@ -4,7 +4,7 @@
   padding: 0;
 }
 .serach__form {
-  margin: 70px 0 0 0;
+  margin: 50px 0 0 0;
   display: flex;
   gap: 5px;
 }
@@ -17,15 +17,20 @@
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
-  outline:none;
+  line-height: 63px;
+  outline: none;
 }
 .serach__form_button {
-  margin: 0 0 0 -85px;
+  margin: 16px 0 0 -85px;
   background-image: url(../../../images/find.svg);
   background-color: transparent;
   width: 80px;
   height: 34px;
   background-repeat: no-repeat;
   border: none;
+}
+@media screen and (max-width:768px) {
+}
+
+@media screen and (max-width:320px) {
 }
