@@ -1,5 +1,5 @@
 import "./Header.css";
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import { Link, useLocation } from "react-router-dom";
@@ -7,7 +7,6 @@ import profileLogo from "../../images/profilemenuL.svg";
 
 function Header() {
 
-  const desctopMedia = useState ();
 
   const location = useLocation();
   let className = "header";
@@ -89,7 +88,6 @@ function Header() {
     <Link className="heder__link" to="/">
             <img className="header__logo" alt="logo" src={logo} />
           </Link>
-
           { navContent()}
           </header>;
 }
