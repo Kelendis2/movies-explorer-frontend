@@ -53,6 +53,12 @@
   color: #fff;
   text-decoration: none;
 }
+.about-me__student_photo {
+  margin: 6px 0;
+  width: 270px;
+  height: 327px;
+  border-radius: 12px;
+}
 
 @media screen and (max-width: 768px) {
   .about-me {
@@ -83,28 +89,26 @@
   }
 }
 
-@media screen and (min-width: 822px) {
+@media screen and (max-width: 821px) {
   .about-me__student_photo {
-    margin: 6px 0;
+    margin: 66px 0;
     width: 270px;
     height: 327px;
     border-radius: 12px;
   }
-}
-@media screen and (max-width: 821px) {
-  .about-me__student_photo {
-    margin: 66px 0;
-    max-width: 270px;
-    max-height: 327px;
-    border-radius: 12px;
-  }
-}
-@media screen and (max-width: 820) {
   .about-me__link-github {
     margin: 40px auto;
   }
 }
 
+@media screen and (max-width: 768px) {
+  .about-me__student_photo {
+    margin: 35px 0;
+    width: 255px;
+    height: 307px;
+    border-radius: 12px;
+  }
+}
 @media screen and (max-width: 620px) {
   .about-me__student-info {
     flex-direction: column-reverse;
@@ -112,6 +116,7 @@
   .about-me__link-github {
     margin: 40px auto;
   }
+
   .about-me__student-info {
     justify-content: center;
   }
@@ -120,25 +125,20 @@
     max-width: 600px;
     padding-right: 15px;
   }
-}
-@media screen and (max-width: 768px) {
-  .about-me__student_photo {
-    margin: 35px 0;
-    max-width: 255px;
-    max-height: 307px;
-    border-radius: 12px;
-  }
-}
-@media screen and (max-width: 620px) {
   .about-me__student_photo {
     margin: 35px auto;
     border-radius: 12px;
   }
+  .about-me__text-content{
+    max-width: 292px;
+  }
 }
-
 @media screen and (max-width: 500px) {
   .about-me {
     padding: 50px 14px 0;
+  }
+  .about-me__text-content{
+    max-width: 292px;
   }
   .about-me__text-content_subtitle {
     margin: 40px 0 0;
@@ -149,6 +149,8 @@
   }
   .about-me__text-content_caption {
     max-width: 364px;
+    font-size: 11px;
+    line-height: 16px;
   }
   .about-me__student-info {
     flex-direction: column-reverse;
