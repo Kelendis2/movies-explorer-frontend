@@ -2,7 +2,7 @@ import React from "react";
 import "./NavTab.css"
 import { useNavigate } from "react-router-dom";
 
-function NavTab() {
+function NavTab({ setShowNavTab }) {
   const navigate = useNavigate();
 
   const goToMain = () => {

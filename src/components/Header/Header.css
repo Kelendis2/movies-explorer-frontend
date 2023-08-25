@@ -6,13 +6,17 @@
 }
 .header_main {
   background-color: #073042;
+  display: flex;
+  justify-content: space-between;
 }
 .header_movie {
   display: flex;
   max-height: 74px;
   padding: 18px 70px;
-  gap: 426px;
+  justify-content: space-between;
   background-color: #202020;
+
+
 }
 .header_login {
   margin: 0 auto;
@@ -27,8 +31,10 @@
   width: 38px;
   height: 38px;
   display: block;
+  margin: 0;
+  margin-right: 20px;
 }
-.heder__title {
+.header__title {
   color: #fff;
   font-size: 24px;
   font-style: normal;
@@ -40,13 +46,9 @@
   .header {
     padding: 18px 30px;
   }
-
 }
 @media screen and (max-width: 320px) {
   .header {
     padding: 18px 14px;
   }
 }
-
-
-

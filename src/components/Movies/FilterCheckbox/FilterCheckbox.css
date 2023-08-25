@@ -1,5 +1,5 @@
 .filterCheckbox {
-  width: 1140px;
+  max-width: 1140px;
   margin: 30px auto;
   display: flex;
   gap: 14px;
@@ -20,4 +20,22 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
+}
+@media screen and (max-width:768px) {
+  .filterCheckbox {
+    margin: 30px 0 0;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+}
+@media screen and (max-width:600px) {
+  .filterCheckbox {
+    margin: 40px auto 0;
+    max-width: 150px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+  .filterCheckbox__span {
+    font-size: 11px;
+  }
 }
