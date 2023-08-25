@@ -1,12 +1,14 @@
 .navigate {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 520px;
   height: 100%;
-  right: 0px;
-  top: 0;
   display: flex;
   flex-direction: column;
   background-color: #202020;
+  justify-content: space-between;
+  z-index: 1000;
 }
 .navigate__button-close {
   width: 22px;
@@ -47,9 +49,8 @@
 
 .navigate__button-profile {
   background-image: url(../../images/goprofile.svg);
-  position: absolute;
-  left: 210px;
-  bottom: 90px;
+  display: block;
+  margin: 0 auto;
   width: 100px;
   height: 32px;
   background-color: transparent;
@@ -58,4 +59,26 @@
 }
 .navigate__button-profile {
   opacity: 0.7;
+}
+@media screen and (max-width: 520px) {
+  .navigate {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #202020;
+    z-index: 1000;
+  }
+  .navigate__button-profile {
+    background-image: url(../../images/goprofile.svg);
+    width: 100px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    background-position: center;
+  }
+
 }

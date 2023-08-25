@@ -2,7 +2,7 @@ import React from "react";
 import "./NavTab.css";
 import { useNavigate } from "react-router-dom";
 
-function NavTab({ setShowNavTab }) {
+function NavTab({ showNavTab, closeNavTab }) {
   const navigate = useNavigate();
 
   const goToMain = () => {
@@ -22,18 +22,18 @@ function NavTab({ setShowNavTab }) {
 
   return (
     <nav className="navigate">
-      <button className="navigate__button-close" />
+      <button className="navigate__button-close" onClick={closeNavTab}/>
       <div className="navigate__text-buttons">
-        <button className="navigate__button" onClick={goToMain()}>
+        <button className="navigate__button" onClick={goToMain}>
           Главная
         </button>
         <button
           className="navigate__button navigate__button_active"
-          onClick={goToMovies()}
+          onClick={goToMovies}
         >
           Фильмы
         </button>
-        <button className="navigate__button" onClick={goToSavedMovies()}>
+        <button className="navigate__button" onClick={goToSavedMovies}>
           Сохраненные фильмы
         </button>
       </div>

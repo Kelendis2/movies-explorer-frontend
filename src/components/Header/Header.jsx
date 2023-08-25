@@ -25,6 +25,10 @@ function Header() {
     };
   }, []);
 
+  const closeNavTab = () => {
+    setShowNavTab(false);
+  };
+
   const classNameHeader = () => {
     if (pathname === "/") {
       className = `${className} header_main`;
@@ -115,6 +119,7 @@ function Header() {
         </Link>
         {navContent()}
       </header>
+      {showNavTab && <NavTab setShowNavTab={setShowNavTab} closeNavTab={closeNavTab} />}
     </>
   );
 }

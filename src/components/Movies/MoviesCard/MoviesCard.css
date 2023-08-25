@@ -46,7 +46,7 @@
   background-size: contain;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .moviesCard {
     width: 339px;
     height: 257px;
@@ -63,7 +63,23 @@
     margin: 10px 12px 0;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 770px) {
+  .moviesCard {
+    width: 270px;
+    height: 235px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: #222;
+    border-radius: 15px;
+
+  }
+  .moviesCard__photo {
+    width: 270px;
+    height: 168px;
+  }
+
+}
+@media screen and (max-width: 500px) {
   .moviesCard {
     width: 300px;
     height: 235px;
@@ -71,9 +87,11 @@
     border-radius: 10px;
     background-color: #222;
     border-radius: 15px;
+
   }
   .moviesCard__photo {
     width: 300px;
     height: 168px;
   }
+
 }

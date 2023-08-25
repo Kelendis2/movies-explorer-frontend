@@ -4,13 +4,10 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 import { moviesList } from "../../utils/constants";
 
 function SavedMovies() {
-  const threeMovies = moviesList.slice(0, 3); // Создаем подмассив из первых трех фильмов
-
   return (
     <section className="savedMovies">
       <SearchForm />
-      <MoviesCardList movies={threeMovies} />{" "}
-      {/* Передаем подмассив в MoviesCardList */}
+      <MoviesCardList maxVisibleCards={3} /> {/* Отобразить 3 карточки */}
     </section>
   );
 }
