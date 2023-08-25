@@ -20,6 +20,7 @@
 }
 .header_login {
   margin: 0 auto;
+  padding: 70px 0 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -35,6 +36,8 @@
   margin-right: 20px;
 }
 .header__title {
+  margin: 0;
+  pad: 0;
   color: #fff;
   font-size: 24px;
   font-style: normal;
@@ -46,9 +49,22 @@
   .header {
     padding: 18px 30px;
   }
+  .header_login {
+    padding: 230px 0 0;
+  }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .header {
     padding: 18px 14px;
   }
+  .header_login {
+    text-align: center;
+    margin: 0 auto;
+    padding: 56px 0;
+    align-items: center;
+  }
+  .header__logo {
+    margin: 0 auto 10px;
+  }
+
 }

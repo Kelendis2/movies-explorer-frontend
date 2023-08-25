@@ -35,6 +35,43 @@
   background-color: transparent;
   border: none;
 }
-.notFound__button :hover{
-  opacity: .7;
+.notFound__button :hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .notFound {
+    padding: 193px 0 135px 0;
+  }
+  .notFound__img {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    padding-top: 246px;
+  }
+  .notFound__title {
+    margin: 38px auto;
+  }
+}
+@media screen and (max-width: 400px) {
+  .notFound {
+    margin: 0;
+    padding: 70px 0 0 0;
+  }
+  .notFound__img {
+    display: block;
+    width: 145px;
+    margin: 32px auto 0;
+    padding-top: 246px;
+  }
+  .notFound__title {
+    margin: 28px auto;
+    font-size: 12px;
+    max-width: 160px;
+  }
+  .notFound__button {
+    margin: 284px auto 0;
+    width: 50px;
+    font-size: 12px;
+  }
 }
