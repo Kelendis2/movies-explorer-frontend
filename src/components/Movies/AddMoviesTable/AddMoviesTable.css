@@ -16,6 +16,6 @@
   font-weight: 500;
   line-height: normal;
 }
-.addMoviesTable__button:hover{
-  opacity: .8;
+.addMoviesTable__button:hover {
+  opacity: 0.8;
 }

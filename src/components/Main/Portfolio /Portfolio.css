@@ -36,10 +36,10 @@
   font-weight: 400;
   line-height: 50px;
 }
-.portfolio-link__text:hover{
-  opacity: .7;
+.portfolio-link__text:hover {
+  opacity: 0.7;
 }
-.about-me__portfolio-link_image{
+.about-me__portfolio-link_image {
   background-image: url(../../../images/strelka.svg);
   margin: 13px 6px;
   width: 18px;
@@ -56,7 +56,7 @@
     padding-bottom: 19px;
     font-size: 28px;
   }
-  .about-me__portfolio-link_image{
+  .about-me__portfolio-link_image {
     margin: 15px 5px 0;
     background-image: url(../../../images/strelkaM.svg);
   }
@@ -65,13 +65,12 @@
   }
 }
 
-
 @media screen and (max-width: 500px) {
   .portfolio {
     padding: 30px 14px 110px;
   }
   .portfolio-link__text {
-    padding:0 0 19px;
+    padding: 0 0 19px;
     font-size: 18px;
     line-height: 28px;
   }
@@ -82,17 +81,15 @@
     font-size: 14px;
     line-height: 20px;
   }
-  .portfolio-link__image{
+  .portfolio-link__image {
     width: 10px;
     height: 10px;
   }
   .portfolio__link {
-    gap:20px;
+    gap: 20px;
   }
-  .about-me__portfolio-link_image{
+  .about-me__portfolio-link_image {
     background-image: url(../../../images/strelkaS.svg);
     margin: 0;
-
   }
 }
-

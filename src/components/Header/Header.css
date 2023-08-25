@@ -15,8 +15,6 @@
   padding: 18px 70px;
   justify-content: space-between;
   background-color: #202020;
-
-
 }
 .header_login {
   margin: 0 auto;
@@ -66,5 +64,4 @@
   .header__logo {
     margin: 0 auto 10px;
   }
-
 }

@@ -57,12 +57,11 @@
 
 @media screen and (max-width: 600px) {
   .serach {
-    margin:16px auto 0;
+    margin: 16px auto 0;
     max-width: 100%;
   }
   .serach__form_button {
     margin: 12px 0 0;
-
   }
   .serach__form_input {
     margin: 17px 0 14px;

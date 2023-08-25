@@ -21,14 +21,14 @@
   font-weight: 400;
   line-height: 18px;
 }
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .filterCheckbox {
     margin: 30px 0 0;
     flex-direction: row-reverse;
     justify-content: end;
   }
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .filterCheckbox {
     margin: 40px auto 0;
     max-width: 150px;

@@ -62,7 +62,10 @@ function Header() {
       if (isMobile) {
         return (
           <Navigation>
-            <button className="navigation__button-menu" onClick={() => setShowNavTab(true)} />
+            <button
+              className="navigation__button-menu"
+              onClick={() => setShowNavTab(true)}
+            />
           </Navigation>
         );
       } else {
@@ -106,16 +109,14 @@ function Header() {
   // Возвращаем JSX
   return (
     <>
-    <header className={classNameHeader()}>
-      <Link className="heder__link" to="/">
-        <img className="header__logo" alt="logo" src={logo} />
-      </Link>
-      {navContent()}
-    </header>
-
+      <header className={classNameHeader()}>
+        <Link className="heder__link" to="/">
+          <img className="header__logo" alt="logo" src={logo} />
+        </Link>
+        {navContent()}
+      </header>
     </>
   );
-
 }
 
 export default Header;

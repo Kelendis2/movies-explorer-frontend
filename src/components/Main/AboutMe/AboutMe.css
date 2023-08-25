@@ -53,8 +53,8 @@
   color: #fff;
   text-decoration: none;
 }
-.about-me__link-github:hover{
-  opacity: .7;
+.about-me__link-github:hover {
+  opacity: 0.7;
 }
 .about-me__student_photo {
   margin: 6px 0;
@@ -129,7 +129,7 @@
   .about-me__student_photo {
     margin: 35px auto;
   }
-  .about-me__text-content{
+  .about-me__text-content {
     max-width: 292px;
   }
 }
@@ -137,7 +137,7 @@
   .about-me {
     padding: 50px 14px 0;
   }
-  .about-me__text-content{
+  .about-me__text-content {
     max-width: 292px;
   }
   .about-me__text-content_subtitle {

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import"./Login.css";
+import "./Login.css";
 
-function Login (){
-  return(
+function Login() {
+  return (
     <section className="login">
       <form className="login__form form">
         <label className="login__form_label form_label">E-mail</label>
@@ -13,13 +13,15 @@ function Login (){
         <button className="login__form_button form_button" type="button">
           Войти
         </button>
-        <span className="login__form_span-link form_span-link">Ещё не зарегистрированы?
-        <Link className="login__form_link form_link"
-      type="link"
-      to="/signup">Регистрация</Link></span>
+        <span className="login__form_span-link form_span-link">
+          Ещё не зарегистрированы?
+          <Link className="login__form_link form_link" type="link" to="/signup">
+            Регистрация
+          </Link>
+        </span>
       </form>
     </section>
-  )
+  );
 }
 
 export default Login;

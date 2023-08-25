@@ -36,7 +36,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-.navigation__button:hover{
+.navigation__button:hover {
   opacity: 0.8;
 }
 
@@ -49,11 +49,11 @@
   font-weight: 400;
   line-height: 18px;
 }
-.navigation__nav-link_active{
+.navigation__nav-link_active {
   font-weight: 500;
 }
-.navigation__nav-link:hover{
-  opacity: .7;
+.navigation__nav-link:hover {
+  opacity: 0.7;
 }
 
 .navigation__main {
@@ -72,14 +72,13 @@
 .navigation__movie {
   display: flex;
   gap: 16px;
-
 }
 .navigation__profile-logo {
   width: 200px;
   height: 60px;
   margin: -18px 0;
 }
-.navigation__button-menu{
+.navigation__button-menu {
   margin: -3px 0 0;
   background-image: url(../../images/menu.svg);
   background-color: transparent;
@@ -107,7 +106,7 @@
     font-size: 10px;
     line-height: 16px;
   }
-  .navigation__button-menu{
+  .navigation__button-menu {
     background-image: url(../../images/menu-Mob.svg);
     width: 40px;
     height: 43px;
