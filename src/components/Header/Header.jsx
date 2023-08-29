@@ -91,7 +91,7 @@ function Header() {
               <Link
                 className="navigation__nav-link"
                 type="button"
-                to="/saved-movies"
+                to="/profile"
               >
                 <img
                   className="navigation__profile-logo"

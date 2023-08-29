@@ -2,11 +2,17 @@
   background-color: #202020;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 auto;
   padding: 0 70px 160px 70px;
+  max-width: 1140px;
+}
+
+.portolio__info{
+  margin: 0;
+  padding: 0;
 }
 .portfolio__title {
-  max-width: 1140px;
+  max-width: 100%;
   margin: 0 0 51px;
   padding: 0;
   color: #8b8b8b;
@@ -22,7 +28,7 @@
   border-bottom: 1px solid #dadada;
   margin: 0;
   padding: 0;
-  max-width: 1140px;
+  max-width: 100%;
   margin: 0px 0 20px 0;
 }
 

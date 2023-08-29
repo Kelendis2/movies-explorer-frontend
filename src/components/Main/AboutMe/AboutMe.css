@@ -15,7 +15,7 @@
   max-width: 600px;
   padding-right: 15px;
 }
-.about-me__text-content_subtitle {
+.about-me__subtitle {
   margin: 5px 0 0;
   padding: 0;
   max-width: 600px;
@@ -26,13 +26,13 @@
   line-height: 58px;
   letter-spacing: -2px;
 }
-.about-me__text-content_student-major {
+.about-me__student-major {
   margin: 18px 0;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
 }
-.about-me__text-content_caption {
+.about-me__caption {
   margin: 25px 0 0;
   max-width: 600px;
   font-size: 14px;
@@ -41,7 +41,7 @@
   line-height: 22px;
 }
 
-.about-me__link-github {
+.about-me__link_github {
   display: block;
   margin: 100px auto;
   padding: 0;
@@ -53,7 +53,7 @@
   color: #fff;
   text-decoration: none;
 }
-.about-me__link-github:hover {
+.about-me__link_github:hover {
   opacity: 0.7;
 }
 .about-me__student_photo {
@@ -68,26 +68,26 @@
     padding: 90px 50px 0;
   }
 
-  .about-me__text-content_subtitle {
+  .about-me__subtitle {
     margin: 35px 0 0;
     max-width: 348px;
     font-size: 40px;
     line-height: 40px;
     letter-spacing: -1.6px;
   }
-  .about-me__text-content_caption {
+  .about-me__caption {
     margin: 0;
     max-width: 364px;
   }
   .about-me__link-github {
     margin: 85px auto;
   }
-  .about-me__text-content_student-major {
+  .about-me__student-major {
     margin: 14px 0 0;
     font-size: 12px;
     line-height: 18px;
   }
-  .about-me__link-github {
+  .about-me__link_github {
     margin: 62px auto 0;
   }
 }
@@ -98,7 +98,7 @@
     width: 270px;
     height: 327px;
   }
-  .about-me__link-github {
+  .about-me__link_github {
     margin: 40px auto;
   }
 }
@@ -114,7 +114,7 @@
   .about-me__student-info {
     flex-direction: column-reverse;
   }
-  .about-me__link-github {
+  .about-me__link_github {
     margin: 40px auto;
   }
 
@@ -140,14 +140,14 @@
   .about-me__text-content {
     max-width: 292px;
   }
-  .about-me__text-content_subtitle {
+  .about-me__subtitle {
     margin: 40px 0 0;
     max-width: 348px;
     font-size: 30px;
     line-height: normal;
     letter-spacing: -1.2px;
   }
-  .about-me__text-content_caption {
+  .about-me__caption {
     max-width: 364px;
     font-size: 11px;
     line-height: 16px;
@@ -155,7 +155,7 @@
   .about-me__student-info {
     flex-direction: column-reverse;
   }
-  .about-me__text-content_student-major {
+  .about-me__student-major {
     margin: 21px 0 20px 0;
     font-size: 11px;
     line-height: 16px;

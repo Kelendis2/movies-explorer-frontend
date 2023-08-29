@@ -4,6 +4,10 @@
   padding: 0 70px;
   padding-bottom: 78px;
   color: white;
+}
+.promo__content {
+  margin: 0 auto;
+  max-width: 1140px;
   display: flex;
   justify-content: space-between;
 }
@@ -58,11 +62,13 @@
 
 @media screen and (max-width: 768px) {
   .promo {
+    padding: 0 44px 77px;
+  }
+  .promo__content {
     flex-direction: column-reverse;
     gap: 48px;
     align-items: center;
     justify-content: center;
-    padding: 0 44px 77px;
   }
   .promo__text {
     padding: 0;
@@ -92,8 +98,10 @@
 
 @media screen and (max-width: 500px) {
   .promo {
-    gap: 44px;
     padding: 0 10px 30px;
+  }
+  .promo__content {
+    gap: 44px;
   }
   .promo__text {
     padding: 0;
