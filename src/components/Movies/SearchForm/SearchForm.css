@@ -47,8 +47,11 @@
   .serach {
     margin: 0 30px 0;
   }
+  .serach__form {
+    margin: 55px 0 0 0;
+  }
   .serach__form_button {
-    margin: 24px 0 0;
+    margin: 22px 0 0;
   }
   .serach__form_input {
     margin: 7px 0 0;
