@@ -72,8 +72,13 @@
 .navigation__movie {
   display: flex;
   gap: 16px;
+  position: absolute;
+  left: 42%;
 }
 .navigation__profile-logo {
+  position: absolute;
+  top: 27px;
+  right: 18px;
   width: 200px;
   height: 60px;
   margin: -18px 0;

@@ -7,7 +7,6 @@
   list-style-type: none;
   row-gap: 32px;
   column-gap: 20px;
-  overflow-y: hidden;
 }
 .moviesCardList_place_seved {
   max-width: 1140px;
