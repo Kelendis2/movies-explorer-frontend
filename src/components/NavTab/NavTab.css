@@ -80,5 +80,13 @@
     border: none;
     background-position: center;
   }
+  .navigate__text-buttons {
+    margin: 143px auto 0;
 
+  }
+  .navigate__text-buttons {
+
+    gap: 24px;
+
+  }
 }

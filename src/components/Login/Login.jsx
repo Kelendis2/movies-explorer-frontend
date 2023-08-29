@@ -6,7 +6,7 @@ function Login() {
     <section className="login">
       <form className="login__form form">
         <label className="login__form_label form_label">E-mail</label>
-        <input className="login__form_input form_input"></input>
+        <input className="login__form_input form_input" placeholder="pochta@yandex.ru|"></input>
         <label className="login__form_label form_label">Пароль</label>
         <input className="login__form_input form_input"></input>
         <span className="login__form_span-error form_span-error"></span>

@@ -1,6 +1,6 @@
 .filterCheckbox {
   max-width: 1140px;
-  margin: 30px auto;
+  margin: 30px auto 0;
   display: flex;
   gap: 14px;
   color: #fff;
