@@ -12,7 +12,7 @@
   height: 151px;
 }
 .moviesCard__about {
-  margin: 14px 12px 0;
+  margin: 10px 12px 0;
   display: flex;
   gap: 24px;
   max-width: 100%;
@@ -37,12 +37,12 @@
   line-height: normal;
 }
 .moviesCard__about_checkBox {
-  background-image: url(../../../images/save8d.svg);
-  margin: -5px;
-  width: 27px;
-  height: 27px;
+  background-image: url(../../../images/saveL.svg);
+  margin: -4px;
+  width: 35px;
+  height: 30px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position:top;
   background-size: contain;
 }
 
