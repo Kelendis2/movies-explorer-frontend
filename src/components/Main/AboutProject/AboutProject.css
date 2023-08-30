@@ -4,7 +4,7 @@
   padding: 110px 70px 108px;
   color: white;
 }
-.section__title {
+#section__title {
   border-bottom: 1px solid #dadada;
   max-width: 1140px;
   margin: 0 auto 60px;
@@ -112,16 +112,14 @@
     font-size: 12px;
     line-height: 18px;
   }
-  .section__title {
+  #section__title {
     margin: 0 auto 30px;
   }
   .about-project__tabel-title {
     margin-top: 40px;
   }
   .about-project__line {
-
     margin: 13px auto 14px;
-
   }
 }
 @media screen and (max-width: 500px) {
@@ -135,7 +133,7 @@
     font-size: 12px;
     line-height: 18px;
   }
-  .section__title {
+  #section__title {
     border-bottom: 1px solid #dadada;
     max-width: 1140px;
     margin: 0 auto 60px;

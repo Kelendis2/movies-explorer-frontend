@@ -114,7 +114,7 @@ function Header() {
   return (
     <>
       <header className={classNameHeader()}>
-        <Link className="heder__link" to="/">
+        <Link className="header__link" to="/">
           <img className="header__logo" alt="logo" src={logo} />
         </Link>
         {navContent()}
