@@ -45,16 +45,16 @@
 
 @media screen and (max-width: 768px) {
   .notFound {
-    padding: 193px 0 135px 0;
+    padding: 162px 0 135px 0;
   }
   .notFound__title {
     display: block;
-    width: 250px;
+    max-width: 267px;
     margin: 0 auto;
     padding-top: 246px;
   }
   .notFound__subtitle {
-    margin: 38px auto;
+    margin: 4px auto;
   }
 }
 @media screen and (max-width: 400px) {
@@ -63,13 +63,14 @@
     padding: 70px 0 0 0;
   }
   .notFound__title {
-    display: block;
-    width: 145px;
-    margin: 32px auto 0;
+    max-width: 152px;
+    margin: 14px auto 0;
     padding-top: 246px;
+    font-size: 80px;
+
   }
   .notFound__subtitle {
-    margin: 28px auto;
+    margin: 10px auto;
     font-size: 12px;
     max-width: 160px;
   }
