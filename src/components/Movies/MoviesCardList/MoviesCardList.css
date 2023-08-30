@@ -20,32 +20,23 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media screen and (max-width: 1040px) {
-  .moviesCardList {
-    margin: 130px auto 0;
-    padding: 0 30px 0;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-@media screen and (max-width: 768px) {
   .moviesCardList {
     margin: 130px 30px 0;
     padding: 0;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 36px;
     column-gap: 30px;
-    max-width: 708px;
-
   }
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .moviesCardList {
-    margin: 90px auto 0;
+    margin: 90px 10px 0;
     grid-template-columns: repeat(1, 1fr);
     row-gap: 20px;
+
   }
 }

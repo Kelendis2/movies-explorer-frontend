@@ -4,7 +4,7 @@
   padding: 0;
 }
 .serach__form {
-  margin: 53px 0 0 0;
+  margin: 53px 0 0;
   display: flex;
   gap: 5px;
   max-width: 1140px;
@@ -44,11 +44,8 @@
   opacity: 0.8;
 }
 @media screen and (max-width: 768px) {
-  .serach {
-    margin: 0 30px 0;
-  }
   .serach__form {
-    margin: 55px 0 0 0;
+    margin: 55px 30px 0;
   }
   .serach__form_button {
     margin: 22px 0 0;
@@ -73,6 +70,6 @@
     max-width: 292px;
   }
   .serach__form {
-    max-width: 292px;
+    margin: 5px 10px;
   }
 }

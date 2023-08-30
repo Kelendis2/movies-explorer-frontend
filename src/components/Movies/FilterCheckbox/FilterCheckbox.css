@@ -1,6 +1,6 @@
 .filterCheckbox {
   max-width: 1140px;
-  margin: 30px auto 0;
+  margin: 30px 0 0;
   display: flex;
   gap: 14px;
   color: #fff;
@@ -23,7 +23,7 @@
 }
 @media screen and (max-width: 768px) {
   .filterCheckbox {
-    margin: 27px 0 0;
+    margin: 27px 30px 0;
     flex-direction: row-reverse;
     justify-content: end;
   }

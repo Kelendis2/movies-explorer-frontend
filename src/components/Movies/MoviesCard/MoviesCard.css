@@ -1,7 +1,7 @@
 .moviesCard {
   width: 270px;
   height: 218px;
-  margin: 0;
+  margin: 0 auto;
   border-radius: 10px;
   background-color: #222;
   border-radius: 15px;
@@ -46,11 +46,11 @@
   background-size: contain;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1040px) {
   .moviesCard {
     width: 339px;
     height: 257px;
-    margin: 0;
+    margin: 0 auto;
     border-radius: 10px;
     background-color: #222;
     border-radius: 15px;
@@ -67,7 +67,7 @@
   .moviesCard {
     width: 270px;
     height: 235px;
-    margin: 0;
+    margin: 0 auto;
     border-radius: 10px;
     background-color: #222;
     border-radius: 15px;
@@ -79,11 +79,11 @@
   }
 
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 640px) {
   .moviesCard {
     width: 300px;
     height: 235px;
-    margin: 0;
+    margin: 0 auto;
     border-radius: 10px;
     background-color: #222;
     border-radius: 15px;
