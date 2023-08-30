@@ -4,18 +4,18 @@ import "./MoviesCard.css";
 function MoviesCard(props) {
   const { movie } = props;
   return (
-    <div className="moviesCard">
-      <img className="moviesCard__photo" src={movie.image} alt={movie.name} />
-      <div className="moviesCard__about">
-        <div className="moviesCard__about_text-content">
-          <h2 className="moviesCard__about_text-content_type_name">
+    <div className="movies__card">
+      <img className="movies__card-photo" src={movie.image} alt={movie.name} />
+      <div className="movies__card-about">
+        <div className="movies__card-text">
+          <h2 className="movies__card-title">
             {movie.nameRU}
           </h2>
-          <span className="moviesCard__about_text-content_type_time">
+          <span className="movies__card-time">
             {movie.duration}
           </span>
         </div>
-        <button className="moviesCard__about_checkBox"></button>
+        <button className="movies__card-checkBox"></button>
       </div>
     </div>
   );
