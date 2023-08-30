@@ -86,6 +86,11 @@
   }
   .techs__table {
     margin: 83px auto 0;
+    padding: 4px 0 0 0;
+    max-width: 645px;
+  }
+  .techs__caption {
+    margin: 20px auto 0;
   }
 }
 
@@ -94,7 +99,7 @@
     padding: 48px 18px 88px;
   }
   .section__caption {
-    margin: 12px 0 0 0;
+    margin: 13px 0 0 0;
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.48px;
@@ -108,12 +113,12 @@
     list-style-type: none;
   }
   .section__subtitle {
-    margin: 50px auto 0;
+    margin: 51px auto 0;
     font-size: 30px;
     letter-spacing: -1.2px;
   }
   .techs__table {
-    margin: 55px auto 0;
+    margin: 48px auto 0;
     flex-wrap: wrap;
     max-width: 180px;
   }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Register() {
   return (
-    <section className="register">
+    <main className="register">
       <form className="register__form form">
         <label className="register__form_label form_label"> Имя </label>
         <input
@@ -39,7 +39,7 @@ function Register() {
           </Link>
         </span>
       </form>
-    </section>
+    </main>
   );
 }
 

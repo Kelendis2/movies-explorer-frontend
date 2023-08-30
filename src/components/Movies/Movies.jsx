@@ -8,11 +8,11 @@ import { moviesList } from "../../utils/constants";
 
 function Movies() {
   return (
-    <section className="movies">
+    <main className="movies">
       <SearchForm />
       <MoviesCardList moviesList={moviesList} />
       <AddMoviesTable />
-    </section>
+    </main>
   );
 }
 

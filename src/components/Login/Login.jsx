@@ -3,7 +3,7 @@ import "./Login.css";
 
 function Login() {
   return (
-    <section className="login">
+    <main className="login">
       <form className="login__form form">
         <label className="login__form_label form_label">E-mail</label>
         <input className="login__form_input form_input" placeholder="pochta@yandex.ru|"></input>
@@ -20,7 +20,7 @@ function Login() {
           </Link>
         </span>
       </form>
-    </section>
+    </main>
   );
 }
 

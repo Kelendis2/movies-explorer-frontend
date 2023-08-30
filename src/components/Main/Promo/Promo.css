@@ -24,6 +24,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 58px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .promo__text-subtitle {
   max-width: 310px;

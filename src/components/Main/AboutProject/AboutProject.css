@@ -8,7 +8,7 @@
   border-bottom: 1px solid #dadada;
   max-width: 1140px;
   margin: 0 auto 60px;
-  padding-bottom: 25px;
+  padding-bottom: 22px;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -39,7 +39,7 @@
   letter-spacing: -0.8px;
 }
 .table__item_text {
-  margin: 0;
+  margin: 7px 0 0;
   margin-bottom: 103px;
   padding: 0;
   max-width: 550px;
@@ -50,11 +50,12 @@
 }
 .about-project__line {
   display: flex;
-  margin: 0 auto;
+  margin: 7px auto 14px;
   padding: 0;
   max-width: 1140px;
 }
 .about-project__week-one {
+  margin: 0;
   width: 228px;
   height: 36px;
   background-color: #3ddc84;
@@ -66,6 +67,7 @@
   line-height: 35px;
 }
 .about-project__week-four {
+  margin: 0;
   width: 912px;
   height: 36px;
   background-color: #303030;
@@ -105,7 +107,7 @@
     gap: 30px;
   }
   .table__item_text {
-    margin-bottom: 80px;
+    margin: 2px 0 80px 0;
     max-width: 319px;
     font-size: 12px;
     line-height: 18px;
@@ -116,14 +118,17 @@
   .tablel__item_title {
     margin-top: 40px;
   }
+  .about-project__line {
+
+    margin: 13px auto 14px;
+
+  }
 }
 @media screen and (max-width: 500px) {
   .about-project {
-    padding: 70px 18px 90px;
+    padding: 69px 18px 90px;
   }
-  .about-project__tablel {
-    gap: 30px;
-  }
+
   .table__item_text {
     margin-bottom: 80px;
     max-width: 319px;
@@ -140,28 +145,28 @@
   }
   .about-project__tablel {
     flex-direction: column;
-    gap: 56px;
+    gap: 49px;
   }
   .tablel__item {
     gap: 16px;
   }
 
   .tablel__item_title {
-    margin: 0;
+    margin: 2px 0 0 0;
     padding: 0;
     max-width: 284px;
     font-size: 18px;
     letter-spacing: -0.72px;
   }
   .table__item_text {
-    margin: 0;
+    margin: 1px 0 0 0;
     margin-bottom: 10px;
     max-width: 284px;
     font-size: 11px;
     line-height: 14px;
   }
   .about-project__line {
-    margin: 57px auto 9px;
+    margin: 55px auto 9px;
   }
   .about-project__week-one {
     margin: 0;
