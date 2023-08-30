@@ -104,9 +104,9 @@ function Header() {
         );
       }
     } else if (pathname === "/signin") {
-      return <h2 className="header__title">Рады видеть!</h2>;
+      return <h1 className="header__title">Рады видеть!</h1>;
     } else if (pathname === "/signup") {
-      return <h2 className="header__title">Добро пожаловать!</h2>;
+      return <h1 className="header__title">Добро пожаловать!</h1>;
     }
   };
 

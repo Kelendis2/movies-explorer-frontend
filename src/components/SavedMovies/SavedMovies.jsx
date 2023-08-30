@@ -6,10 +6,10 @@ import { moviesList } from "../../utils/constants";
 
 function SavedMovies() {
   return (
-    <section className="savedMovies">
+    <main className="savedMovies">
       <SearchForm />
       <MoviesCardList moviesList={moviesList.slice(0,3)} /> {' '}
-    </section>
+    </main>
   );
 }
 

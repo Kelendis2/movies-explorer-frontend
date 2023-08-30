@@ -5,7 +5,6 @@
 }
 .serach__form {
   margin: 53px 0 0;
-  display: flex;
   gap: 5px;
   max-width: 1140px;
   overflow: hidden;
@@ -43,6 +42,29 @@
 .serach__form_button:hover {
   opacity: 0.8;
 }
+.serach__filterCheckbox {
+  max-width: 1140px;
+  margin: 30px 0 0;
+  display: flex;
+  gap: 14px;
+  color: #fff;
+}
+.serach__slider {
+  background-image: url(../../../images/smalltumb.svg);
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 20px;
+}
+.serach__slider_off {
+  background-image: url(../../../images/smalltumboff.svg);
+}
+.serach__span {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
 @media screen and (max-width: 768px) {
   .serach__form {
     margin: 55px 30px 0;
@@ -52,6 +74,11 @@
   }
   .serach__form_input {
     margin: 7px 0 0;
+  }
+  .serach__filterCheckbox {
+    margin: 27px 30px 0;
+    flex-direction: row-reverse;
+    justify-content: end;
   }
 }
 
@@ -71,5 +98,14 @@
   }
   .serach__form {
     margin: 5px 10px;
+  }
+  .serach__filterCheckbox {
+    margin: 40px auto 0;
+    max-width: 150px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+  .serach__span {
+    font-size: 11px;
   }
 }

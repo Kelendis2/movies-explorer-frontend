@@ -1,16 +1,20 @@
 .notFound {
+  margin: 0;
   background-color: #202020;
   color: white;
   height: 100%;
 }
 
-.notFound__img {
-  display: block;
-  width: 250px;
-  margin: 30px auto 40px;
-  padding-top: 246px;
-}
 .notFound__title {
+  max-width: 267px;
+  margin: 0 auto;
+  padding-top: 246px;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.notFound__subtitle {
   display: block;
   margin: 5px auto;
   width: 400px;
@@ -43,13 +47,13 @@
   .notFound {
     padding: 193px 0 135px 0;
   }
-  .notFound__img {
+  .notFound__title {
     display: block;
     width: 250px;
     margin: 0 auto;
     padding-top: 246px;
   }
-  .notFound__title {
+  .notFound__subtitle {
     margin: 38px auto;
   }
 }
@@ -58,13 +62,13 @@
     margin: 0;
     padding: 70px 0 0 0;
   }
-  .notFound__img {
+  .notFound__title {
     display: block;
     width: 145px;
     margin: 32px auto 0;
     padding-top: 246px;
   }
-  .notFound__title {
+  .notFound__subtitle {
     margin: 28px auto;
     font-size: 12px;
     max-width: 160px;

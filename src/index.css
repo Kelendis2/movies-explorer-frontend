@@ -1,7 +1,7 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 
-.page{
+html{
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   background-color: #202020;
