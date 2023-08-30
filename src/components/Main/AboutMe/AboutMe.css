@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 500;
 }
-.about-me__caption {
+.about-me__student-caption {
   margin: 25px 0 0;
   max-width: 600px;
   font-size: 14px;
@@ -41,7 +41,7 @@
   line-height: 22px;
 }
 
-.about-me__link_github {
+.about-me__link-github {
   display: block;
   margin: 100px auto;
   padding: 0;
@@ -53,10 +53,10 @@
   color: #fff;
   text-decoration: none;
 }
-.about-me__link_github:hover {
+.about-me__link-github:hover {
   opacity: 0.7;
 }
-.about-me__student_photo {
+.about-me__student-photo {
   margin: 6px 0;
   width: 270px;
   height: 327px;
@@ -75,7 +75,7 @@
     line-height: 40px;
     letter-spacing: -1.6px;
   }
-  .about-me__caption {
+  .about-me__student-caption {
     margin: 0;
     max-width: 364px;
   }
@@ -87,24 +87,24 @@
     font-size: 12px;
     line-height: 18px;
   }
-  .about-me__link_github {
+  .about-me__link-github {
     margin: 62px auto 0;
   }
 }
 
 @media screen and (max-width: 821px) {
-  .about-me__student_photo {
+  .about-me__student-photo {
     margin: 66px 0;
     width: 270px;
     height: 327px;
   }
-  .about-me__link_github {
+  .about-me__link-github {
     margin: 40px auto;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .about-me__student_photo {
+  .about-me__student-photo {
     margin: 35px 0;
     width: 255px;
     height: 307px;
@@ -112,14 +112,14 @@
   .about-me__student-major {
     margin: 17px 0;
   }
-  .about-me__caption {
+  .about-me__student-caption {
     margin: 19px 0 0;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
   }
-  .about-me__link_github {
+  .about-me__link-github {
     margin:88px auto 0;
   }
 }
@@ -127,7 +127,7 @@
   .about-me__student-info {
     flex-direction: column-reverse;
   }
-  .about-me__link_github {
+  .about-me__link-github {
     margin: 40px auto;
   }
 
@@ -139,7 +139,7 @@
     max-width: 600px;
     padding-right: 15px;
   }
-  .about-me__student_photo {
+  .about-me__student-photo {
     margin: 35px auto;
   }
   .about-me__text-content {
@@ -160,7 +160,7 @@
     line-height: normal;
     letter-spacing: -1.2px;
   }
-  .about-me__caption {
+  .about-me__student-caption {
     max-width: 364px;
     font-size: 11px;
     line-height: 16px;
@@ -173,7 +173,7 @@
     font-size: 11px;
     line-height: 16px;
   }
-  .about-me__student_photo {
+  .about-me__student-photo {
     width: 292px;
     height: 352px;
     margin: 3px auto 0;
@@ -181,7 +181,7 @@
 }
 
 @media screen and (max-width: 319px) {
-  .about-me__student_photo {
+  .about-me__student-photo {
     max-width: 100%;
     max-height: 307px;
     border-radius: 12px;

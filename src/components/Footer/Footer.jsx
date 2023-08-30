@@ -9,7 +9,7 @@ function Footer() {
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
       <div className="footer__navigation">
-        <p className="foter__caption"> © 2023</p>
+        <p className="footer__caption"> © 2023</p>
         <div className="footer__links">
           <Link
             className="footer__link"
