@@ -11,7 +11,7 @@ function Register() {
           Имя{" "}
         </label>
         <input
-          className="register__form-input "
+          className="register__form-input form__input"
           id="form_input"
           placeholder="Виталий"
           maxLength={20}
