@@ -1,19 +1,19 @@
-.login__form_span-link {
+.login__form-span-link {
   width: 290px;
   padding: 0 0 160px 0;
 }
-.form_link:hover {
+#form_link:hover {
   opacity: 0.7;
 }
-.login__form_button {
+.login__form-button {
   margin: 169px 0 0 0;
 }
 @media screen and (max-width: 420px) {
-  .login__form_button {
+  .login__form-button {
     margin: 259px 0 0 0;
     font-size: 12px;
   }
-  .login__form_span-link {
+  .login__form-span-link {
     width: 290px;
     padding: 0 0 160px 0;
     margin: 14px auto;

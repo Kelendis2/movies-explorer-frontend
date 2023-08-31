@@ -18,17 +18,17 @@
   gap: 17px;
 }
 
-.profile__form__item {
+.profile__form-item {
   display: flex;
   margin: 0 auto;
   padding-bottom: 16px;
   gap: 147px;
   color: #fff;
 }
-.item_one {
+#profile-item_one {
   border-bottom: 1px solid #424242;
 }
-.profile__form_label {
+.profile__form-label {
   width: 141px;
   height: 14px;
   font-size: 11px;
@@ -36,7 +36,7 @@
   font-weight: 500;
   line-height: normal;
 }
-.profile__form_input {
+.profile__form-input {
   margin: 0;
   width: 122px;
   height: 14px;
@@ -51,7 +51,7 @@
   line-height: normal;
   border: none;
 }
-.profile__form_button {
+.profile__form-button {
   margin: 183px auto 0;
   max-width: 410px;
   background-color: transparent;
@@ -64,10 +64,10 @@
   line-height: normal;
   text-align: center;
 }
-.profile__form_button:hover {
+.profile__form-button:hover {
   opacity: 0.7;
 }
-.profile__button-exit {
+#profile__button-exit {
   display: block;
   margin: 15px auto 0;
   padding-bottom: 150px;
@@ -82,7 +82,7 @@
   line-height: normal;
   text-align: center;
 }
-.profile__button-exit:hover {
+#profile__button-exit:hover {
   opacity: 0.7;
 }
 
@@ -93,7 +93,7 @@
   .profile__form {
     margin: 96px auto 0;
   }
-  .profile__form_button {
+  .profile__form-button {
     margin: 175px auto 0;
   }
 }
@@ -104,7 +104,7 @@
     max-width: 260px;
     gap: 15px;
   }
-  .profile__form__item {
+  .profile__form-item {
     max-width: 260px;
     margin: 0 auto;
     gap: 5px;
@@ -112,12 +112,12 @@
   .profile__title {
     margin: 68px auto;
   }
-  .profile__form_button {
+  .profile__form-button {
     margin: 346px auto 0;
     max-width: 260px;
     font-size: 12px;
   }
-  .profile__button-exit {
+  #profile__button-exit {
     display: block;
     margin: 15px auto;
     padding-bottom: 150px;

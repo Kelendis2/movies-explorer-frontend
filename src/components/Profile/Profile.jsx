@@ -6,22 +6,22 @@ function Profile() {
     <main className="profile">
       <h1 className="profile__title"> Привет, Виталий!</h1>
       <form className="profile__form">
-        <div className="profile__form__item item_one">
-          <label className="profile__form_label">Имя</label>
-          <input className="profile__form_input" placeholder="Виталий"></input>
+        <div className="profile__form-item" id="profile-item_one">
+          <label className="profile__form-label">Имя</label>
+          <input className="profile__form-input" placeholder="Виталий"></input>
         </div>
-        <div className="profile__form__item ">
-          <label className="profile__form_label">E-mail</label>
+        <div className="profile__form-item ">
+          <label className="profile__form-label">E-mail</label>
           <input
-            className="profile__form_input"
+            className="profile__form-input"
             placeholder="pochta@yandex.ru"
           ></input>
         </div>
-        <button className="profile__form_button" type="button">
+        <button className="profile__form-button" type="button">
           Редактировать
         </button>
       </form>
-      <button className="profile__button-exit" type="button">
+      <button className="profile__button-exit" id="profile__button-exit" type="button">
         Выйти из аккаунта
       </button>
     </main>
