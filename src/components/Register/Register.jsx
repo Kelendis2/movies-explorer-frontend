@@ -14,6 +14,10 @@ function Register() {
           className="register__form-input "
           id="form_input"
           placeholder="Виталий"
+          maxLength={20}
+          minLength={2}
+          type="text"
+          required
         ></input>
 
         <label className="register__form-label " id="form_label">
@@ -23,6 +27,11 @@ function Register() {
           className="register__form-input "
           id="form_input"
           placeholder="pochta@yandex.ru"
+          maxLength={30}
+          minLength={5}
+          type="email"
+          name="email"
+          required
         ></input>
 
         <label className="register__form-label " id="form_label">
@@ -32,6 +41,11 @@ function Register() {
           className="register__form-input "
           id="form_input"
           placeholder="••••••••••••••"
+          maxLength={12}
+          minLength={8}
+          type="password"
+          name="password"
+          required
         ></input>
 
         <span

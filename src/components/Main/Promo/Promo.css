@@ -92,6 +92,9 @@
     margin: 0 auto;
     display: block;
   }
+  .promo__button:hover{
+    opacity: .8;
+  }
   .promo__image {
     margin: 140px auto 0;
   }

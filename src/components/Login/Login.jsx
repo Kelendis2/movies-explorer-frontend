@@ -12,11 +12,25 @@ function Login() {
           className="login__form-input "
           id="form_input"
           placeholder="pochta@yandex.ru|"
+          maxLength={30}
+          minLength={5}
+          type="email"
+          name="email"
+          required
         ></input>
         <label className="login__form-label " id="form_label">
           Пароль
         </label>
-        <input className="login__form-input " id="form_input"></input>
+        <input
+          className="login__form-input "
+          id="form_input"
+          placeholder="••••••••••••••"
+          maxLength={12}
+          minLength={8}
+          type="password"
+          name="password"
+          required
+        ></input>
         <span className="login__form-span-error "></span>
         <button className="login__form-button " id="form_button" type="button">
           Войти

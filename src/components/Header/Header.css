@@ -35,6 +35,10 @@
   margin: 0;
   margin-right: 62px;
 }
+.header__link:hover{
+  opacity: 0.7;
+}
+
 .header__title {
   margin: 0;
   pad: 0;

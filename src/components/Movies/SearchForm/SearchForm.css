@@ -38,6 +38,7 @@
   height: 34px;
   background-repeat: no-repeat;
   border: none;
+  cursor: pointer;
 }
 .serach__form-button:hover {
   opacity: 0.8;
@@ -55,6 +56,10 @@
   border: none;
   width: 36px;
   height: 20px;
+  cursor: pointer;
+}
+.serach__filterCheckbox-slider:hover{
+  opacity: .8;
 }
 .serach__filterCheckbox-slider_off {
   background-image: url(../../../images/smalltumboff.svg);

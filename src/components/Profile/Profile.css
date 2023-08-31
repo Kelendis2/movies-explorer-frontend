@@ -49,7 +49,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  outline: none;
   border: none;
+}
+.profile__form-input:focus{
+  outline: 1px solid #4285F4;
 }
 .profile__form-button {
   margin: 183px auto 0;

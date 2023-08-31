@@ -46,6 +46,10 @@
   background-size: contain;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+.movies__card-checkBox:hover{
+  opacity: .8;
 }
 
 @media screen and (max-width: 1040px) {

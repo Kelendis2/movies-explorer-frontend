@@ -20,6 +20,10 @@
   border: none;
   background-position: center;
   background-image: url(../../images/close.svg);
+  cursor: pointer;
+}
+.navigate__button-close:hover{
+  opacity: .8;
 }
 
 .navigate__text-buttons {
