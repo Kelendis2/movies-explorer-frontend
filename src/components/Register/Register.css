@@ -5,13 +5,13 @@
   color: white;
 }
 
-#form {
+.form {
   margin: 20px auto;
   display: flex;
   flex-direction: column;
   max-width: 396px;
 }
-#form_input {
+.form__input {
   padding: 0 15px 0;
   height: 46px;
   font-size: 13px;
@@ -25,14 +25,13 @@
   outline: none;
 
 }
-#form_input:focus{
+.form__input:focus{
   outline: 1px solid #4285F4;
   background-color: #2f2f2f;
   box-shadow: inset 20px 20px 0px 20px #2f2f2f
 }
 
-
-#form_label {
+.form__label {
   margin: 20px 0 10px 0;
   font-size: 10px;
   color: #8b8b8b;
@@ -42,7 +41,7 @@
   display: flex;
   gap: 6px;
 }
-#form_span-error {
+.form__span-error {
   color: #ee3465;
   margin: 10px 0 0 0;
   font-size: 10px;
@@ -50,12 +49,13 @@
   font-weight: 400;
   line-height: normal;
 }
-#form_button {
+.form__button {
   margin: 84px 0 0 0;
   max-width: 396px;
   height: 45px;
   text-align: center;
   background-color: #4285f4;
+  border: none;
   border-radius: 3px;
   font-size: 14px;
   font-style: normal;
@@ -64,10 +64,10 @@
   color: white;
   cursor: pointer;
 }
-#form_button:hover {
+.form__button:hover {
   opacity: 0.8;
 }
-#form_link {
+.form__link {
   color: #4285f4;
   text-decoration: none;
   font-size: 14px;
@@ -78,7 +78,7 @@
 .register__form-span-link {
   max-width: 250px;
 }
-#form_span-link {
+.form__span-link {
   font-size: 14px;
 
   margin: 16px auto 70px;
@@ -87,26 +87,26 @@
   gap: 6px;
 }
 @media screen and (max-width: 768px) {
-  #form {
+  .form {
     margin: 24px auto;
   }
-  #form_button {
+  .form__button {
     margin: 82px 0 0 0;
   }
 }
 @media screen and (max-width: 500px) {
-  #form {
+  .form {
     margin: 5px auto;
     max-width: 260px;
   }
-  #form_button {
+  .form__button {
     margin: 171px 0 0 0;
   }
-  #form_span-link {
+  .form__span-link {
     font-size: 12px;
     margin: 14px auto 70px;
   }
-  #form_link {
+  .form__link {
     font-size: 12px;
   }
 }

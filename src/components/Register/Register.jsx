@@ -5,14 +5,10 @@ import { Link } from "react-router-dom";
 function Register() {
   return (
     <main className="register">
-      <form className="register__form" id="form">
-        <label className="register__form-label " id="form_label">
-          {" "}
-          Имя{" "}
-        </label>
+      <form className="register__form form">
+        <label className="register__form-label form__label"> Имя </label>
         <input
           className="register__form-input form__input"
-          id="form_input"
           placeholder="Виталий"
           maxLength={20}
           minLength={2}
@@ -20,12 +16,9 @@ function Register() {
           required
         ></input>
 
-        <label className="register__form-label " id="form_label">
-          E-mail
-        </label>
+        <label className="register__form-label form__label ">E-mail</label>
         <input
-          className="register__form-input "
-          id="form_input"
+          className="register__form-input form__input"
           placeholder="pochta@yandex.ru"
           maxLength={30}
           minLength={5}
@@ -34,12 +27,11 @@ function Register() {
           required
         ></input>
 
-        <label className="register__form-label " id="form_label">
+        <label className="register__form-label form__label" id="">
           Пароль
         </label>
         <input
-          className="register__form-input "
-          id="form_input"
+          className="register__form-input form__input"
           placeholder="••••••••••••••"
           maxLength={12}
           minLength={8}
@@ -48,22 +40,14 @@ function Register() {
           required
         ></input>
 
-        <span
-          className="register__form-span-error "
-          id="form_span-error"
-        ></span>
-        <button
-          className="register__form-button "
-          id="form_button"
-          type="button"
-        >
+        <span className="register__form-span-error form__span-error"></span>
+        <button className="register__form-button form__button" type="button">
           Зарегестрироваться
         </button>
-        <span className="register__form-span-link " id="form_span-link">
+        <span className="register__form-span-link form__span-link">
           Уже зарегистрированны?
           <Link
-            className="register__form-link "
-            id="form_link"
+            className="register__form-link form__link"
             type="link"
             to="/signin"
           >

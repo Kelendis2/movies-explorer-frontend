@@ -2,6 +2,7 @@
   max-width: 1140px;
   margin: 0;
   padding: 0;
+
 }
 .serach__form {
   margin: 53px 0 0;
@@ -28,6 +29,7 @@
   line-height: 63px;
   text-align: left;
   outline: none;
+  color: white;
 }
 .serach__form-button {
   margin: 16px 0;
