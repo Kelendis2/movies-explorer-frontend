@@ -95,7 +95,7 @@ function Header() {
               >
                 <img
                   className="navigation__profile-logo"
-                  alt="profileLogo"
+                  alt="Иконка-профиля"
                   src={profileLogo}
                 />
               </Link>
@@ -115,7 +115,7 @@ function Header() {
     <>
       <header className={classNameHeader()}>
         <Link className="header__link" to="/">
-          <img className="header__logo" alt="logo" src={logo} />
+          <img className="header__logo" alt="Логотип" src={logo} />
         </Link>
         {navContent()}
       </header>

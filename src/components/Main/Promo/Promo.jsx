@@ -20,7 +20,7 @@ function Promo() {
             </button>
           </Link>
         </div>
-        <img className="promo__image" alt="world" src={world} />
+        <img className="promo__image" alt="Мир из слов" src={world} />
       </div>
     </section>
   );
