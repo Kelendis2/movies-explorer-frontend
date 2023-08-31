@@ -1,7 +1,7 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 
-.body {
+.page {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
