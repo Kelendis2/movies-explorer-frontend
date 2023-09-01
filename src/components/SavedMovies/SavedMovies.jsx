@@ -6,7 +6,7 @@ import { moviesList } from "../../utils/constants";
 
 function SavedMovies() {
   return (
-    <main className="savedMovies">
+    <main className=" movies movies_saved">
       <SearchForm />
       <MoviesCardList moviesList={moviesList.slice(0,3)} /> {' '}
     </main>

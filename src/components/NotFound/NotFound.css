@@ -76,6 +76,7 @@
   }
   .notFound__button {
     margin: 284px auto 0;
+    padding: 0;
     width: 50px;
     font-size: 12px;
   }

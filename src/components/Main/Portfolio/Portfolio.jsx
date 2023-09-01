@@ -8,7 +8,6 @@ function Portfolio() {
         <h3 className="portfolio__title">Портфолио</h3>
         <Link
           className="portfolio__link"
-          type="link"
           target="_blank"
           to="https://github.com/Kelendis2/how-to-learn"
         >
@@ -17,7 +16,6 @@ function Portfolio() {
         </Link>
         <Link
           className="portfolio__link"
-          type="link"
           target="_blank"
           to="https://github.com/Kelendis2/russian-travel"
         >
@@ -27,7 +25,6 @@ function Portfolio() {
         </Link>
         <Link
           className="portfolio__link"
-          type="link"
           target="_blank"
           to="https://github.com/Kelendis2/react-mesto-api-full-gha"
         >

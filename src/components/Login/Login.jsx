@@ -33,7 +33,6 @@ function Login() {
           Ещё не зарегистрированы?
           <Link
             className="login__form-link form__link"
-            type="link"
             to="/signup"
           >
             Регистрация

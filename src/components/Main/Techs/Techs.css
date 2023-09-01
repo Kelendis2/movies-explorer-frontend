@@ -19,7 +19,7 @@
 .techs__subtitle {
   text-align: center;
 }
-#section__subtitle {
+.section__subtitle {
   max-width: 600px;
   padding: 0;
   margin: 90px auto 0;
@@ -33,7 +33,7 @@
   max-width: 460px;
   text-align: center;
 }
-#section__caption {
+.section__caption {
   padding: 0;
   margin: 26px auto 0;
   font-size: 14px;
@@ -68,7 +68,7 @@
   .techs {
     padding: 90px 50px 88px;
   }
-  #section__caption {
+  .section__caption {
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.48px;
@@ -81,7 +81,7 @@
     letter-spacing: -0.48px;
     list-style-type: none;
   }
-  #section__subtitle {
+  .section__subtitle {
     margin: 80px auto 0;
   }
   .techs__table {
@@ -98,7 +98,7 @@
   .techs {
     padding: 48px 18px 88px;
   }
-  #section__caption {
+  .section__caption {
     margin: 13px 0 0 0;
     font-size: 11px;
     line-height: 16px;
@@ -112,7 +112,7 @@
     letter-spacing: -0.48px;
     list-style-type: none;
   }
-  #section__subtitle {
+  .section__subtitle {
     margin: 51px auto 0;
     font-size: 30px;
     letter-spacing: -1.2px;

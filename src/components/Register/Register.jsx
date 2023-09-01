@@ -27,9 +27,7 @@ function Register() {
           required
         ></input>
 
-        <label className="register__form-label form__label" id="">
-          Пароль
-        </label>
+        <label className="register__form-label form__label">Пароль</label>
         <input
           className="register__form-input form__input"
           placeholder="••••••••••••••"
@@ -46,11 +44,7 @@ function Register() {
         </button>
         <span className="register__form-span-link form__span-link">
           Уже зарегистрированны?
-          <Link
-            className="register__form-link form__link"
-            type="link"
-            to="/signin"
-          >
+          <Link className="register__form-link form__link" to="/signin">
             Войти
           </Link>
         </span>

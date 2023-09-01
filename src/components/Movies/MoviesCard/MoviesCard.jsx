@@ -5,7 +5,7 @@ function MoviesCard(props) {
   const { movie } = props;
   return (
     <div className="movies__card">
-      <img className="movies__card-photo" src={movie.image} alt={movie.name} />
+      <img className="movies__card-photo" src={movie.image} alt={movie.nameRU} />
       <div className="movies__card-about">
         <div className="movies__card-text">
           <h2 className="movies__card-title">

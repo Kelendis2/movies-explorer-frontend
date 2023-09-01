@@ -53,7 +53,7 @@ function Header() {
           <Link className="navigation__link" to="/signup">
             Регистрация
           </Link>
-          <Link className="navigation__button" type="button" to="/signin">
+          <Link className="navigation__button" to="/signin">
             Войти
           </Link>
         </Navigation>
@@ -74,25 +74,20 @@ function Header() {
         );
       } else {
         return (
-          <Navigation className="navigation__main">
+          <Navigation className="navigation_main">
             <div className="navigation__movie">
               <Link className="navigation__nav-link" to="/movies">
                 Фильмы
               </Link>
               <Link
                 className="navigation__nav-link navigation__nav-link_active"
-                type="button"
                 to="/saved-movies"
               >
                 Сохраненные фильмы
               </Link>
             </div>
             <div className="navigation__profile">
-              <Link
-                className="navigation__nav-link"
-                type="button"
-                to="/profile"
-              >
+              <Link className="navigation__nav-link" to="/profile">
                 <img
                   className="navigation__profile-logo"
                   alt="Иконка-профиля"
@@ -119,7 +114,9 @@ function Header() {
         </Link>
         {navContent()}
       </header>
-      {showNavTab && <NavTab setShowNavTab={setShowNavTab} closeNavTab={closeNavTab} />}
+      {showNavTab && (
+        <NavTab setShowNavTab={setShowNavTab} closeNavTab={closeNavTab} />
+      )}
     </>
   );
 }

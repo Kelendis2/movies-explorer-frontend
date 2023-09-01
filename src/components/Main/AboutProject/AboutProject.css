@@ -4,7 +4,7 @@
   padding: 110px 70px 108px;
   color: white;
 }
-#section__title {
+.section__title {
   border-bottom: 1px solid #dadada;
   max-width: 1140px;
   margin: 0 auto 60px;
@@ -112,7 +112,7 @@
     font-size: 12px;
     line-height: 18px;
   }
-  #section__title {
+  .section__title {
     margin: 0 auto 30px;
   }
   .about-project__tabel-title {
@@ -124,7 +124,7 @@
 }
 @media screen and (max-width: 500px) {
   .about-project {
-    padding: 69px 18px 90px;
+    padding: 71px 18px 90px;
   }
 
   .about-project__tabel-text {
@@ -133,11 +133,11 @@
     font-size: 12px;
     line-height: 18px;
   }
-  #section__title {
+  .section__title {
     border-bottom: 1px solid #dadada;
     max-width: 1140px;
     margin: 0 auto 60px;
-    padding-bottom: 25px;
+    padding-bottom: 27px;
     font-size: 18px;
     letter-spacing: -0.72px;
   }
@@ -164,7 +164,7 @@
     line-height: 14px;
   }
   .about-project__line {
-    margin: 55px auto 9px;
+    margin: 53px auto 9px;
   }
   .about-project__week-one {
     margin: 0;
@@ -186,10 +186,10 @@
     font-size: 11px;
     font-weight: 400;
   }
-  .line-caption_one {
+  #line-caption_one {
     width: 100px;
   }
-  .line-caption_two {
+  #line-caption_two {
     width: 184px;
   }
 }

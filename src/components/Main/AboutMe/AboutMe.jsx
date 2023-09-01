@@ -5,8 +5,8 @@ import student from "../../../images/student.jpg";
 
 function AboutMe() {
   return (
-    <section className="about-me">
-      <h2 className="about-me__title" id="section__title">Студент</h2>
+    <section className="about-me section">
+      <h2 className="about-me__title section__title">Студент</h2>
       <div className="about-me__student-info">
         <div className="about-me__text-content">
           <h3 className="about-me__subtitle"> Виталий</h3>
@@ -22,14 +22,18 @@ function AboutMe() {
           </p>
           <Link
             className="about-me__link-github"
-            type="link"
+
             target="_blank"
             to="https://github.com/Kelendis2"
           >
             Github
           </Link>
         </div>
-        <img className="about-me__student-photo" alt="Фото Студента" src={student} />
+        <img
+          className="about-me__student-photo"
+          alt="Фото Студента"
+          src={student}
+        />
       </div>
     </section>
   );

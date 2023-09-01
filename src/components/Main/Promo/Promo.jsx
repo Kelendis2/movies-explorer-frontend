@@ -15,9 +15,9 @@ function Promo() {
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
           <Link className="promo__link" to="about-project" smooth={true}>
-            <button className="promo__button" type="button">
+            <div className="promo__button">
               Узнать больше
-            </button>
+            </div>
           </Link>
         </div>
         <img className="promo__image" alt="Мир из слов" src={world} />

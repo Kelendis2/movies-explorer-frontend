@@ -72,6 +72,11 @@
   font-weight: 400;
   line-height: 18px;
 }
+@media screen and (max-width: 1165px) {
+  .serach__form {
+    margin: 55px 30px 0;
+  }
+}
 @media screen and (max-width: 768px) {
   .serach__form {
     margin: 55px 30px 0;
@@ -83,7 +88,7 @@
     margin: 7px 0 0;
   }
   .serach__filterCheckbox {
-    margin: 27px 30px 0;
+    margin: 30px  0 0;
     flex-direction: row-reverse;
     justify-content: end;
   }
