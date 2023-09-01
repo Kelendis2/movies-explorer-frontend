@@ -8,7 +8,7 @@ function SavedMovies() {
   return (
     <main className=" movies movies_saved">
       <SearchForm />
-      <MoviesCardList moviesList={moviesList.slice(0,3)} /> {' '}
+      <MoviesCardList moviesList={moviesList.slice(0,3)} isSavedMoviesPage={true} /> {' '}
     </main>
   );
 }

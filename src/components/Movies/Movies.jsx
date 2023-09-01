@@ -5,12 +5,11 @@ import MoviesCardList from "./MoviesCardList/MoviesCardList";
 import AddMoviesTable from "./AddMoviesTable/AddMoviesTable";
 import { moviesList } from "../../utils/constants";
 
-
 function Movies() {
   return (
     <main className="movies">
       <SearchForm />
-      <MoviesCardList moviesList={moviesList} />
+      <MoviesCardList moviesList={moviesList} isSavedMoviesPage={false} />
       <AddMoviesTable />
     </main>
   );

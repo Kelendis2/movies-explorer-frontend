@@ -9,7 +9,6 @@
 }
 .movies__card-photo {
   width: 270px;
-  height: 151px;
 }
 .movies__card-about {
   margin: 10px 12px 0;
@@ -41,7 +40,6 @@
   background-image: url(../../../images/saveL.svg);
   margin: -4px;
   width: 35px;
-  height: 30px;
   background-repeat: no-repeat;
   background-position:top;
   background-size: contain;
@@ -50,6 +48,20 @@
   cursor: pointer;
 }
 .movies__card-checkBox:hover{
+  opacity: .8;
+}
+.movies__card-delete{
+  background-image: url(../../../images/delCard.svg);
+  margin: 0;
+  width: 17px;
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.movies__card-delete:hover{
   opacity: .8;
 }
 
@@ -69,6 +81,9 @@
   .movies__card-about {
     margin: 10px 12px 0;
   }
+  .movies__card-delete{
+    width: 15px;}
+
 }
 @media screen and (max-width: 766px) {
   .movies__card {

@@ -30,6 +30,11 @@
   outline: none;
   color: white;
 }
+.serach__form-item:focus {
+  outline: 1px solid #4285f4;
+  background-color: #2f2f2f;
+  box-shadow: inset 20px 20px 0px 20px #2f2f2f;
+}
 .serach__form-button {
   margin: 16px 0;
   padding: 0;

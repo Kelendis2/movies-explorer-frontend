@@ -61,13 +61,12 @@
   padding: 0;
   display: flex;
   justify-content: space-between;
-  width: 675px;
 }
 .navigation__profile {
   display: block;
-  align-items: end;
-  width: 150px;
+  width: 114px;
   height: 32px;
+  margin: -18px 0;
 }
 .navigation__movie {
   display: flex;
@@ -75,14 +74,7 @@
   position: absolute;
   left: 42%;
 }
-.navigation__profile-logo {
-  position: absolute;
-  top: 27px;
-  right: 18px;
-  width: 200px;
-  height: 60px;
-  margin: -18px 0;
-}
+
 .navigation__button-menu {
   margin: -3px 0 0;
   background-image: url(../../images/menu.svg);

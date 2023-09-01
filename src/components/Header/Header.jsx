@@ -109,10 +109,12 @@ function Header() {
   return (
     <>
       <header className={classNameHeader()}>
-        <Link className="header__link" to="/">
-          <img className="header__logo" alt="Логотип" src={logo} />
-        </Link>
-        {navContent()}
+        <div className="header__container">
+          <Link className="header__link" to="/">
+            <img className="header__logo" alt="Логотип" src={logo} />
+          </Link>
+          {navContent()}
+        </div>
       </header>
       {showNavTab && (
         <NavTab setShowNavTab={setShowNavTab} closeNavTab={closeNavTab} />
