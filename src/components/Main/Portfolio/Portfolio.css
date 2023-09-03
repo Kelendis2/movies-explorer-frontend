@@ -7,7 +7,12 @@
   max-width: 1140px;
 }
 
-.portfolio__info {
+.portfolio__list {
+  margin: 0;
+  padding: 0;
+}
+.portfolio__list-item{
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }

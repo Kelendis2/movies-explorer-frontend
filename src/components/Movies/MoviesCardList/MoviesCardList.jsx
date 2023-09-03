@@ -5,7 +5,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 function MoviesCardList(props) {
 
   return (
-    <section className="moviesCardList">
+    <ul className="movies__list">
       {props.moviesList.map((movie) => {
         return (
           <MoviesCard
@@ -15,7 +15,7 @@ function MoviesCardList(props) {
           />
         );
       })}
-    </section>
+    </ul>
   );
 }
 export default MoviesCardList;

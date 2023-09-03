@@ -73,6 +73,13 @@
   gap: 16px;
   position: absolute;
   left: 42%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navigation__nav-link {
+  margin: 0;
+  padding: 0;
 }
 
 .navigation__button-menu {
@@ -86,8 +93,8 @@
   width: 44px;
   height: 44px;
 }
-.navigation__button-menu:hover{
-  opacity: .8;
+.navigation__button-menu:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 320px) {
@@ -111,7 +118,7 @@
     width: 40px;
     height: 43px;
   }
-  .navigation__link{
+  .navigation__link {
     font-size: 10px;
   }
 }

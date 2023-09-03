@@ -10,22 +10,26 @@ function Footer() {
       </h2>
       <div className="footer__navigation">
         <p className="footer__caption"> © 2023</p>
-        <div className="footer__links">
-          <Link
-            className="footer__link"
-            target="_blank"
-            to="https://practicum.yandex.ru/"
-          >
-            Яндекс.Практикум
-          </Link>
-          <Link
-            className="footer__link"
-            target="_blank"
-            to="https://github.com/Kelendis2"
-          >
-            Github
-          </Link>
-        </div>
+        <ul className="footer__links">
+          <li className="footer__links-item">
+            <Link
+              className="footer__link"
+              target="_blank"
+              to="https://practicum.yandex.ru/"
+            >
+              Яндекс.Практикум
+            </Link>
+          </li>
+          <li className="footer__links-item">
+            <Link
+              className="footer__link"
+              target="_blank"
+              to="https://github.com/Kelendis2"
+            >
+              Github
+            </Link>
+          </li>
+        </ul>
       </div>
     </footer>
   );

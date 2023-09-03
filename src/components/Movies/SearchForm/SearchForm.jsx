@@ -3,10 +3,14 @@ import "./SearchForm.css";
 
 function SearchForm() {
   return (
-    <section className="serach">
+    <div className="serach">
       <form className="serach__form">
         <div className="serach__form-item">
-          <input className="serach__form-input" placeholder="Фильм" required></input>
+          <input
+            className="serach__form-input"
+            placeholder="Фильм"
+            required
+          ></input>
           <button className="serach__form-button" type="button" />
         </div>
         <div className="serach__filterCheckbox">
@@ -14,7 +18,7 @@ function SearchForm() {
           <span className="serach__filterCheckbox-span">Короткометражки</span>
         </div>
       </form>
-    </section>
+    </div>
   );
 }
 

@@ -7,15 +7,15 @@
   display: flex;
   flex-direction: column;
   background-color: #202020;
-  justify-content: space-between;
   z-index: 1000;
+  gap: 622px;
 }
 .navigate__button-close {
   width: 22px;
   height: 22px;
   position: absolute;
-  top: 22.45px;
-  right: 22.44px;
+  top: 27.45px;
+  right: 27.44px;
   background-color: transparent;
   border: none;
   background-position: center;
@@ -29,7 +29,7 @@
 .navigate__text-buttons {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 26px;
   margin: 159px auto 0;
   width: 340px;
 }
@@ -55,7 +55,7 @@
 .navigate__button-profile {
   background-image: url(../../images/goprofile.svg);
   display: block;
-  margin: 0 auto;
+  margin: 0px auto;
   width: 100px;
   height: 32px;
   background-color: transparent;
@@ -76,6 +76,7 @@
     flex-direction: column;
     background-color: #202020;
     z-index: 1000;
+    gap: 445px;
   }
   .navigate__button-profile {
     background-image: url(../../images/goprofile.svg);
@@ -87,11 +88,8 @@
   }
   .navigate__text-buttons {
     margin: 143px auto 0;
-
+    max-width: 250px;
+    gap: 22px;
   }
-  .navigate__text-buttons {
 
-    gap: 24px;
-
-  }
 }

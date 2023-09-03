@@ -18,7 +18,7 @@
   width: 100%;
 }
 .serach__form-input {
-  max-width: 100%;
+  min-width: 90%;
   margin: 0;
   background-color: transparent;
   border: none;
@@ -30,11 +30,14 @@
   outline: none;
   color: white;
 }
-.serach__form-item:focus {
-  outline: 1px solid #4285f4;
+.serach__form-input:focus {
   background-color: #2f2f2f;
   box-shadow: inset 20px 20px 0px 20px #2f2f2f;
+  outline: 1px solid #4285f4;
+  background-color: #2f2f2f;
 }
+
+
 .serach__form-button {
   margin: 16px 0;
   padding: 0;
@@ -80,6 +83,9 @@
   .serach__form {
     margin: 55px 30px 0;
   }
+  .serach__form-input {
+    min-width: 85%;
+  }
 }
 @media screen and (max-width: 768px) {
   .serach__form {
@@ -90,6 +96,7 @@
   }
   .serach__form-input {
     margin: 7px 0 0;
+    min-width: 85%;
   }
   .serach__filterCheckbox {
     margin: 30px  0 0;
@@ -110,7 +117,7 @@
     margin: 17px 0 14px;
     font-size: 18px;
     line-height: normal;
-    max-width: 292px;
+    min-width: 70%;
   }
   .serach__form {
     margin: 5px 10px;

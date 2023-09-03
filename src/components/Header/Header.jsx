@@ -6,10 +6,13 @@ import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import NavTab from "../NavTab/NavTab";
 import profileLogo from "../../images/profilemenuL.svg";
+import Overlay from "../Overlay/Overlay";
 
 function Header() {
   const location = useLocation();
   let className = "header";
+  let classNameContainer = "header__container";
+
   const { pathname } = location;
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
   const [showNavTab, setShowNavTab] = useState(false);
@@ -45,6 +48,16 @@ function Header() {
     }
     return className;
   };
+  const classNameHeaderContainer = () => {
+    if (pathname === "/signin") {
+      className = `${classNameContainer} header_container-sign`;
+    } else if (pathname === "/signup") {
+      className = `${classNameContainer} header_container-sign`;
+    } else {
+      className = `${classNameContainer} `;
+    }
+    return className;
+  };
 
   const navContent = () => {
     if (pathname === "/") {
@@ -75,17 +88,21 @@ function Header() {
       } else {
         return (
           <Navigation className="navigation_main">
-            <div className="navigation__movie">
-              <Link className="navigation__nav-link" to="/movies">
-                Фильмы
-              </Link>
-              <Link
-                className="navigation__nav-link navigation__nav-link_active"
-                to="/saved-movies"
-              >
-                Сохраненные фильмы
-              </Link>
-            </div>
+            <ul className="navigation__movie">
+              <li className="navigation__movie-item">
+                <Link className="navigation__nav-link" to="/movies">
+                  Фильмы
+                </Link>
+              </li>
+              <li className="navigation__movie-item">
+                <Link
+                  className="navigation__nav-link navigation__nav-link_active"
+                  to="/saved-movies"
+                >
+                  Сохраненные фильмы
+                </Link>
+              </li>
+            </ul>
             <div className="navigation__profile">
               <Link className="navigation__nav-link" to="/profile">
                 <img
@@ -109,7 +126,7 @@ function Header() {
   return (
     <>
       <header className={classNameHeader()}>
-        <div className="header__container">
+        <div className={classNameHeaderContainer()}>
           <Link className="header__link" to="/">
             <img className="header__logo" alt="Логотип" src={logo} />
           </Link>
@@ -117,7 +134,10 @@ function Header() {
         </div>
       </header>
       {showNavTab && (
-        <NavTab setShowNavTab={setShowNavTab} closeNavTab={closeNavTab} />
+        <>
+          <NavTab closeNavTab={closeNavTab} />
+          <Overlay isOpen={showNavTab} onClose={closeNavTab} />
+        </>
       )}
     </>
   );

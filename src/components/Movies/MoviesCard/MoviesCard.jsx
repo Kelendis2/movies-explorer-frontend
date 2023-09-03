@@ -4,7 +4,7 @@ import "./MoviesCard.css";
 function MoviesCard(props) {
   const { movie } = props;
   return (
-    <div className="movies__card">
+    <li className="movies__card">
       <img
         className="movies__card-photo"
         src={movie.image}
@@ -17,10 +17,10 @@ function MoviesCard(props) {
         </div>
         <button className={`movies__button ${
           props.isSavedMoviesPage ? "movies__card-delete" : "movies__card-checkBox"
-        }`} />
+        }`} type="button" />
 
       </div>
-    </div>
+    </li>
   );
 }
 

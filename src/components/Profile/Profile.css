@@ -94,18 +94,24 @@
 }
 
 @media screen and (max-width: 768px) {
+  .profile {
+    padding-bottom: 200px;
+  }
   .profile__title {
-    margin: 232px auto 0;
+    margin: 235px auto 0;
   }
   .profile__form {
     margin: 96px auto 0;
   }
   .profile__form-button {
-    margin: 175px auto 0;
+    margin: 173px auto 0;
   }
 }
 
 @media screen and (max-width: 500px) {
+  .profile {
+    padding-bottom: 0px;
+  }
   .profile__form {
     margin: 80px auto 0;
     max-width: 260px;
