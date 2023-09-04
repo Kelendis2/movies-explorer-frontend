@@ -1,7 +1,6 @@
 export default class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl}) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
   }
   _getResponseData(res) {
     if (!res.ok) {
@@ -9,45 +8,80 @@ export default class Api {
     }
     return res.json();
   }
-  createUser({ name, password, email }) {
+
+  register = ({ name, password, email }) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
     }).then(this._getResponseData);
   };
-  autorization({ password, email }) {
+
+  authorize = (email, password) => {
     return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
     }).then(this._getResponseData);
   };
-  getSavedMovies(){
-    return fetch (`${this._baseUrl}/saved-movies`,{
+  getSavedMovies(token) {
+    return fetch(`${this._baseUrl}/saved-movies`, {
       method: "GET",
-      headers: this._headers,
-    })
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
-  saveMovie(movie){
+  saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify(movie)
-    })
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(movie),
+    });
   }
-  // deleteMovie()
-  // showProfile()
-  // udateProfile()
+  deleteMovie(movie) {
+    return fetch(`${this._baseUrl}/saved-movies`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(movie),
+    });
+  }
+
+  showUser() {
+    return fetch(`${this._baseUrl}/profile`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+    });
+  }
+  udateProfile({ name, email }) {
+    return fetch(`${this._baseUrl}/profile`, {
+      method: "PATH",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email }),
+    }).then(this._getResponseData);
+  }
 }
 export const api = new Api({
-  // baseUrl: "https://localhost:3000",
-  baseUrl: "https://api.movies.kelendis.nomoreparties.co/",
+  baseUrl: "https://localhost:3000",
+  //baseUrl: "https://api.movies.kelendis.nomoreparties.co/",
 });
