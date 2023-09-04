@@ -67,15 +67,19 @@
 .form__button:hover {
   opacity: 0.8;
 }
-.form__link {
+.form__button-go {
+  margin: 0;
+  padding: 0;
   color: #4285f4;
   text-decoration: none;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background-color: transparent;
+  border: none;
 }
-.form__link:hover {
+.form__button-go:hover {
   opacity: 0.7;
 }
 .register__form-span-link {
@@ -114,7 +118,7 @@
     font-size: 12px;
     margin: 14px auto 30px;
   }
-  .form__link {
+  .form__button-go {
     font-size: 12px;
   }
 }

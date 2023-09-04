@@ -9,7 +9,7 @@ export default class Api {
     return res.json();
   }
 
-  register = ({ name, password, email }) => {
+  register = ({ name, email, password, }) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
       headers: {

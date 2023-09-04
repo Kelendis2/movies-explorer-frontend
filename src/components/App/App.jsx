@@ -1,7 +1,7 @@
 // import App from "./App.css";
-// import { useEffect, useState } from "react";
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import React from "react";
+import { useNavigate, Routes, Route } from "react-router-dom";
 
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
@@ -11,13 +11,56 @@ import Login from "../Login/Login";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import NotFound from '../NotFound/NotFound';
-// import { Context } from "../../contexts/CurrentUserContext";
+import NotFound from "../NotFound/NotFound";
+import { api } from "../../utils/MainApi";
+import { apiMovies }  from "../../utils/MoviesApi";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [allMovies, setAllMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
+
+  const handleRegister = ({ email, password }) => {
+    api
+      .register({ email, password })
+      .then(() => {
+        navigate("/sign-in");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleLogin= ({ email, password })=>{
+    api
+      .authorize(email, password)
+      .then((data) => {
+        if (data) {
+          localStorage.setItem("jwt", data.token);
+          setLoggedIn(true);
+          navigate("/movie");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  const getMovies = () => {
+    apiMovies
+      .getMovies()
+      .then((movies) => {
+        setAllMovies(movies);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <Router>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <Routes>
           <Route path="*" element={<NotFound />} />
@@ -36,7 +79,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Movies />
+                <Movies  movies={allMovies}/>
                 <Footer />
               </>
             }
@@ -65,7 +108,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Login />
+                <Login  handleLogin={handleLogin} />
               </>
             }
           />
@@ -74,13 +117,13 @@ function App() {
             element={
               <>
                 <Header />
-                <Register />
+                <Register handleRegister={handleRegister} />
               </>
             }
           />
         </Routes>
-    </div>
-    </Router>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 export default App;

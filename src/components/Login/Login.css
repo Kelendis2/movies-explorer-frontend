@@ -8,9 +8,7 @@
 .form_link:hover {
   opacity: 0.7;
 }
-.login__form-button {
-  margin: 168px 0 0 0;
-}
+
 @media screen and (max-width: 768px) {
   .login__form {
     margin: 20px auto;
@@ -21,10 +19,7 @@
     margin: 105px 0 0;
     padding: 0;
   }
-  .login__form-button {
-    margin: 255px 0 0 0;
-    font-size: 12px;
-  }
+
   .login__form-span-link {
     width: 290px;
     padding: 0;

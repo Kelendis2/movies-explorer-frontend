@@ -5,7 +5,8 @@ import MoviesCardList from "./MoviesCardList/MoviesCardList";
 import AddMoviesTable from "./AddMoviesTable/AddMoviesTable";
 import { moviesList } from "../../utils/constants";
 
-function Movies() {
+function Movies({movies}) {
+
   return (
     <main className="movieMain">
       <section className="movies">
