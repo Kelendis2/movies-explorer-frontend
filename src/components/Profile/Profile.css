@@ -1,0 +1,140 @@
+.profile {
+  margin: 0;
+  padding: 0;
+  color: white;
+
+}
+.profile__title {
+  margin: 74px auto 0;
+  max-width: 210px;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.profile__form {
+  max-width: 420px;
+  margin: 123px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.profile__form-item {
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 16px;
+  gap: 147px;
+  color: #fff;
+}
+#profile-item_one {
+  border-bottom: 1px solid #424242;
+}
+.profile__form-label {
+  width: 141px;
+  height: 14px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.profile__form-input {
+  margin: 0;
+  width: 122px;
+  height: 14px;
+  max-width: 410px;
+  color: #fff;
+  background-color: transparent;
+  text-align: right;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  border: none;
+}
+.profile__form-input:focus{
+  outline: 1px solid #4285F4;
+}
+.profile__form-button {
+  margin: 183px auto 0;
+  max-width: 410px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+.profile__form-button:hover {
+  opacity: 0.7;
+}
+#profile__button-exit {
+  display: block;
+  margin: 15px auto 0;
+  padding-bottom: 65px;
+  max-width: 410px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ee3465;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+#profile__button-exit:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    padding-bottom: 200px;
+  }
+  .profile__title {
+    margin: 235px auto 0;
+  }
+  .profile__form {
+    margin: 96px auto 0;
+  }
+  .profile__form-button {
+    margin: 173px auto 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .profile {
+    padding-bottom: 0px;
+  }
+  .profile__form {
+    margin: 80px auto 0;
+    max-width: 260px;
+    gap: 15px;
+  }
+  .profile__form-item {
+    max-width: 260px;
+    margin: 0 auto;
+    gap: 5px;
+  }
+  .profile__title {
+    margin: 68px auto;
+  }
+  .profile__form-button {
+    margin: 346px auto 0;
+    max-width: 260px;
+    font-size: 12px;
+  }
+  #profile__button-exit {
+    display: block;
+    margin: 15px auto 0;
+    padding-bottom: 40px;
+    max-width: 260px;
+    font-size: 12px;
+  }
+}

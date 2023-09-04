@@ -1,0 +1,134 @@
+.serach {
+  max-width: 1140px;
+  margin: 0;
+  padding: 0;
+
+}
+.serach__form {
+  margin: 53px 0 0;
+  gap: 5px;
+  max-width: 1140px;
+}
+.serach__form-item {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.serach__form-input {
+  min-width: 90%;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 63px;
+  text-align: left;
+  outline: none;
+  color: white;
+}
+.serach__form-input:focus {
+  background-color: #2f2f2f;
+  box-shadow: inset 20px 20px 0px 20px #2f2f2f;
+  outline: 1px solid #4285f4;
+  background-color: #2f2f2f;
+}
+
+
+.serach__form-button {
+  margin: 16px 0;
+  padding: 0;
+  background-image: url(../../../images/find.svg);
+  background-color: transparent;
+  width: 80px;
+  height: 34px;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+.serach__form-button:hover {
+  opacity: 0.8;
+}
+.serach__filterCheckbox {
+  max-width: 1140px;
+  margin: 30px 0 0;
+  display: flex;
+  gap: 14px;
+  color: #fff;
+}
+.serach__filterCheckbox-slider {
+  background-image: url(../../../images/smalltumb.svg);
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+.serach__filterCheckbox-slider:hover{
+  opacity: .8;
+}
+.serach__filterCheckbox-slider_off {
+  background-image: url(../../../images/smalltumboff.svg);
+}
+.serach__filterCheckbox-span {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+@media screen and (max-width: 1165px) {
+  .serach__form {
+    margin: 55px 30px 0;
+  }
+  .serach__form-input {
+    min-width: 85%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .serach__form {
+    margin: 55px 30px 0;
+  }
+  .serach__form-button {
+    margin: 22px 0 0;
+  }
+  .serach__form-input {
+    margin: 7px 0 0;
+    min-width: 85%;
+  }
+  .serach__filterCheckbox {
+    margin: 30px  0 0;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .serach {
+    margin: 16px auto 0;
+    max-width: 100%;
+  }
+  .serach__form-button {
+    margin: 12px 0 0;
+  }
+  .serach__form-input {
+    margin: 17px 0 14px;
+    font-size: 18px;
+    line-height: normal;
+    min-width: 70%;
+  }
+  .serach__form {
+    margin: 5px 10px;
+  }
+  .serach__filterCheckbox {
+    margin: 40px auto 0;
+    max-width: 150px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+  .serach__filterCheckbox-span {
+    font-size: 11px;
+  }
+}

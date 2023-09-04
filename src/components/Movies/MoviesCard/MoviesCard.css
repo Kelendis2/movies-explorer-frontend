@@ -1,0 +1,119 @@
+.movies__card {
+  width: 270px;
+  height: 218px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #222;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.movies__card-photo {
+  width: 270px;
+}
+.movies__card-about {
+  margin: 10px 12px 0;
+  display: flex;
+  gap: 24px;
+  max-width: 100%;
+}
+.movies__card-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.movies__card-title {
+  margin: 0;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.movies__card-time {
+  color: #8b8b8b;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.movies__card-checkBox {
+  background-image: url(../../../images/saveL.svg);
+  margin: -4px;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.movies__card-checkBox:hover{
+  opacity: .8;
+}
+.movies__card-delete{
+  background-image: url(../../../images/delCard.svg);
+  margin: 0;
+  width: 17px;
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.movies__card-delete:hover{
+  opacity: .8;
+}
+
+@media screen and (max-width: 1040px) {
+  .movies__card {
+    width: 339px;
+    height: 257px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #222;
+    border-radius: 15px;
+  }
+  .movies__card-photo {
+    width: 339px;
+    height: 190px;
+  }
+  .movies__card-about {
+    margin: 10px 12px 0;
+  }
+  .movies__card-delete{
+    width: 15px;}
+
+}
+@media screen and (max-width: 766px) {
+  .movies__card {
+    width: 270px;
+    height: 235px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #222;
+    border-radius: 15px;
+
+  }
+  .movies__card-photo {
+    width: 270px;
+    height: 168px;
+  }
+
+}
+@media screen and (max-width: 640px) {
+  .movies__card {
+    width: 300px;
+    height: 235px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #222;
+    border-radius: 15px;
+
+  }
+  .movies__card-photo {
+    width: 300px;
+    height: 168px;
+  }
+
+}

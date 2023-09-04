@@ -1,0 +1,24 @@
+.movies {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1140px;
+}
+@media screen and (max-width: 768px) {
+  .movies{
+    margin: 0px auto 3px;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .movies{
+    margin: 50px auto 3px;
+  }
+
+}
+
+
+
