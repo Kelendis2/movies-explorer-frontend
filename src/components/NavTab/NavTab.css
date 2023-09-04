@@ -8,7 +8,7 @@
   flex-direction: column;
   background-color: #202020;
   z-index: 1000;
-  gap: 622px;
+  justify-content: space-between;
 }
 .navigate__button-close {
   width: 22px;
@@ -61,6 +61,7 @@
   background-color: transparent;
   border: none;
   background-position: center;
+  cursor: pointer;
 }
 .navigate__button-profile:hover {
   opacity: 0.8;
@@ -76,7 +77,6 @@
     flex-direction: column;
     background-color: #202020;
     z-index: 1000;
-    gap: 445px;
   }
   .navigate__button-profile {
     background-image: url(../../images/goprofile.svg);
