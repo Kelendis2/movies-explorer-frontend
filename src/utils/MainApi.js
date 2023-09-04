@@ -1,6 +1,7 @@
 export default class Api {
-  constructor({ baseUrl}) {
+  constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
+    this._headers = headers;
   }
   _getResponseData(res) {
     if (!res.ok) {
@@ -8,54 +9,45 @@ export default class Api {
     }
     return res.json();
   }
-  getProfile() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        "Content-Type": "application/json",
-      }
-    }).then(this._getResponseData);
-  }
-  editProfile({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me `, {
-      method: "PATCH",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        about,
-      }),
-    }).then(this._getResponseData);
-  }
-
-  addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+  createUser({ name, password, email }) {
+    return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: name,
-        link: link,
+        email: email,
+        password: password,
       }),
     }).then(this._getResponseData);
-  }
-
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
-        "Content-Type": "application/json",
-      },
+  };
+  autorization({ password, email }) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     }).then(this._getResponseData);
+  };
+  getSavedMovies(){
+    return fetch (`${this._baseUrl}/saved-movies`,{
+      method: "GET",
+      headers: this._headers,
+    })
   }
-
+  saveMovie(movie){
+    return fetch(`${this._baseUrl}/movies`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify(movie)
+    })
+  }
+  // deleteMovie()
+  // showProfile()
+  // udateProfile()
 }
 export const api = new Api({
-  baseUrl: "https://localhost:3000",
-  // baseUrl: "https://api.movies.kelendis.nomoreparties.co/"
+  // baseUrl: "https://localhost:3000",
+  baseUrl: "https://api.movies.kelendis.nomoreparties.co/",
 });
