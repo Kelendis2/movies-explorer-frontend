@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Movies.css";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
-import AddMoviesTable from "./AddMoviesTable/AddMoviesTable";
 
 function Movies({ movies }) {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(12);
   console.log(movies);
 
   const handleSearch = (query, isShortFilm) => {
@@ -40,6 +40,10 @@ function Movies({ movies }) {
     return;
   };
 
+  const handleShowMoreClick = () => {
+    setVisibleCards((prevVisibleCards) => prevVisibleCards + 4); // Увеличьте на нужное количество
+  };
+
   return (
     <main className="movieMain">
       <section className="movies">
@@ -51,11 +55,19 @@ function Movies({ movies }) {
           <p className="movies__info">Нет доступных фильмов.</p>
         ) : (
           <MoviesCardList
-            moviesList={searchResults}
+            moviesList={searchResults.slice(0, visibleCards)}
             isSavedMoviesPage={false}
           />
         )}
-        <AddMoviesTable />
+        {visibleCards < searchResults.length ? (
+          <button
+            className="addMoviesTable__button"
+            type="button"
+            onClick={handleShowMoreClick}
+          >
+            Еще
+          </button>
+        ) : null}
       </section>
     </main>
   );
