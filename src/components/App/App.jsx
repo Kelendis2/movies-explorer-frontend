@@ -1,5 +1,5 @@
 // import App from "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
 
@@ -13,7 +13,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import NotFound from "../NotFound/NotFound";
 import { api } from "../../utils/MainApi";
-import { apiMovies }  from "../../utils/MoviesApi";
+import { MoviesApi } from "../../utils/MoviesApi"; // Проверьте, что путь к файлу верный
+
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
       });
   }
   const getMovies = () => {
-    apiMovies
+    MoviesApi
       .getMovies()
       .then((movies) => {
         setAllMovies(movies);
@@ -58,6 +59,11 @@ function App() {
         console.log(err);
       });
   };
+
+
+  useEffect(() => {
+    getMovies();
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

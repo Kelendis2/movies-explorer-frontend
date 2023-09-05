@@ -6,11 +6,11 @@ function MoviesCardList(props) {
 
   return (
     <ul className="movies__list">
-      {props.moviesList.map((movie) => {
+      {props.movies.map((movie) => {
         return (
           <MoviesCard
             movie={movie}
-            key={movie.movieId}
+            key={movie.id}
             isSavedMoviesPage={props.isSavedMoviesPage}
           />
         );
