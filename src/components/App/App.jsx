@@ -24,9 +24,9 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
 
-  const handleRegister = ({ email, password }) => {
+  const handleRegister = ({name, email, password }) => {
     api
-      .register({ email, password })
+      .register({ name,email, password })
       .then(() => {
         navigate("/sign-in");
       })
@@ -35,7 +35,7 @@ function App() {
       });
   };
 
-  const handleLogin= ({ email, password })=>{
+  const handleLogin = ({ email, password }) => {
     api
       .authorize(email, password)
       .then((data) => {
@@ -48,10 +48,11 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
+
+
   const getMovies = () => {
-    MoviesApi
-      .getMovies()
+    MoviesApi.getMovies()
       .then((movies) => {
         setAllMovies(movies);
       })
@@ -59,7 +60,6 @@ function App() {
         console.log(err);
       });
   };
-
 
   useEffect(() => {
     getMovies();
@@ -85,7 +85,10 @@ function App() {
             element={
               <>
                 <Header />
-                <Movies  movies={allMovies}/>
+                <Movies
+                  movies={allMovies}
+                  getMovies={getMovies}
+                />
                 <Footer />
               </>
             }
@@ -95,7 +98,7 @@ function App() {
             element={
               <>
                 <Header />
-                <SavedMovies />
+                <SavedMovies  setSavedMovies={setSavedMovies}/>
                 <Footer />
               </>
             }
@@ -114,7 +117,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Login  handleLogin={handleLogin} />
+                <Login handleLogin={handleLogin} />
               </>
             }
           />
