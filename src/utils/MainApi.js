@@ -12,7 +12,6 @@ export default class Api {
   register = ({ name, email, password, }) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
-      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -24,7 +23,6 @@ export default class Api {
   authorize = (email, password) => {
     return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -36,7 +34,6 @@ export default class Api {
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
       method: "GET",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
@@ -47,7 +44,6 @@ export default class Api {
   saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -58,7 +54,6 @@ export default class Api {
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -69,7 +64,6 @@ export default class Api {
   getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -79,7 +73,6 @@ export default class Api {
   udateProfile({ name, email }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATH",
-      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",

@@ -16,6 +16,7 @@ import { api } from "../../utils/MainApi";
 import { MoviesApi } from "../../utils/MoviesApi"; // Проверьте, что путь к файлу верный
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { get } from "react-scroll/modules/mixins/scroller";
 
 function App() {
   const navigate = useNavigate();
@@ -23,9 +24,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
-
-
-
 
   const handleRegister = ({ name, email, password }) => {
     api
@@ -38,7 +36,6 @@ function App() {
         console.log(err);
       });
   };
-
   const handleLogin = ({ email, password }) => {
     api
       .authorize(email, password)
@@ -53,6 +50,42 @@ function App() {
         console.log(err);
       });
   };
+
+  //Проверка токена
+  const checkTocken = () => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      api
+        .getProfile()
+        .then((res) => {
+          setLoggedIn(true);
+          navigate("/movies");
+          if(res){
+            getUser();
+            getSavedMovies();
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+  useEffect(() => {
+    checkTocken();
+  }, []);
+
+  const getUser = () => {
+    api.getProfile()
+    .then((currentUser) => {
+      setCurrentUser(currentUser);
+    })
+    .catch((err) => console.log(err));
+  };
+
+  const getSavedMovies = () =>{
+    api.getSavedMovies().then((movie) => {
+      setSavedMovies(movie);
+    })
+    .catch((err) => console.log(err));
+  }
 
   const getMovies = () => {
     MoviesApi.getMovies()
@@ -72,7 +105,7 @@ function App() {
     return api
       .saveMovie(movie)
       .then((savedMovie) => {
-        // Обработка успешного сохранения фильма
+        localStorage.setItem(movie, savedMovie);
         console.log("Фильм успешно сохранен:", savedMovie);
         return savedMovie;
       })
