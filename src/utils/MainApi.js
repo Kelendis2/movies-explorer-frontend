@@ -1,6 +1,7 @@
 export default class Api {
-  constructor({ baseUrl}) {
+  constructor({ baseUrl, baseUrlMovie}) {
     this._baseUrl = baseUrl;
+    this._baseUrlMovie = baseUrlMovie;
   }
   _getResponseData(res) {
     if (res.ok) {
@@ -48,7 +49,19 @@ export default class Api {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(movie),
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: this._baseUrlMovie + movie.image.url,
+        trailerLink: movie.trailerLink,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+        thumbnail: this._baseUrlMovie + movie.image.formats.thumbnail.url,
+        movieId: movie.id,
+      }),
     });
   }
   deleteMovie(movieId) {
@@ -83,5 +96,6 @@ export default class Api {
 }
 export const api = new Api({
   baseUrl: "http://localhost:3000",
+  baseUrlMovie: "https://api.nomoreparties.co",
   //baseUrl: "https://api.movies.kelendis.nomoreparties.co/",
 });

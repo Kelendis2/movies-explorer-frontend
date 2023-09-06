@@ -2,15 +2,17 @@ import React from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList({moviesList, isSavedMoviesPage,saveMovie, deleteMovie}) {
+function MoviesCardList({moviesList, isSavedMoviesPage,saveMovie, deleteMovie, savedMoviesList}) {
+
+  const moviesToRender = isSavedMoviesPage ? savedMoviesList : moviesList;
 
   return (
         <ul className="movies__list">
-          {moviesList.map((movie) => {
+          {moviesToRender.map((movie) => {
             return (
               <MoviesCard
                 movie={movie}
-                key={movie.id}
+                key={movie.id ?? movie._id}
                 isSavedMoviesPage={isSavedMoviesPage}
                 saveMovie={saveMovie}
                 deleteMovie={deleteMovie}
@@ -22,3 +24,6 @@ function MoviesCardList({moviesList, isSavedMoviesPage,saveMovie, deleteMovie}) 
 }
 
 export default MoviesCardList;
+
+
+//

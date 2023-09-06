@@ -81,8 +81,9 @@ function App() {
   };
 
   const getSavedMovies = () =>{
-    api.getSavedMovies().then((movie) => {
-      setSavedMovies(movie);
+    api.getSavedMovies().then((movies) => {
+      setSavedMovies(movies);
+      console.log(movies);
     })
     .catch((err) => console.log(err));
   }
@@ -102,10 +103,10 @@ function App() {
   }, []);
 
   function saveMovie(movie) {
+    console.log(movie.image)
     return api
       .saveMovie(movie)
       .then((savedMovie) => {
-        localStorage.setItem(movie, savedMovie);
         console.log("Фильм успешно сохранен:", savedMovie);
         return savedMovie;
       })
@@ -115,12 +116,13 @@ function App() {
         throw error;
       });
   }
-  function deleteMovie(movieId) {
+  function deleteMovie(movie) {
     return api
-      .deleteMovie(movieId)
+      .deleteMovie(movie._id)
       .then(() => {
-        // Обработка успешного удаления фильма
-        console.log("Фильм успешно удален");
+        setSavedMovies((movies) =>
+          movies.filter((item) => item._id !== movie._id)
+        );
       })
       .catch((error) => {
         // Обработка ошибки при удалении фильма
@@ -154,6 +156,7 @@ function App() {
                   getMovies={getMovies}
                   saveMovie={saveMovie}
                   deleteMovie={deleteMovie}
+                  savedMovies={savedMovies}
                 />
                 <Footer />
               </>
@@ -165,9 +168,8 @@ function App() {
               <>
                 <Header />
                 <SavedMovies
-                  setSavedMovies={setSavedMovies}
                   deleteMovie={deleteMovie}
-                  savedMovies={savedMovies}
+                  movies={savedMovies}
                 />
                 <Footer />
               </>

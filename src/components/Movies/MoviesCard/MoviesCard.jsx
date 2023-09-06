@@ -6,15 +6,32 @@ function MoviesCard({movie,isSavedMoviesPage,saveMovie,deleteMovie}) {
 
   const baseUrl ="https://api.nomoreparties.co/";
   const [isChecked, setIsChecked] = useState(false);
+  const imageUrl = isSavedMoviesPage ? movie.image : baseUrl + movie.image.url;
 
   const handleCheckBoxClick = () => {
     setIsChecked(!isChecked);
   };
+
+  /*const handleSaveDeleteClick = () => {
+    if (isSavedMoviesPage) {
+      // Если на странице сохраненных фильмов, то удаляем фильм
+      deleteMovie(movie);
+    } else {
+      // Если на странице Movies, то добавляем/удаляем фильм в зависимости от isChecked
+      if (isChecked) {
+        deleteMovie(movie);
+      } else {
+        saveMovie(movie);
+      }
+      handleCheckBoxClick(); // Меняем состояние isChecked
+    }
+  };*/
+
   return (
-    <li className="movies__card">
+    <li className="movies__card" key={movie.id} >
       <img
         className="movies__card-photo"
-        src={baseUrl + movie.image.url}
+        src={imageUrl}
         alt={movie.nameRU}
       />
       <div className="movies__card-about">
@@ -32,6 +49,8 @@ function MoviesCard({movie,isSavedMoviesPage,saveMovie,deleteMovie}) {
           onClick={() => {
             if (!isSavedMoviesPage) {
               saveMovie(movie);
+            }else{
+              deleteMovie(movie);
             }
             handleCheckBoxClick();
           }}

@@ -8,11 +8,10 @@ function Movies({ movies,saveMovie, deleteMovie}) {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [visibleCards, setVisibleCards] = useState(12);
-  console.log(movies);
+
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
-
     let filteredMovies = movies;
     let searchResults;
 
@@ -58,6 +57,7 @@ function Movies({ movies,saveMovie, deleteMovie}) {
             moviesList={searchResults.slice(0, visibleCards)}
             saveMovie={saveMovie}
             isSavedMoviesPage={false}
+            deleteMovie={deleteMovie}
           />
         )}
         {visibleCards < searchResults.length ? (
