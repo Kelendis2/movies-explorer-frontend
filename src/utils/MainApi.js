@@ -34,7 +34,7 @@ export default class Api {
   };
 
   getSavedMovies() {
-    return fetch(`${this._baseUrl}/saved-movies`, {
+    return fetch(`${this._baseUrl}/movies`, {
       method: "GET",
       credentials: 'include',
       headers: {
@@ -67,7 +67,7 @@ export default class Api {
   }
 
   getProfile() {
-    return fetch(`${this._baseUrl}/profile`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       credentials: 'include',
       headers: {
@@ -77,7 +77,7 @@ export default class Api {
     });
   }
   udateProfile({ name, email }) {
-    return fetch(`${this._baseUrl}/profile`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATH",
       credentials: 'include',
       headers: {
