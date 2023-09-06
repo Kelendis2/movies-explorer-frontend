@@ -24,11 +24,15 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
 
-  const handleRegister = ({name, email, password }) => {
+
+
+
+  const handleRegister = ({ name, email, password }) => {
     api
-      .register({ name,email, password })
-      .then(() => {
-        navigate("/sign-in");
+      .register({ name, email, password })
+      .then((data) => {
+        console.log(data);
+        navigate("/signin");
       })
       .catch((err) => {
         console.log(err);
@@ -42,14 +46,13 @@ function App() {
         if (data) {
           localStorage.setItem("jwt", data.token);
           setLoggedIn(true);
-          navigate("/movie");
+          navigate("/movies");
         }
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
 
   const getMovies = () => {
     MoviesApi.getMovies()
@@ -64,6 +67,34 @@ function App() {
   useEffect(() => {
     getMovies();
   }, []);
+
+  function saveMovie(movie) {
+    return api
+      .saveMovie(movie)
+      .then((savedMovie) => {
+        // Обработка успешного сохранения фильма
+        console.log("Фильм успешно сохранен:", savedMovie);
+        return savedMovie;
+      })
+      .catch((error) => {
+        // Обработка ошибки при сохранении фильма
+        console.error("Ошибка при сохранении фильма:", error);
+        throw error;
+      });
+  }
+  function deleteMovie(movieId) {
+    return api
+      .deleteMovie(movieId)
+      .then(() => {
+        // Обработка успешного удаления фильма
+        console.log("Фильм успешно удален");
+      })
+      .catch((error) => {
+        // Обработка ошибки при удалении фильма
+        console.error("Ошибка при удалении фильма:", error);
+        throw error;
+      });
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -88,6 +119,8 @@ function App() {
                 <Movies
                   movies={allMovies}
                   getMovies={getMovies}
+                  saveMovie={saveMovie}
+                  deleteMovie={deleteMovie}
                 />
                 <Footer />
               </>
@@ -98,7 +131,11 @@ function App() {
             element={
               <>
                 <Header />
-                <SavedMovies  setSavedMovies={setSavedMovies}/>
+                <SavedMovies
+                  setSavedMovies={setSavedMovies}
+                  deleteMovie={deleteMovie}
+                  savedMovies={savedMovies}
+                />
                 <Footer />
               </>
             }

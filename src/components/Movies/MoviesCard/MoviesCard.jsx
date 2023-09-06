@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MoviesCard.css";
 
 
-function MoviesCard(props) {
+function MoviesCard({movie,isSavedMoviesPage,saveMovie,deleteMovie}) {
 
-  const { movie } = props;
   const baseUrl ="https://api.nomoreparties.co/";
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckBoxClick = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <li className="movies__card">
       <img
@@ -20,9 +24,18 @@ function MoviesCard(props) {
         </div>
         <button
           className={`movies__button ${
-            props.isSavedMoviesPage ? "movies__card-delete" : "movies__card-checkBox"
+            isSavedMoviesPage ? "movies__card-delete" : isChecked
+            ? "movies__card-checkBox_on"
+            : "movies__card-checkBox"
           }`}
           type="button"
+          onClick={() => {
+            if (!isSavedMoviesPage) {
+              saveMovie(movie);
+            }
+            handleCheckBoxClick();
+          }}
+
         />
       </div>
     </li>

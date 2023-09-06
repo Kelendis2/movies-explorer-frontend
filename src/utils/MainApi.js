@@ -3,15 +3,16 @@ export default class Api {
     this._baseUrl = baseUrl;
   }
   _getResponseData(res) {
-    if (!res.ok) {
-      return Promise.reject(`Ошибка: ${res.status}`);
+    if (res.ok) {
+      return res.json();
     }
-    return res.json();
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
   register = ({ name, email, password, }) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
+      credentials: 'include',
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -23,26 +24,30 @@ export default class Api {
   authorize = (email, password) => {
     return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
+      credentials: 'include',
       headers: {
-        Accept: "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     }).then(this._getResponseData);
   };
-  getSavedMovies(token) {
+
+  getSavedMovies() {
     return fetch(`${this._baseUrl}/saved-movies`, {
       method: "GET",
+      credentials: 'include',
       headers: {
-        Accept: "application/json",
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  }
+      }
+    }).then(this._getResponseData);
+    }
+
   saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
+      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -50,20 +55,21 @@ export default class Api {
       body: JSON.stringify(movie),
     });
   }
-  deleteMovie(movie) {
-    return fetch(`${this._baseUrl}/saved-movies`, {
+  deleteMovie(movieId) {
+    return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(movie),
+      }
     });
   }
 
-  showUser() {
+  getProfile() {
     return fetch(`${this._baseUrl}/profile`, {
       method: "GET",
+      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -73,6 +79,7 @@ export default class Api {
   udateProfile({ name, email }) {
     return fetch(`${this._baseUrl}/profile`, {
       method: "PATH",
+      credentials: 'include',
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
@@ -82,6 +89,6 @@ export default class Api {
   }
 }
 export const api = new Api({
-  baseUrl: "https://localhost:3000",
+  baseUrl: "http://localhost:3000",
   //baseUrl: "https://api.movies.kelendis.nomoreparties.co/",
 });

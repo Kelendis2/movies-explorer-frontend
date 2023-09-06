@@ -2,7 +2,7 @@ import React from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList({moviesList, isSavedMoviesPage}) {
+function MoviesCardList({moviesList, isSavedMoviesPage,saveMovie, deleteMovie}) {
 
   return (
         <ul className="movies__list">
@@ -12,6 +12,8 @@ function MoviesCardList({moviesList, isSavedMoviesPage}) {
                 movie={movie}
                 key={movie.id}
                 isSavedMoviesPage={isSavedMoviesPage}
+                saveMovie={saveMovie}
+                deleteMovie={deleteMovie}
               />
             );
           })}

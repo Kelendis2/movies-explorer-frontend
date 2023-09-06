@@ -49,6 +49,17 @@
   border: none;
   cursor: pointer;
 }
+.movies__card-checkBox_on {
+  background-image: url(../../../images/save8.svg);
+  margin: -4px;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 .movies__card-checkBox:hover{
   opacity: .8;
 }
