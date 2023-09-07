@@ -1,12 +1,16 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { useContext} from 'react';
 import "./Profile.css";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 
 function Profile() {
-
-
+  const navigate = useNavigate();
+  const signOut = () => {
+    localStorage.removeItem("jwt");
+    navigate("/");
+  };
 
   return (
     <main className="profileMain">
@@ -42,6 +46,7 @@ function Profile() {
           className="profile__button-exit"
           id="profile__button-exit"
           type="button"
+          onClick={signOut}
         >
           Выйти из аккаунта
         </button>

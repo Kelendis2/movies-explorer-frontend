@@ -110,7 +110,6 @@ function App() {
       .saveMovie(movie)
       .then((savedMovie) => {
         console.log("Фильм успешно сохранен:", savedMovie);
-        return savedMovie;
       })
       .catch((error) => {
         // Обработка ошибки при сохранении фильма
@@ -126,6 +125,7 @@ function App() {
         .deleteMovies(movieId)
         .then(() => {
           setSavedMovies((movies) => movies.filter((item) => item._id !== movieId));
+
         })
         .catch((err) => {
           console.error("Ошибка при удалении фильма:", err);
