@@ -13,7 +13,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import NotFound from "../NotFound/NotFound";
 import { api } from "../../utils/MainApi";
-import { MoviesApi } from "../../utils/MoviesApi"; // Проверьте, что путь к файлу верный
+import { MoviesApi } from "../../utils/MoviesApi";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { get } from "react-scroll/modules/mixins/scroller";
@@ -102,9 +102,11 @@ function App() {
     getMovies();
   }, []);
 
-  function saveMovie(movie) {
-    console.log(movie.image)
-    return api
+  const handleSaveMovie = (movie) => {
+    const isSaved = savedMovies.some((item) => item.movieId === movie.movieId);
+
+    if (!isSaved) {
+      api
       .saveMovie(movie)
       .then((savedMovie) => {
         console.log("Фильм успешно сохранен:", savedMovie);
@@ -115,8 +117,27 @@ function App() {
         console.error("Ошибка при сохранении фильма:", error);
         throw error;
       });
-  }
-  function deleteMovie(movie) {
+    } else {
+      const movieToDelete = savedMovies.find((item) => item.movieId === movie.movieId);
+
+    if (movieToDelete && movieToDelete._id){
+      const movieId = savedMovies.find((item) => item.movieId === movie.id)._id;
+      api
+        .deleteMovies(movieId)
+        .then(() => {
+          setSavedMovies((movies) => movies.filter((item) => item._id !== movieId));
+        })
+        .catch((err) => {
+          console.error("Ошибка при удалении фильма:", err);
+        })
+      }
+      else {
+        console.error("Не удалось найти _id фильма для удаления.");
+      }
+    }
+  };
+
+  function handleDeleteMovie(movie) {
     return api
       .deleteMovie(movie._id)
       .then(() => {
@@ -130,6 +151,7 @@ function App() {
         throw error;
       });
   }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -154,9 +176,8 @@ function App() {
                 <Movies
                   movies={allMovies}
                   getMovies={getMovies}
-                  saveMovie={saveMovie}
-                  deleteMovie={deleteMovie}
                   savedMovies={savedMovies}
+                  onSave={handleSaveMovie}
                 />
                 <Footer />
               </>
@@ -168,8 +189,8 @@ function App() {
               <>
                 <Header />
                 <SavedMovies
-                  deleteMovie={deleteMovie}
                   movies={savedMovies}
+                  onDelete={handleDeleteMovie}
                 />
                 <Footer />
               </>

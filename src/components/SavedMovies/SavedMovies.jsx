@@ -3,7 +3,7 @@ import "./SavedMovies.css";
 import SearchForm from "../Movies/SearchForm/SearchForm";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 
-function SavedMovies({movies,deleteMovie}) {
+function SavedMovies({movies,onDelete}) {
   console.log(movies);
   return (
     <main className=" movies movies_saved">
@@ -11,7 +11,7 @@ function SavedMovies({movies,deleteMovie}) {
       <MoviesCardList
         savedMoviesList={movies}
         isSavedMoviesPage={true}
-        deleteMovie={deleteMovie}
+        onDelete={onDelete}
       />{" "}
     </main>
   );

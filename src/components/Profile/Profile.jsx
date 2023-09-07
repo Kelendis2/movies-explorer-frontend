@@ -1,11 +1,17 @@
-import React from "react";
+import React from 'react';
+import { useContext} from 'react';
 import "./Profile.css";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+
 
 function Profile() {
+
+
+
   return (
     <main className="profileMain">
       <section className="profile">
-        <h1 className="profile__title"> Привет, Виталий!</h1>
+        <h1 className="profile__title"> Привет, !</h1>
         <form className="profile__form">
           <div className="profile__form-item" id="profile-item_one">
             <label className="profile__form-label">Имя</label>

@@ -1,39 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MoviesCard.css";
 
-
-function MoviesCard({movie,isSavedMoviesPage,saveMovie,deleteMovie}) {
-
-  const baseUrl ="https://api.nomoreparties.co/";
-  const [isChecked, setIsChecked] = useState(false);
+function MoviesCard({ movie, isSavedMoviesPage, savedMovies, onSave,onDelete}) {
+  const baseUrl = "https://api.nomoreparties.co/";
   const imageUrl = isSavedMoviesPage ? movie.image : baseUrl + movie.image.url;
+  const isSaved =
+    !isSavedMoviesPage && savedMovies.some((item) => item.movieId === movie.id);
+  const movieButtonClassName = `movies__button movies__card-checkBox ${
+    isSaved && 'movies__card-checkBox_on'
+  }`;
 
-  const handleCheckBoxClick = () => {
-    setIsChecked(!isChecked);
-  };
+  function handleSaveClick() {
+    onSave(movie);
+  }
 
-  /*const handleSaveDeleteClick = () => {
-    if (isSavedMoviesPage) {
-      // Если на странице сохраненных фильмов, то удаляем фильм
-      deleteMovie(movie);
-    } else {
-      // Если на странице Movies, то добавляем/удаляем фильм в зависимости от isChecked
-      if (isChecked) {
-        deleteMovie(movie);
-      } else {
-        saveMovie(movie);
-      }
-      handleCheckBoxClick(); // Меняем состояние isChecked
-    }
-  };*/
+  function handleDeliteClick() {
+    onDelete(movie);
+  }
+
+
 
   return (
-    <li className="movies__card" key={movie.id} >
-      <img
-        className="movies__card-photo"
-        src={imageUrl}
-        alt={movie.nameRU}
-      />
+    <li className="movies__card" key={movie.id}>
+      <img className="movies__card-photo" src={imageUrl} alt={movie.nameRU} />
       <div className="movies__card-about">
         <div className="movies__card-text">
           <h2 className="movies__card-title">{movie.nameRU}</h2>
@@ -41,20 +30,10 @@ function MoviesCard({movie,isSavedMoviesPage,saveMovie,deleteMovie}) {
         </div>
         <button
           className={`movies__button ${
-            isSavedMoviesPage ? "movies__card-delete" : isChecked
-            ? "movies__card-checkBox_on"
-            : "movies__card-checkBox"
+            isSavedMoviesPage ? "movies__card-delete" : movieButtonClassName
           }`}
           type="button"
-          onClick={() => {
-            if (!isSavedMoviesPage) {
-              saveMovie(movie);
-            }else{
-              deleteMovie(movie);
-            }
-            handleCheckBoxClick();
-          }}
-
+          onClick={!isSavedMoviesPage ? handleSaveClick : handleDeliteClick}
         />
       </div>
     </li>

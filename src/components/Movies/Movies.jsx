@@ -3,7 +3,7 @@ import "./Movies.css";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({ movies,saveMovie, deleteMovie}) {
+function Movies({ movies,savedMovies, handleMovieSave, onSave}) {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -55,9 +55,9 @@ function Movies({ movies,saveMovie, deleteMovie}) {
         ) : (
           <MoviesCardList
             moviesList={searchResults.slice(0, visibleCards)}
-            saveMovie={saveMovie}
             isSavedMoviesPage={false}
-            deleteMovie={deleteMovie}
+            savedMovies={savedMovies}
+            onSave={onSave}
           />
         )}
         {visibleCards < searchResults.length ? (

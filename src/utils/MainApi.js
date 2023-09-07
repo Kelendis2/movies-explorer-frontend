@@ -65,6 +65,7 @@ export default class Api {
     });
   }
   deleteMovie(movieId) {
+
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",
       headers: {
@@ -85,7 +86,7 @@ export default class Api {
   }
   udateProfile({ name, email }) {
     return fetch(`${this._baseUrl}/users/me`, {
-      method: "PATH",
+      method: "PATCH",
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
