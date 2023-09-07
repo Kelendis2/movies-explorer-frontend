@@ -1,22 +1,38 @@
-import React from 'react';
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext} from 'react';
+import { useContext } from "react";
 import "./Profile.css";
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-
-function Profile() {
+function Profile({ onUpdateUser,isLoading }) {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("jwt");
     navigate("/");
   };
 
+  const currentUser = React.useContext(CurrentUserContext);
+  const [value, setValue] = React.useState({});
+
+  React.useEffect(() => {
+    setValue({
+      name: currentUser.name,
+      email: currentUser.email,
+    });
+  }, [currentUser]);
+  function handleChange(e) {
+    setValue({ ...value, [e.target.name]: e.target.value });
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    onUpdateUser(value);
+  }
+
   return (
     <main className="profileMain">
       <section className="profile">
-        <h1 className="profile__title"> Привет, !</h1>
-        <form className="profile__form">
+        <h1 className="profile__title"> {`Привет,  ${currentUser.name}!`}</h1>
+        <form className="profile__form" onSubmit={handleSubmit}>
           <div className="profile__form-item" id="profile-item_one">
             <label className="profile__form-label">Имя</label>
             <input
@@ -25,6 +41,10 @@ function Profile() {
               maxLength={20}
               minLength={2}
               type="text"
+              name="name"
+              id="Username"
+              value={value.name ?? ""}
+              onChange={handleChange}
             ></input>
           </div>
           <div className="profile__form-item ">
@@ -36,9 +56,12 @@ function Profile() {
               minLength={5}
               type="email"
               name="email"
+              id="email"
+              value={value.email ?? ""}
+              onChange={handleChange}
             ></input>
           </div>
-          <button className="profile__form-button" type="button">
+          <button className="profile__form-button" type="button" buttonText={isLoading ? "Сохранение..." : "Редактировать"}>
             Редактировать
           </button>
         </form>

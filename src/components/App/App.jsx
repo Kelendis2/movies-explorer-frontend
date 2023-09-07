@@ -24,6 +24,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
     api
@@ -110,6 +111,7 @@ function App() {
       .saveMovie(movie)
       .then((savedMovie) => {
         console.log("Фильм успешно сохранен:", savedMovie);
+        return savedMovie;
       })
       .catch((error) => {
         // Обработка ошибки при сохранении фильма
@@ -125,7 +127,6 @@ function App() {
         .deleteMovies(movieId)
         .then(() => {
           setSavedMovies((movies) => movies.filter((item) => item._id !== movieId));
-
         })
         .catch((err) => {
           console.error("Ошибка при удалении фильма:", err);
@@ -151,6 +152,18 @@ function App() {
         throw error;
       });
   }
+  const handleUpdateUser = (value) => {
+    setIsLoading(true);
+    api
+      .udateProfile(value)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
 
   return (
@@ -162,7 +175,7 @@ function App() {
             path="/"
             element={
               <>
-                <Header />
+                <Header loggedIn={loggedIn} />
                 <Main />
                 <Footer />
               </>
@@ -201,7 +214,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Profile />
+                <Profile isLoading={isLoading} onUpdateUser={handleUpdateUser} />
               </>
             }
           />

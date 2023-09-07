@@ -8,7 +8,7 @@ import NavTab from "../NavTab/NavTab";
 import profileLogo from "../../images/profilemenuL.svg";
 import Overlay from "../Overlay/Overlay";
 
-function Header() {
+function Header({ loggedIn }) {
   const location = useLocation();
   let className = "header";
   let classNameContainer = "header__container";
@@ -61,16 +61,47 @@ function Header() {
 
   const navContent = () => {
     if (pathname === "/") {
-      return (
-        <Navigation>
-          <Link className="navigation__link" to="/signup">
-            Регистрация
-          </Link>
-          <Link className="navigation__button" to="/signin">
-            Войти
-          </Link>
-        </Navigation>
-      );
+      if (loggedIn) {
+        return (
+          <Navigation className="navigation_main">
+            <ul className="navigation__movie">
+              <li className="navigation__movie-item">
+                <Link className="navigation__nav-link" to="/movies">
+                  Фильмы
+                </Link>
+              </li>
+              <li className="navigation__movie-item">
+                <Link
+                  className="navigation__nav-link navigation__nav-link_active"
+                  to="/saved-movies"
+                >
+                  Сохраненные фильмы
+                </Link>
+              </li>
+            </ul>
+            <div className="navigation__profile">
+              <Link className="navigation__nav-link" to="/profile">
+                <img
+                  className="navigation__profile-logo"
+                  alt="Иконка-профиля"
+                  src={profileLogo}
+                />
+              </Link>
+            </div>
+          </Navigation>
+        );
+      } else {
+        return (
+          <Navigation>
+            <Link className="navigation__link" to="/signup">
+              Регистрация
+            </Link>
+            <Link className="navigation__button" to="/signin">
+              Войти
+            </Link>
+          </Navigation>
+        );
+      }
     } else if (
       pathname === "/movies" ||
       pathname === "/saved-movies" ||
