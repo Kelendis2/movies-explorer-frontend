@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   color: white;
-
 }
 .profile__title {
   margin: 74px auto 0;
@@ -55,8 +54,8 @@
   outline: none;
   border: none;
 }
-.profile__form-input:focus{
-  outline: 1px solid #4285F4;
+.profile__form-input:focus {
+  outline: 1px solid #4285f4;
 }
 .profile__form-button {
   margin: 183px auto 0;
@@ -91,6 +90,23 @@
 }
 #profile__button-exit:hover {
   opacity: 0.7;
+}
+.profile__message {
+  display: none;
+  margin: 5px auto;
+  max-width: 414px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.profile__message-error {
+  display: block;
+  color: #ee3465;
+}
+.profile__message-ok {
+  display: block;
+  color: white;
 }
 
 @media screen and (max-width: 768px) {

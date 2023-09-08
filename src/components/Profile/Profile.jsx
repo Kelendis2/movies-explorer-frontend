@@ -1,9 +1,16 @@
-import React, {useState,useContext} from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function Profile({ onUpdateUser,isLoading }) {
+function Profile({
+  onUpdateUser,
+  isLoading,
+  errorMessage,
+  successMessage,
+  isFormActivated,
+  setFormActivated,
+}) {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("jwt");
@@ -15,17 +22,23 @@ function Profile({ onUpdateUser,isLoading }) {
   const currentUser = useContext(CurrentUserContext);
   const [value, setValue] = useState({});
 
+  const handleActivated = () => {
+    setFormActivated(true);
+  };
+
   React.useEffect(() => {
     setValue({
       name: currentUser.name,
       email: currentUser.email,
     });
   }, [currentUser]);
+
   function handleChange(e) {
     setValue({ ...value, [e.target.name]: e.target.value });
   }
   function handleSubmit(e) {
     e.preventDefault();
+    setFormActivated(false);
     onUpdateUser(value);
   }
 
@@ -33,7 +46,7 @@ function Profile({ onUpdateUser,isLoading }) {
     <main className="profileMain">
       <section className="profile">
         <h1 className="profile__title"> {`Привет,  ${currentUser.name}!`}</h1>
-        <form className="profile__form" onSubmit={handleSubmit}>
+        <form className="profile__form" onSubmit={handleSubmit} noValidate>
           <div className="profile__form-item" id="profile-item_one">
             <label className="profile__form-label">Имя</label>
             <input
@@ -46,6 +59,7 @@ function Profile({ onUpdateUser,isLoading }) {
               id="Username"
               value={value.name ?? ""}
               onChange={handleChange}
+              disabled={!isFormActivated}
             ></input>
           </div>
           <div className="profile__form-item ">
@@ -60,10 +74,32 @@ function Profile({ onUpdateUser,isLoading }) {
               id="email"
               value={value.email ?? ""}
               onChange={handleChange}
+              disabled={!isFormActivated}
             ></input>
           </div>
-          <button className="profile__form-button" type="submit" >
+          {errorMessage && (
+            <p className="profile__message profile__message-error">
+              {errorMessage}
+            </p>
+          )}
+          {successMessage && (
+            <p className="profile__message profile__message-ok">
+              {successMessage}
+            </p>
+          )}
+           {!isFormActivated && (<button
+            className="profile__form-button"
+            type="button"
+            onClick={handleActivated}
+          >
             Редактировать
+          </button>)}
+          <button
+            className="profile__form-button"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Сохранить
           </button>
         </form>
         <button

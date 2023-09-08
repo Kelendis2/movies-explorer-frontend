@@ -25,6 +25,9 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isFormActivated, setFormActivated] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
     api
@@ -61,7 +64,7 @@ function App() {
         .then((res) => {
           setLoggedIn(true);
           navigate("/movies");
-          if(res){
+          if (res) {
             getUser();
             getSavedMovies();
           }
@@ -74,20 +77,23 @@ function App() {
   }, []);
 
   const getUser = () => {
-    api.getProfile()
-    .then((currentUser) => {
-      setCurrentUser(currentUser);
-    })
-    .catch((err) => console.log(err));
+    api
+      .getProfile()
+      .then((currentUser) => {
+        setCurrentUser(currentUser);
+      })
+      .catch((err) => console.log(err));
   };
 
-  const getSavedMovies = () =>{
-    api.getSavedMovies().then((movies) => {
-      setSavedMovies(movies);
-      console.log(movies);
-    })
-    .catch((err) => console.log(err));
-  }
+  const getSavedMovies = () => {
+    api
+      .getSavedMovies()
+      .then((movies) => {
+        setSavedMovies(movies);
+        console.log(movies);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const getMovies = () => {
     MoviesApi.getMovies()
@@ -108,28 +114,33 @@ function App() {
 
     if (!isSaved) {
       api
-      .saveMovie(movie)
-      .then((savedMovie) => {
-        setSavedMovies([...savedMovies, savedMovie.data])
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    } else {
-      const movieToDelete = savedMovies.find((item) => item.movieId === movie.id);
-
-    if (movieToDelete && movieToDelete._id){
-      const movieId = savedMovies.find((item) => item.movieId === movie.id)._id;
-      api
-        .deleteMovie(movieId)
-        .then(() => {
-          setSavedMovies((movies) => movies.filter((item) => item._id !== movieId));
+        .saveMovie(movie)
+        .then((savedMovie) => {
+          setSavedMovies([...savedMovies, savedMovie.data]);
         })
         .catch((err) => {
-          console.error("Ошибка при удалении фильма:", err);
-        })
-      }
-      else {
+          console.log(err);
+        });
+    } else {
+      const movieToDelete = savedMovies.find(
+        (item) => item.movieId === movie.id
+      );
+
+      if (movieToDelete && movieToDelete._id) {
+        const movieId = savedMovies.find(
+          (item) => item.movieId === movie.id
+        )._id;
+        api
+          .deleteMovie(movieId)
+          .then(() => {
+            setSavedMovies((movies) =>
+              movies.filter((item) => item._id !== movieId)
+            );
+          })
+          .catch((err) => {
+            console.error("Ошибка при удалении фильма:", err);
+          });
+      } else {
         console.error("Не удалось найти _id фильма для удаления.");
       }
     }
@@ -145,7 +156,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Ошибка при удалении фильма:", err);
-      })
+      });
   }
   const handleUpdateUser = ({ name, email }) => {
     setIsLoading(true);
@@ -153,13 +164,20 @@ function App() {
       .udateProfile({ name, email })
       .then((res) => {
         setCurrentUser(res);
+        setFormActivated(false);
+        setSuccessMessage("Профиль успешно обновлен");
+        setErrorMessage("");
       })
-      .catch((err) => console.log(err))
+      .catch((error) => {
+        console.error(error);
+        setFormActivated(true);
+        setSuccessMessage("");
+        setErrorMessage("Ошибка при обновлении профиля");
+      })
       .finally(() => {
         setIsLoading(false);
       });
   };
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -209,7 +227,14 @@ function App() {
             element={
               <>
                 <Header />
-                <Profile isLoading={isLoading} onUpdateUser={handleUpdateUser} />
+                <Profile
+                  isLoading={isLoading}
+                  onUpdateUser={handleUpdateUser}
+                  errorMessage={errorMessage}
+                  successMessage={successMessage}
+                  isFormActivated={isFormActivated}
+                  setFormActivated={setFormActivated}
+                />
               </>
             }
           />
