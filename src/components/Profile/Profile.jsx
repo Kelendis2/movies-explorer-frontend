@@ -94,13 +94,14 @@ function Profile({
           >
             Редактировать
           </button>)}
-          <button
+          {isFormActivated && (<button
             className="profile__form-button"
             type="submit"
             onClick={handleSubmit}
           >
             Сохранить
-          </button>
+          </button>)}
+
         </form>
         <button
           className="profile__button-exit"
