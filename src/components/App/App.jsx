@@ -169,10 +169,15 @@ function App() {
         setErrorMessage("");
       })
       .catch((error) => {
-        console.error(error);
         setFormActivated(true);
         setSuccessMessage("");
-        setErrorMessage("Ошибка при обновлении профиля");
+        if (error.response && error.response.status === 409) {
+          setErrorMessage("Пользователь с таким email уже существует.");
+        } else {
+          setErrorMessage(
+            "Произошла ошибка при обновлении профиля. Пожалуйста, попробуйте еще раз."
+          );
+        }
       })
       .finally(() => {
         setIsLoading(false);
