@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -7,11 +7,13 @@ function Profile({ onUpdateUser,isLoading }) {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("query");
+    localStorage.removeItem("isShortFilm");
+    localStorage.removeItem("searchResults");
     navigate("/");
   };
-
-  const currentUser = React.useContext(CurrentUserContext);
-  const [value, setValue] = React.useState({});
+  const currentUser = useContext(CurrentUserContext);
+  const [value, setValue] = useState({});
 
   React.useEffect(() => {
     setValue({
