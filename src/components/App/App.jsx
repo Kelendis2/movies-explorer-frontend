@@ -104,27 +104,24 @@ function App() {
   }, []);
 
   const handleSaveMovie = (movie) => {
-    const isSaved = savedMovies.some((item) => item.movieId === movie.movieId);
+    const isSaved = savedMovies.some((item) => item.movieId === movie.id);
 
     if (!isSaved) {
       api
       .saveMovie(movie)
       .then((savedMovie) => {
-        console.log("Фильм успешно сохранен:", savedMovie);
-        return savedMovie;
+        setSavedMovies([...savedMovies, savedMovie.data])
       })
-      .catch((error) => {
-        // Обработка ошибки при сохранении фильма
-        console.error("Ошибка при сохранении фильма:", error);
-        throw error;
+      .catch((err) => {
+        console.log(err);
       });
     } else {
-      const movieToDelete = savedMovies.find((item) => item.movieId === movie.movieId);
+      const movieToDelete = savedMovies.find((item) => item.movieId === movie.id);
 
     if (movieToDelete && movieToDelete._id){
       const movieId = savedMovies.find((item) => item.movieId === movie.id)._id;
       api
-        .deleteMovies(movieId)
+        .deleteMovie(movieId)
         .then(() => {
           setSavedMovies((movies) => movies.filter((item) => item._id !== movieId));
         })
@@ -142,20 +139,18 @@ function App() {
     return api
       .deleteMovie(movie._id)
       .then(() => {
-        setSavedMovies((movies) =>
-          movies.filter((item) => item._id !== movie._id)
+        setSavedMovies((savedMovies) =>
+          savedMovies.filter((item) => item._id !== movie._id)
         );
       })
-      .catch((error) => {
-        // Обработка ошибки при удалении фильма
-        console.error("Ошибка при удалении фильма:", error);
-        throw error;
-      });
+      .catch((err) => {
+        console.error("Ошибка при удалении фильма:", err);
+      })
   }
-  const handleUpdateUser = (value) => {
+  const handleUpdateUser = ({ name, email }) => {
     setIsLoading(true);
     api
-      .udateProfile(value)
+      .udateProfile({ name, email })
       .then((res) => {
         setCurrentUser(res);
       })

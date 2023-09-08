@@ -61,18 +61,17 @@ export default class Api {
         nameEN: movie.nameEN,
         thumbnail: this._baseUrlMovie + movie.image.formats.thumbnail.url,
         movieId: movie.id,
-      }),
-    });
+      })
+    }).then(this._getResponseData)
   }
   deleteMovie(movieId) {
-
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
       }
-    });
+    })
   }
 
   getProfile() {
@@ -81,8 +80,8 @@ export default class Api {
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
-      },
-    });
+      }
+    }).then(this._getResponseData)
   }
   udateProfile({ name, email }) {
     return fetch(`${this._baseUrl}/users/me`, {

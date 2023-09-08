@@ -3,21 +3,72 @@ import "./Movies.css";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({ movies,savedMovies, handleMovieSave, onSave}) {
-  const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+function Movies({ movies, savedMovies, onSave }) {
+  const [query, setQuery] = useState(localStorage.getItem("query") || "");
+  const [searchResults, setSearchResults] = useState(
+    JSON.parse(localStorage.getItem("searchResults")) || []
+  );
   const [isLoading, setIsLoading] = useState(false);
-  const [visibleCards, setVisibleCards] = useState(12);
+  const [visibleCards, setVisibleCards] = useState(getInitialVisibleCards());
+  const [isShortFilm, setIsShortFilm] = useState(
+    localStorage.getItem("isShortFilm") === "true" || false
+  );
+  const updateQuery = (newQuery) => {
+    setQuery(newQuery);
+  };
 
+  const updateIsShortFilm = (newValue) => {
+    setIsShortFilm(newValue);
+  };
+
+  useEffect(() => {
+    // Сохраняем текст запроса в localStorage
+    localStorage.setItem("query", query);
+  }, [query]);
+
+  useEffect(() => {
+    // Сохраняем состояние переключателя в localStorage
+    localStorage.setItem("isShortFilm", isShortFilm);
+  }, [isShortFilm]);
+
+  function getInitialVisibleCards() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1280) {
+      return 16;
+    } else if (screenWidth >= 768) {
+      return 12;
+    } else {
+      return 5;
+    }
+  }
+  const handleShowMoreClick = () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1280) {
+      setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
+    } else if (screenWidth >= 768) {
+      setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
+    } else {
+      setVisibleCards((prevVisibleCards) => prevVisibleCards + 1);
+    }
+  };
+  useEffect(() => {
+    function handleResize() {
+      setVisibleCards(getInitialVisibleCards());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
     let filteredMovies = movies;
     let searchResults;
 
-    // Если isShortFilm равен true, фильтруем только короткометражные фильмы
     if (isShortFilm) {
-      filteredMovies = movies.filter((movie) => movie.duration <= 40); // Пример: фильмы короче 40 минут
+      filteredMovies = movies.filter((movie) => movie.duration <= 40);
       searchResults = filteredMovies.filter((movie) => {
         return (
           movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
@@ -35,18 +86,19 @@ function Movies({ movies,savedMovies, handleMovieSave, onSave}) {
 
     setSearchResults(searchResults);
     setIsLoading(false);
-    console.log(searchResults);
     return;
-  };
-
-  const handleShowMoreClick = () => {
-    setVisibleCards((prevVisibleCards) => prevVisibleCards + 4); // Увеличьте на нужное количество
   };
 
   return (
     <main className="movieMain">
       <section className="movies">
-        <SearchForm query={query} setQuery={setQuery} onSearch={handleSearch} />
+        <SearchForm
+          query={query}
+          setQuery={updateQuery}
+          isShortFilm={isShortFilm}
+          setIsShortFilm={updateIsShortFilm}
+          onSearch={handleSearch}
+        />
         {isLoading ? (
           <p className="movies__loading">Загрузка...</p>
         ) : !movies || searchResults.length === 0 ? (

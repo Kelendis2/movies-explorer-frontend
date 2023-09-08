@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -61,7 +60,7 @@ function Profile({ onUpdateUser,isLoading }) {
               onChange={handleChange}
             ></input>
           </div>
-          <button className="profile__form-button" type="button" buttonText={isLoading ? "Сохранение..." : "Редактировать"}>
+          <button className="profile__form-button" type="submit" >
             Редактировать
           </button>
         </form>

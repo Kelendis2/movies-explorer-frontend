@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch }) {
-  const [query, setQuery] = useState("");
-  const [isShortFilm, setIsShortFilm] = useState(false);
-
+function SearchForm({ query, setQuery, isShortFilm, setIsShortFilm, onSearch }) {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
@@ -15,9 +12,10 @@ function SearchForm({ onSearch }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Вызываем функцию onSearch, передавая в неё текущий запрос и флаг короткометражных фильмов
+
     onSearch(query, isShortFilm);
   };
+
   return (
     <div className="serach">
       <form className="serach__form" onSubmit={handleSubmit}>
@@ -32,7 +30,7 @@ function SearchForm({ onSearch }) {
           <button className="serach__form-button" type="submit" />
         </div>
         <div className="serach__filterCheckbox">
-        <button
+          <button
             className={`serach__filterCheckbox-slider ${
               isShortFilm ? "serach__filterCheckbox-slider_on" : ""
             }`}
