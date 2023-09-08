@@ -168,16 +168,11 @@ function App() {
         setSuccessMessage("Профиль успешно обновлен");
         setErrorMessage("");
       })
-      .catch((error) => {
+      .catch((err) => {
+        console.log(err.message);
         setFormActivated(true);
         setSuccessMessage("");
-        if (error.response && error.response.status === 409) {
-          setErrorMessage("Пользователь с таким email уже существует.");
-        } else {
-          setErrorMessage(
-            "Произошла ошибка при обновлении профиля. Пожалуйста, попробуйте еще раз."
-          );
-        }
+        setErrorMessage(err.message);
       })
       .finally(() => {
         setIsLoading(false);

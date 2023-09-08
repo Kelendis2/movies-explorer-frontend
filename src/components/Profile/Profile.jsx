@@ -59,7 +59,7 @@ function Profile({
               id="Username"
               value={value.name ?? ""}
               onChange={handleChange}
-              disabled={!isFormActivated}
+              disabled={!isFormActivated || isLoading}
             ></input>
           </div>
           <div className="profile__form-item ">
@@ -74,43 +74,50 @@ function Profile({
               id="email"
               value={value.email ?? ""}
               onChange={handleChange}
-              disabled={!isFormActivated}
+              disabled={!isFormActivated || isLoading}
             ></input>
           </div>
-          {errorMessage && (
-            <p className="profile__message profile__message-error">
-              {errorMessage}
-            </p>
-          )}
-          {successMessage && (
-            <p className="profile__message profile__message-ok">
-              {successMessage}
-            </p>
-          )}
-           {!isFormActivated && (<button
-            className="profile__form-button"
-            type="button"
-            onClick={handleActivated}
-          >
-            Редактировать
-          </button>)}
-          {isFormActivated && (<button
-            className="profile__form-button"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Сохранить
-          </button>)}
-
+          <div className="profile__form-info">
+            {errorMessage && (
+              <p className="profile__form-message form__message-error">
+                {errorMessage}
+              </p>
+            )}
+            {successMessage && (
+              <p className="profile__form-message form__message-ok">
+                {successMessage}
+              </p>
+            )}
+            {!isFormActivated && (
+              <button
+                className="profile__form-button"
+                type="button"
+                onClick={handleActivated}
+              >
+                Редактировать
+              </button>
+            )}
+            {isFormActivated && (
+              <button
+                className= {`profile__button-save ${isLoading ? 'profile__button-disable' : ''}`}
+                type="submit"
+                onClick={handleSubmit}
+                disabled={isLoading}
+              >
+                Сохранить
+              </button>
+            )}
+            <button
+              className="profile__button-exit"
+              id="profile__button-exit"
+              type="button"
+              onClick={signOut}
+              disabled={isLoading}
+            >
+              Выйти из аккаунта
+            </button>
+          </div>
         </form>
-        <button
-          className="profile__button-exit"
-          id="profile__button-exit"
-          type="button"
-          onClick={signOut}
-        >
-          Выйти из аккаунта
-        </button>
       </section>
     </main>
   );

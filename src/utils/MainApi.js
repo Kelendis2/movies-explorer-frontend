@@ -7,7 +7,15 @@ export default class Api {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return Promise.reject(`Ошибка: ${res.message}`);
+  }
+
+  _isOk(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    console.log(res);
+    return res.json().then(res => { throw res });
   }
 
   register = ({ name, email, password, }) => {
@@ -91,7 +99,7 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, email }),
-    }).then(this._getResponseData);
+    }).then(this._isOk);
   }
 }
 export const api = new Api({
