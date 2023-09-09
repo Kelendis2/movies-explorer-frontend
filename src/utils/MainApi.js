@@ -1,5 +1,5 @@
 export default class Api {
-  constructor({ baseUrl, baseUrlMovie}) {
+  constructor({ baseUrl, baseUrlMovie }) {
     this._baseUrl = baseUrl;
     this._baseUrlMovie = baseUrlMovie;
   }
@@ -15,10 +15,12 @@ export default class Api {
       return res.json();
     }
     console.log(res);
-    return res.json().then(res => { throw res });
+    return res.json().then((res) => {
+      throw res;
+    });
   }
 
-  register = ({ name, email, password, }) => {
+  register = ({ name, email, password }) => {
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
       headers: {
@@ -26,7 +28,7 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, email, password }),
-    }).then(this._getResponseData);
+    }).then(this._isOk);
   };
 
   authorize = (email, password) => {
@@ -37,18 +39,18 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
-    }).then(this._getResponseData);
+    }).then(this._isOk);
   };
 
   getSavedMovies() {
     return fetch(`${this._baseUrl}/movies`, {
       method: "GET",
       headers: {
-        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
-      }
+      },
     }).then(this._getResponseData);
-    }
+  }
 
   saveMovie(movie) {
     return fetch(`${this._baseUrl}/movies`, {
@@ -69,8 +71,8 @@ export default class Api {
         nameEN: movie.nameEN,
         thumbnail: this._baseUrlMovie + movie.image.formats.thumbnail.url,
         movieId: movie.id,
-      })
-    }).then(this._getResponseData)
+      }),
+    }).then(this._getResponseData);
   }
   deleteMovie(movieId) {
     return fetch(`${this._baseUrl}/movies/${movieId}`, {
@@ -78,8 +80,8 @@ export default class Api {
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
-      }
-    })
+      },
+    });
   }
 
   getProfile() {
@@ -88,8 +90,8 @@ export default class Api {
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
         "Content-Type": "application/json",
-      }
-    }).then(this._getResponseData)
+      },
+    }).then(this._getResponseData);
   }
   udateProfile({ name, email }) {
     return fetch(`${this._baseUrl}/users/me`, {

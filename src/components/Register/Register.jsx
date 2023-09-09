@@ -1,29 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 
-function Register({ handleRegister }) {
+function Register({ handleRegister, errorMessage, isLoading }) {
   const navigate = useNavigate();
   const [formValue, setFormValue] = React.useState({
     name: "",
     email: "",
     password: "",
   });
-  const [errorMessage, setErrorMessage] = React.useState("");
   const { name, password, email } = formValue;
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormEmpty, setIsFormEmpty] = useState(true);
+
+  useEffect(() => {
+    // Функция для проверки валидности данных и обновления состояния isFormValid
+    const isInputValid = () => {
+      const isNameValid = name.trim().length >= 2 && name.trim().length <= 20;
+      const isEmailValid = /^\S+@\S+\.\S+$/.test(email.trim());
+      const isPasswordValid = password.trim().length >= 8;
+
+      return isNameValid && isEmailValid && isPasswordValid;
+    };
+
+    // Обновляем состояние isFormValid и isFormEmpty при изменении значений инпутов
+    setIsFormValid(isInputValid());
+    setIsFormEmpty(
+      name.trim() === "" || email.trim() === "" || password.trim() === ""
+    );
+  }, [name, email, password]);
 
   const goToLogin = () => {
     navigate("/signin");
   };
 
-  const handleReg = (e) => {
-    e.preventDefault();
-
-    if (!formValue.name || !formValue.email || !formValue.password) {
-      setErrorMessage("Both fields are required");
-      return;
-    }
-  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValue({
@@ -36,10 +46,15 @@ function Register({ handleRegister }) {
     e.preventDefault();
     handleRegister({ name, password, email });
   };
+
   return (
     <main className="signup">
       <section className="register">
-        <form className="register__form form" onSubmit={handleSubmit}>
+        <form
+          className="register__form form"
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <label className="register__form-label form__label"> Имя </label>
           <input
             className="register__form-input form__input"
@@ -49,7 +64,7 @@ function Register({ handleRegister }) {
             id="name"
             name="name"
             autoComplete="name"
-            value={formValue.name}
+            value={name}
             onChange={handleChange}
             type="text"
             required
@@ -65,7 +80,7 @@ function Register({ handleRegister }) {
             name="email"
             type="email"
             autoComplete="email"
-            value={formValue.email}
+            value={email}
             required
           ></input>
 
@@ -79,14 +94,22 @@ function Register({ handleRegister }) {
             name="password"
             type="password"
             autoComplete="new-password"
-            value={formValue.password}
+            value={password}
             onChange={handleChange}
             required
           ></input>
 
-          <span className="register__form-span-error form__span-error">{errorMessage}</span>
-          <button className="register__form-button form__button" type="submit">
-            Зарегестрироваться
+          <p className="register__form-error form__error "> {errorMessage}</p>
+          <button
+            className={`register__form-button  form__button ${
+              (isLoading || isFormEmpty || !isFormValid)
+                ? "form__button-disable"
+                : ""
+            }`}
+            type="submit"
+            disabled={isLoading || isFormEmpty || !isFormValid}
+          >
+            Зарегистрироваться
           </button>
           <span className="register__form-span-link form__span-link">
             Уже зарегистрированны?

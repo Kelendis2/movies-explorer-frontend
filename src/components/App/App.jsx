@@ -38,6 +38,8 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+        setFormActivated(true);
+        setErrorMessage("Что-то пошло не так ...");
       });
   };
   const handleLogin = ({ email, password }) => {
@@ -52,6 +54,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+        setErrorMessage("Что-то пошло не так ...");
       });
   };
 
@@ -243,7 +246,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Login handleLogin={handleLogin} />
+                <Login handleLogin={handleLogin} errorMessage={errorMessage}/>
               </>
             }
           />
@@ -252,7 +255,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Register handleRegister={handleRegister} />
+                <Register handleRegister={handleRegister} errorMessage={errorMessage}/>
               </>
             }
           />

@@ -41,7 +41,7 @@
   display: flex;
   gap: 6px;
 }
-.form__span-error {
+.form__error {
   color: #ee3465;
   margin: 10px 0 0 0;
   font-size: 10px;
@@ -49,6 +49,8 @@
   font-weight: 400;
   line-height: normal;
 }
+
+
 .form__button {
   margin: 81px 0 0 0;
   max-width: 396px;
@@ -81,6 +83,11 @@
 }
 .form__button-go:hover {
   opacity: 0.7;
+}
+.form__button-disable{
+  background: #F8F8F8;
+  color: #C2C2C2;
+  cursor: none;
 }
 .register__form-span-link {
   max-width: 250px;

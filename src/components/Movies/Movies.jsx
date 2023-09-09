@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Movies.css";
+import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
@@ -8,11 +9,13 @@ function Movies({ movies, savedMovies, onSave }) {
   const [searchResults, setSearchResults] = useState(
     JSON.parse(localStorage.getItem("searchResults")) || []
   );
-  const [isLoading, setIsLoading] = useState(false);
+  const hasDataInLocalStorage = localStorage.getItem("searchResults");
+  const [isLoading, setIsLoading] = useState(!hasDataInLocalStorage);
   const [visibleCards, setVisibleCards] = useState(getInitialVisibleCards());
   const [isShortFilm, setIsShortFilm] = useState(
     localStorage.getItem("isShortFilm") === "true" || false
   );
+
   const updateQuery = (newQuery) => {
     setQuery(newQuery);
   };
@@ -22,12 +25,10 @@ function Movies({ movies, savedMovies, onSave }) {
   };
 
   useEffect(() => {
-    // Сохраняем текст запроса в localStorage
     localStorage.setItem("query", query);
   }, [query]);
 
   useEffect(() => {
-    // Сохраняем состояние переключателя в localStorage
     localStorage.setItem("isShortFilm", isShortFilm);
   }, [isShortFilm]);
 
@@ -85,7 +86,10 @@ function Movies({ movies, savedMovies, onSave }) {
     }
 
     setSearchResults(searchResults);
-    setIsLoading(false);
+    localStorage.setItem("searchResults", JSON.stringify(searchResults));
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
     return;
   };
 
@@ -100,9 +104,8 @@ function Movies({ movies, savedMovies, onSave }) {
           onSearch={handleSearch}
         />
         {isLoading ? (
-          <p className="movies__loading">Загрузка...</p>
+          <Preloader />
         ) : !movies || searchResults.length === 0 ? (
-          // Выводите сообщение или компонент заглушку, если данных нет или они пусты
           <p className="movies__info">Нет доступных фильмов.</p>
         ) : (
           <MoviesCardList
