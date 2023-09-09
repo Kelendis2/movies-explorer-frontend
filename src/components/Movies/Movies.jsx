@@ -92,6 +92,31 @@ function Movies({ movies, savedMovies, onSave }) {
     }, 800);
     return;
   };
+  const filterMovies = (query, isShortFilm) => {
+    setIsLoading(true);
+
+    let filteredMovies = movies;
+
+    if (isShortFilm) {
+      filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
+    }
+
+    const filteredResults = filteredMovies.filter((movie) => {
+      return (
+        movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
+        movie.nameEN.toLowerCase().includes(query.toLowerCase())
+      );
+    });
+
+    setSearchResults(filteredResults);
+    localStorage.setItem("searchResults", JSON.stringify(filteredResults));
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+  };
+
+
 
   return (
     <main className="movieMain">
@@ -102,6 +127,7 @@ function Movies({ movies, savedMovies, onSave }) {
           isShortFilm={isShortFilm}
           setIsShortFilm={updateIsShortFilm}
           onSearch={handleSearch}
+          onFilter={filterMovies }
         />
         {isLoading ? (
           <Preloader />

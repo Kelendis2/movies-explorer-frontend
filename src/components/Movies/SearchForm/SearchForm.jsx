@@ -1,13 +1,22 @@
 import React from "react";
 import "./SearchForm.css";
 
-function SearchForm({ query, setQuery, isShortFilm, setIsShortFilm, onSearch }) {
+function SearchForm({
+  query,
+  setQuery,
+  isShortFilm,
+  setIsShortFilm,
+  onSearch,
+  onFilter,
+}) {
+
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
   const handleShortFilmToggle = () => {
     setIsShortFilm(!isShortFilm);
+    onFilter(query, !isShortFilm);
   };
 
   const handleSubmit = (event) => {
@@ -15,6 +24,12 @@ function SearchForm({ query, setQuery, isShortFilm, setIsShortFilm, onSearch }) 
 
     onSearch(query, isShortFilm);
   };
+  const handleInputKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
+
 
   return (
     <div className="serach">
@@ -26,6 +41,7 @@ function SearchForm({ query, setQuery, isShortFilm, setIsShortFilm, onSearch }) 
             required
             value={query}
             onChange={handleInputChange}
+            onKeyDown={handleInputKeyDown}
           ></input>
           <button className="serach__form-button" type="submit" />
         </div>

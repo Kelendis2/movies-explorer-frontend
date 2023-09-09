@@ -27,6 +27,31 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isFormActivated, setFormActivated] = useState(false);
+  const currentPath = window.location.pathname;
+  localStorage.setItem("currentPath", currentPath);
+  const checkToken = () => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      api
+        .getProfile()
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+            getUser();
+            getSavedMovies();
+            const currentPath = localStorage.getItem("currentPath");
+            if (currentPath) {
+              navigate(currentPath);
+            }
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  useEffect(() => {
+    checkToken();
+  }, []);
 
   const handleRegister = ({ name, email, password }) => {
     api
@@ -56,25 +81,6 @@ function App() {
         setErrorMessage(err.message);
       });
   };
-
-  const checkTocken = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      api
-        .getProfile()
-        .then((res) => {
-          setLoggedIn(true);
-          if (res) {
-            getUser();
-            getSavedMovies();
-          }
-        })
-        .catch((err) => console.log(err));
-    }
-  };
-  useEffect(() => {
-    checkTocken();
-  }, []);
 
   const getUser = () => {
     api
@@ -202,6 +208,7 @@ function App() {
                 getMovies={getMovies}
                 savedMovies={savedMovies}
                 onSave={handleSaveMovie}
+                loggedIn={loggedIn}
               />
             }
           />
@@ -212,6 +219,7 @@ function App() {
                 element={SavedMovies}
                 movies={savedMovies}
                 onDelete={handleDeleteMovie}
+                loggedIn={loggedIn}
               />
             }
           />
@@ -226,6 +234,7 @@ function App() {
                 successMessage={successMessage}
                 isFormActivated={isFormActivated}
                 setFormActivated={setFormActivated}
+                loggedIn={loggedIn}
               />
             }
           />
