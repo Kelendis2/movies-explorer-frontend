@@ -31,8 +31,8 @@
   box-shadow: inset 20px 20px 0px 20px #2f2f2f;
 }
 .form__input:invalid {
-  border-color: #EE3465; /* Меняем цвет границы на красный */
-  color: #EE3465; /* Меняем цвет текста на красный */
+  border-color: #EE3465;
+  color: #EE3465;
 }
 .form__label {
   margin: 20px 0 10px 0;
