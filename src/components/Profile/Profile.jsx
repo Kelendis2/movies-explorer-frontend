@@ -20,7 +20,10 @@ function Profile({
     navigate("/");
   };
   const currentUser = useContext(CurrentUserContext);
-  const [value, setValue] = useState({});
+  const [value, setValue] = useState({
+    name: currentUser.name,
+    email: currentUser.email,
+  });
 
   const handleActivated = () => {
     setFormActivated(true);

@@ -14,7 +14,6 @@ function Register({ handleRegister, errorMessage, isLoading }) {
   const [isFormEmpty, setIsFormEmpty] = useState(true);
 
   useEffect(() => {
-    // Функция для проверки валидности данных и обновления состояния isFormValid
     const isInputValid = () => {
       const isNameValid = name.trim().length >= 2 && name.trim().length <= 20;
       const isEmailValid = /^\S+@\S+\.\S+$/.test(email.trim());
@@ -23,7 +22,6 @@ function Register({ handleRegister, errorMessage, isLoading }) {
       return isNameValid && isEmailValid && isPasswordValid;
     };
 
-    // Обновляем состояние isFormValid и isFormEmpty при изменении значений инпутов
     setIsFormValid(isInputValid());
     setIsFormEmpty(
       name.trim() === "" || email.trim() === "" || password.trim() === ""

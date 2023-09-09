@@ -1,8 +1,7 @@
-// import App from "./App.css";
+import  "./App.css";
 import { useState, useEffect } from "react";
 import React from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
-
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
@@ -58,7 +57,6 @@ function App() {
       });
   };
 
-  //Проверка токена
   const checkTocken = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -66,7 +64,6 @@ function App() {
         .getProfile()
         .then((res) => {
           setLoggedIn(true);
-          navigate("/movies");
           if (res) {
             getUser();
             getSavedMovies();
@@ -246,7 +243,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Login handleLogin={handleLogin} errorMessage={errorMessage}/>
+                <Login handleLogin={handleLogin} errorMessage={errorMessage} />
               </>
             }
           />
@@ -255,7 +252,10 @@ function App() {
             element={
               <>
                 <Header />
-                <Register handleRegister={handleRegister} errorMessage={errorMessage}/>
+                <Register
+                  handleRegister={handleRegister}
+                  errorMessage={errorMessage}
+                />
               </>
             }
           />

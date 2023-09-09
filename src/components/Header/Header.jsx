@@ -1,11 +1,11 @@
 import "./Header.css";
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import NavTab from "../NavTab/NavTab";
 import profileLogo from "../../images/profilemenuL.svg";
+import profileMain from "../../images/profilemain.svg"
 import Overlay from "../Overlay/Overlay";
 
 function Header({ loggedIn }) {
@@ -84,7 +84,7 @@ function Header({ loggedIn }) {
                 <img
                   className="navigation__profile-logo"
                   alt="Иконка-профиля"
-                  src={profileLogo}
+                  src={profileMain}
                 />
               </Link>
             </div>
@@ -153,7 +153,6 @@ function Header({ loggedIn }) {
     }
   };
 
-  // Возвращаем JSX
   return (
     <>
       <header className={classNameHeader()}>
