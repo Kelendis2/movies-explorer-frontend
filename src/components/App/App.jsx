@@ -1,4 +1,4 @@
-import  "./App.css";
+import "./App.css";
 import { useState, useEffect } from "react";
 import React from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
@@ -13,9 +13,9 @@ import Footer from "../Footer/Footer";
 import NotFound from "../NotFound/NotFound";
 import { api } from "../../utils/MainApi";
 import { MoviesApi } from "../../utils/MoviesApi";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { get } from "react-scroll/modules/mixins/scroller";
 
 function App() {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ function App() {
       .catch((err) => {
         console.log(err);
         setFormActivated(true);
-        setErrorMessage("Что-то пошло не так ...");
+        setErrorMessage(err.message);
       });
   };
   const handleLogin = ({ email, password }) => {
@@ -53,7 +53,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setErrorMessage("Что-то пошло не так ...");
+        setErrorMessage(err.message);
       });
   };
 
@@ -182,67 +182,57 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
+        <Header loggedIn={loggedIn} />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route
             path="/"
             element={
               <>
-                <Header loggedIn={loggedIn} />
                 <Main />
-                <Footer />
               </>
             }
           />
           <Route
             path="/movies"
             element={
-              <>
-                <Header />
-                <Movies
-                  movies={allMovies}
-                  getMovies={getMovies}
-                  savedMovies={savedMovies}
-                  onSave={handleSaveMovie}
-                />
-                <Footer />
-              </>
+              <ProtectedRoute
+                element={Movies}
+                movies={allMovies}
+                getMovies={getMovies}
+                savedMovies={savedMovies}
+                onSave={handleSaveMovie}
+              />
             }
           />
           <Route
             path="/saved-movies"
             element={
-              <>
-                <Header />
-                <SavedMovies
-                  movies={savedMovies}
-                  onDelete={handleDeleteMovie}
-                />
-                <Footer />
-              </>
+              <ProtectedRoute
+                element={SavedMovies}
+                movies={savedMovies}
+                onDelete={handleDeleteMovie}
+              />
             }
           />
           <Route
             path="/profile"
             element={
-              <>
-                <Header />
-                <Profile
-                  isLoading={isLoading}
-                  onUpdateUser={handleUpdateUser}
-                  errorMessage={errorMessage}
-                  successMessage={successMessage}
-                  isFormActivated={isFormActivated}
-                  setFormActivated={setFormActivated}
-                />
-              </>
+              <ProtectedRoute
+                element={Profile}
+                isLoading={isLoading}
+                onUpdateUser={handleUpdateUser}
+                errorMessage={errorMessage}
+                successMessage={successMessage}
+                isFormActivated={isFormActivated}
+                setFormActivated={setFormActivated}
+              />
             }
           />
           <Route
             path="/signin"
             element={
               <>
-                <Header />
                 <Login handleLogin={handleLogin} errorMessage={errorMessage} />
               </>
             }
@@ -251,7 +241,6 @@ function App() {
             path="/signup"
             element={
               <>
-                <Header />
                 <Register
                   handleRegister={handleRegister}
                   errorMessage={errorMessage}
@@ -260,6 +249,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </div>
     </CurrentUserContext.Provider>
   );

@@ -96,7 +96,6 @@ function Register({ handleRegister, errorMessage, isLoading }) {
             onChange={handleChange}
             required
           ></input>
-
           <p className="register__form-error form__error "> {errorMessage}</p>
           <button
             className={`register__form-button  form__button ${

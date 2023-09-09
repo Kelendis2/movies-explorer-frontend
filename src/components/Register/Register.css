@@ -53,7 +53,6 @@
   line-height: normal;
 }
 
-
 .form__button {
   margin: 81px 0 0 0;
   max-width: 396px;
@@ -108,7 +107,9 @@
   }
   .register__form-button {
     margin: 82px 0 0 0;
-
+  }
+  .form__button-go {
+    margin: 0;
   }
 }
 @media screen and (max-width: 420px) {
@@ -124,13 +125,15 @@
     margin: 168px 0 0 0;
     font-size: 12px;
   }
+  .form__button-go {
+    margin: 0;
+    font-size: 12px;
+  }
   .form__span-link {
     font-size: 12px;
     margin: 14px auto 30px;
   }
-  .form__button-go {
-    font-size: 12px;
-  }
+
 }
 
 input:-webkit-autofill,
