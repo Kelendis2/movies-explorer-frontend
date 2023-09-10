@@ -3,7 +3,6 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
 function Login({ handleLogin, errorMessage, isLoading }) {
-
   const navigate = useNavigate();
   const [formValue, setFormValue] = React.useState({
     email: "",
@@ -12,6 +11,7 @@ function Login({ handleLogin, errorMessage, isLoading }) {
   const { email, password } = formValue;
   const [isFormValid, setIsFormValid] = useState(false);
   const [isFormEmpty, setIsFormEmpty] = useState(true);
+
 
   const goToRegistration = () => {
     navigate("/signup");

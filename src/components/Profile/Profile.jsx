@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -11,6 +11,9 @@ function Profile({
   isFormActivated,
   setFormActivated,
 }) {
+  useEffect(() => {
+    localStorage.setItem("currentPath", "/profile");
+  }, []);
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("jwt");

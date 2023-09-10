@@ -25,33 +25,10 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [errorRegisterMessage, setRegisterErrorMessage] = useState("");
+  const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isFormActivated, setFormActivated] = useState(false);
-  const currentPath = window.location.pathname;
-  localStorage.setItem("currentPath", currentPath);
-  const checkToken = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      api
-        .getProfile()
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true);
-            getUser();
-            getSavedMovies();
-            const currentPath = localStorage.getItem("currentPath");
-            if (currentPath) {
-              navigate(currentPath);
-            }
-          }
-        })
-        .catch((err) => console.log(err));
-    }
-  };
-
-  useEffect(() => {
-    checkToken();
-  }, []);
 
   const handleRegister = ({ name, email, password }) => {
     api
@@ -63,9 +40,11 @@ function App() {
       .catch((err) => {
         console.log(err);
         setFormActivated(true);
-        setErrorMessage(err.message);
+        setRegisterErrorMessage(err.message);
       });
   };
+
+
   const handleLogin = ({ email, password }) => {
     api
       .authorize(email, password)
@@ -78,7 +57,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setErrorMessage(err.message);
+        setLoginErrorMessage(err.message);
       });
   };
 
@@ -96,10 +75,28 @@ function App() {
       .getSavedMovies()
       .then((movies) => {
         setSavedMovies(movies);
-        console.log(movies);
       })
       .catch((err) => console.log(err));
   };
+  const checkToken = () => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      api
+        .getProfile()
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+            getUser();
+            getSavedMovies();
+            navigate("/signin");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+  useEffect(() => {
+    checkToken();
+  }, []);
 
   const getMovies = () => {
     MoviesApi.getMovies()
@@ -204,11 +201,12 @@ function App() {
             element={
               <ProtectedRoute
                 element={Movies}
+                loggedIn={loggedIn}
+                currentUser={currentUser}
                 movies={allMovies}
                 getMovies={getMovies}
                 savedMovies={savedMovies}
                 onSave={handleSaveMovie}
-                loggedIn={loggedIn}
               />
             }
           />
@@ -220,6 +218,7 @@ function App() {
                 movies={savedMovies}
                 onDelete={handleDeleteMovie}
                 loggedIn={loggedIn}
+                currentUser={currentUser}
               />
             }
           />
@@ -235,6 +234,7 @@ function App() {
                 isFormActivated={isFormActivated}
                 setFormActivated={setFormActivated}
                 loggedIn={loggedIn}
+                currentUser={currentUser}
               />
             }
           />
@@ -242,7 +242,10 @@ function App() {
             path="/signin"
             element={
               <>
-                <Login handleLogin={handleLogin} errorMessage={errorMessage} />
+                <Login
+                  handleLogin={handleLogin}
+                  errorMessage={loginErrorMessage}
+                />
               </>
             }
           />
@@ -252,7 +255,7 @@ function App() {
               <>
                 <Register
                   handleRegister={handleRegister}
-                  errorMessage={errorMessage}
+                  errorMessage={errorRegisterMessage}
                 />
               </>
             }

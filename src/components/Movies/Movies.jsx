@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+
 import "./Movies.css";
 import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
 function Movies({ movies, savedMovies, onSave }) {
+  useEffect(() => {
+    localStorage.setItem("currentPath", "/movies");
+  }, []);
+
   const [query, setQuery] = useState(localStorage.getItem("query") || "");
   const [searchResults, setSearchResults] = useState(
     JSON.parse(localStorage.getItem("searchResults")) || []
@@ -116,8 +121,6 @@ function Movies({ movies, savedMovies, onSave }) {
     }, 800);
   };
 
-
-
   return (
     <main className="movieMain">
       <section className="movies">
@@ -127,7 +130,7 @@ function Movies({ movies, savedMovies, onSave }) {
           isShortFilm={isShortFilm}
           setIsShortFilm={updateIsShortFilm}
           onSearch={handleSearch}
-          onFilter={filterMovies }
+          onFilter={filterMovies}
         />
         {isLoading ? (
           <Preloader />

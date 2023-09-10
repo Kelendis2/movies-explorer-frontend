@@ -4,21 +4,21 @@ import SearchForm from "../Movies/SearchForm/SearchForm";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 
 function SavedMovies({ movies, onDelete }) {
+  useEffect(() => {
+    localStorage.setItem("currentPath", "/saved-movies");
+  }, []);
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isShortFilm, setIsShortFilm] = useState(false);
   useEffect(() => {
-    // Проверка, что movies не пустой и что searchResults ещё не установлены
     if (movies.length > 0 && searchResults.length === 0) {
       setSearchResults(movies);
     }
   }, [movies]);
 
-  // Обработчик изменения запроса поиска
   const handleSearch = (newQuery, newIsShortFilm) => {
     setIsShortFilm(newIsShortFilm);
 
-    // Фильтрация сохраненных фильмов
     const filteredMovies = movies.filter((movie) => {
       const includesQuery =
         movie.nameRU.toLowerCase().includes(newQuery.toLowerCase()) ||
@@ -34,7 +34,6 @@ function SavedMovies({ movies, onDelete }) {
     setSearchResults(filteredMovies);
   };
   const filterMovies = (query, isShortFilm) => {
-
     let filteredMovies = movies;
     if (isShortFilm) {
       filteredMovies = filteredMovies.filter((movie) => movie.duration <= 40);
@@ -48,7 +47,6 @@ function SavedMovies({ movies, onDelete }) {
 
     setSearchResults(filteredResults);
   };
-
 
   return (
     <main className=" movies movies_saved">

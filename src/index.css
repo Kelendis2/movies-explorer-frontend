@@ -1,6 +1,12 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+}
+
 .page {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   display: flex;
@@ -11,4 +17,5 @@
   line-height: 1.15;
   background-color: #202020;
 }
+
 
