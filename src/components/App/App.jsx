@@ -88,7 +88,10 @@ function App() {
             setLoggedIn(true);
             getUser();
             getSavedMovies();
-            navigate("/signin");
+            const currentPath = localStorage.getItem("currentPath");
+            if (currentPath) {
+              navigate(currentPath);
+            }
           }
         })
         .catch((err) => console.log(err));
@@ -146,6 +149,7 @@ function App() {
       } else {
         console.error("Не удалось найти _id фильма для удаления.");
       }
+
     }
   };
 
@@ -155,6 +159,7 @@ function App() {
       .then(() => {
         setSavedMovies((savedMovies) =>
           savedMovies.filter((item) => item._id !== movie._id)
+
         );
       })
       .catch((err) => {
