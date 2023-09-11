@@ -202,12 +202,13 @@ function App() {
               </>
             }
           />
+
           <Route
             path="/movies"
             element={
               <ProtectedRoute
                 element={Movies}
-                loggedIn={loggedIn}
+                loggedIn={currentUser.loggedIn}
                 currentUser={currentUser}
                 movies={allMovies}
                 getMovies={getMovies}
@@ -223,7 +224,7 @@ function App() {
                 element={SavedMovies}
                 movies={savedMovies}
                 onDelete={handleDeleteMovie}
-                loggedIn={loggedIn}
+                loggedIn={currentUser.loggedIn}
                 currentUser={currentUser}
               />
             }
@@ -239,7 +240,7 @@ function App() {
                 successMessage={successMessage}
                 isFormActivated={isFormActivated}
                 setFormActivated={setFormActivated}
-                loggedIn={loggedIn}
+                loggedIn={currentUser.loggedIn}
                 currentUser={currentUser}
               />
             }
