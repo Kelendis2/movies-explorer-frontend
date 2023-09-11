@@ -35,7 +35,8 @@ function App() {
       .register({ name, email, password })
       .then((data) => {
         console.log(data);
-        navigate("/signin");
+        handleLogin( {email, password} )
+
       })
       .catch((err) => {
         console.log(err);

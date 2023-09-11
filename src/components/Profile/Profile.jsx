@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import Preloader from "../Movies/Preloader/Preloader";
 
 function Profile({
   onUpdateUser,
@@ -51,6 +52,7 @@ function Profile({
   return (
     <main className="profileMain">
       <section className="profile">
+        {currentUser ? (<>
         <h1 className="profile__title"> {`Привет,  ${currentUser.name}!`}</h1>
         <form className="profile__form" onSubmit={handleSubmit} noValidate>
           <div className="profile__form-item" id="profile-item_one">
@@ -124,6 +126,7 @@ function Profile({
             </button>
           </div>
         </form>
+        </>):( <Preloader /> )}
       </section>
     </main>
   );

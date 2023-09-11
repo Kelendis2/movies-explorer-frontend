@@ -15,7 +15,8 @@ function Movies({ movies, savedMovies, onSave }) {
     JSON.parse(localStorage.getItem("searchResults")) || []
   );
   const hasDataInLocalStorage = localStorage.getItem("searchResults");
-  const [isLoading, setIsLoading] = useState(!hasDataInLocalStorage);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [isLoading, setIsLoading] = useState(hasDataInLocalStorage);
   const [visibleCards, setVisibleCards] = useState(getInitialVisibleCards());
   const [isShortFilm, setIsShortFilm] = useState(
     localStorage.getItem("isShortFilm") === "true" || false
@@ -89,8 +90,8 @@ function Movies({ movies, savedMovies, onSave }) {
         );
       });
     }
-
     setSearchResults(searchResults);
+    setHasSearched(true);
     localStorage.setItem("searchResults", JSON.stringify(searchResults));
     setTimeout(() => {
       setIsLoading(false);
@@ -134,8 +135,8 @@ function Movies({ movies, savedMovies, onSave }) {
         />
         {isLoading ? (
           <Preloader />
-        ) : !movies || searchResults.length === 0 ? (
-          <p className="movies__info">Нет доступных фильмов.</p>
+        ) : !movies || (hasSearched && searchResults.length === 0) ? ( // Проверяем hasSearched перед отображением "Ничего не найдено"
+          <p className="movies__info">Ничего не найдено.</p>
         ) : (
           <MoviesCardList
             moviesList={searchResults.slice(0, visibleCards)}
