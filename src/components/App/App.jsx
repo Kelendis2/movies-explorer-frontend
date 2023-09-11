@@ -99,6 +99,7 @@ function App() {
             setLoggedIn(true);
             getUser();
             getSavedMovies();
+
             const currentPath = localStorage.getItem("currentPath");
             if (currentPath) {
               navigate(currentPath);
@@ -134,9 +135,6 @@ function App() {
         console.log(err);
       });
   };
-  useEffect(() => {
-    getMovies();
-  }, []);
 
 
   const handleSaveMovie = (movie) => {
@@ -184,10 +182,6 @@ function App() {
         setSavedMovies((savedMovies) =>
           savedMovies.filter((item) => item._id !== movie._id)
         );
-      })
-      .then(()=>{
-
-        getSavedMovies();
       })
       .catch((err) => {
         console.error("Ошибка при удалении фильма:", err);
@@ -240,6 +234,7 @@ function App() {
                 movies={allMovies}
                 savedMovies={savedMovies}
                 onSave={handleSaveMovie}
+                getMovies={getMovies}
               />
             }
           />

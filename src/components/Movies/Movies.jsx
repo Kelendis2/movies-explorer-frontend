@@ -5,7 +5,7 @@ import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({ movies, savedMovies, onSave}) {
+function Movies({ movies, savedMovies, onSave, getMovies}) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/movies");
   }, []);
@@ -22,6 +22,8 @@ function Movies({ movies, savedMovies, onSave}) {
     localStorage.getItem("isShortFilm") === "true" || false
   );
 
+  console.log(movies)
+  console.log(searchResults)
   const updateQuery = (newQuery) => {
     setQuery(newQuery);
   };
@@ -79,6 +81,7 @@ function Movies({ movies, savedMovies, onSave}) {
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
+    getMovies();
     let filteredMovies = movies;
     let searchResults;
 
@@ -127,7 +130,7 @@ function Movies({ movies, savedMovies, onSave}) {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 300);
   };
 
   return (

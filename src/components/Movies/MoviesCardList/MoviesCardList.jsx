@@ -10,7 +10,12 @@ function MoviesCardList({
   onSave,
   onDelete
 }) {
+
+
+  console.log('мы пришли из локала', moviesList)
+  console.log('а мы сохраненые ', savedMoviesList)
   const moviesToRender = isSavedMoviesPage ? savedMoviesList : moviesList;
+
 
   return (
     <ul className="movies__list">
