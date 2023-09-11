@@ -16,7 +16,6 @@ function Promo({ scroll }) {
           <button
             className="promo__button"
             to="about-project"
-            smooth={true}
             onClick={scroll}
           >
             Узнать больше
