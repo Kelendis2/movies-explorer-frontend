@@ -36,7 +36,6 @@ function App() {
       .then((data) => {
         console.log(data);
         handleLogin( {email, password} )
-        navigate("/movies");
 
       })
       .catch((err) => {
@@ -100,7 +99,9 @@ function App() {
     }
   };
   useEffect(() => {
-    checkToken();
+    if (currentUser.isLoggedIn) {
+      checkToken();
+    }
   }, []);
 
   const getMovies = () => {
