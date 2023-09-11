@@ -10,11 +10,15 @@ function Profile({
   successMessage,
   isFormActivated,
   setFormActivated,
+  getUser
 }) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/profile");
   }, []);
   const navigate = useNavigate();
+  useEffect(() => {
+    getUser();
+  }, []);
   const signOut = () => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("query");

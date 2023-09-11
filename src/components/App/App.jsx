@@ -20,7 +20,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [isloggedIn, setLoggedIn] = useState(false);
   const [allMovies, setAllMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -98,10 +98,10 @@ function App() {
         .catch((err) => console.log(err));
     }
   };
-  useEffect(() => {
-    if (currentUser.LoggedIn) {
-      checkToken();
 
+  useEffect(() => {
+    if (currentUser.isLoggedIn) {
+      checkToken();
     }
   }, []);
 
@@ -194,7 +194,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        <Header loggedIn={currentUser.loggedIn} />
+        <Header loggedIn={isloggedIn} />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route
@@ -211,7 +211,7 @@ function App() {
             element={
               <ProtectedRoute
                 element={Movies}
-                loggedIn={currentUser.loggedIn}
+                loggedIn={isloggedIn}
                 currentUser={currentUser}
                 movies={allMovies}
                 getMovies={getMovies}
@@ -227,7 +227,7 @@ function App() {
                 element={SavedMovies}
                 movies={savedMovies}
                 onDelete={handleDeleteMovie}
-                loggedIn={currentUser.loggedIn}
+                loggedIn={isloggedIn}
                 currentUser={currentUser}
               />
             }
@@ -243,7 +243,8 @@ function App() {
                 successMessage={successMessage}
                 isFormActivated={isFormActivated}
                 setFormActivated={setFormActivated}
-                loggedIn={currentUser.loggedIn}
+                loggedIn={isloggedIn}
+                getUser={getUser}
                 currentUser={currentUser}
               />
             }
