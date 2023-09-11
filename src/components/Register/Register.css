@@ -34,6 +34,10 @@
   border-color: #EE3465;
   color: #EE3465;
 }
+.form__input-invalid{
+  border-color: #EE3465;
+  color: #EE3465;
+}
 .form__label {
   margin: 20px 0 10px 0;
   font-size: 10px;

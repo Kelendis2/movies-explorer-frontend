@@ -5,7 +5,7 @@ import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({ movies, savedMovies, onSave }) {
+function Movies({ movies, savedMovies, onSave}) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/movies");
   }, []);
@@ -42,8 +42,12 @@ function Movies({ movies, savedMovies, onSave }) {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
       return 16;
-    } else if (screenWidth >= 768) {
+    }
+    else if (screenWidth >= 769) {
       return 12;
+    }
+    else if (screenWidth >= 768) {
+      return 8;
     } else {
       return 5;
     }
@@ -52,8 +56,12 @@ function Movies({ movies, savedMovies, onSave }) {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-    } else if (screenWidth >= 768) {
+    }
+    else if (screenWidth >= 769) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
+    }
+     else if (screenWidth >= 768) {
+      setVisibleCards((prevVisibleCards) => prevVisibleCards + 2);
     } else {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 1);
     }
@@ -135,7 +143,7 @@ function Movies({ movies, savedMovies, onSave }) {
         />
         {isLoading ? (
           <Preloader />
-        ) : !movies || (hasSearched && searchResults.length === 0) ? ( // Проверяем hasSearched перед отображением "Ничего не найдено"
+        ) : !movies || (hasSearched && searchResults.length === 0) ? (
           <p className="movies__info">Ничего не найдено.</p>
         ) : (
           <MoviesCardList

@@ -31,6 +31,7 @@ function App() {
   const [isFormActivated, setFormActivated] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
+    setIsLoading(true);
     api
       .register({ name, email, password })
       .then((data) => {
@@ -42,11 +43,15 @@ function App() {
         console.log(err);
         setFormActivated(true);
         setRegisterErrorMessage(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
 
   const handleLogin = ({ email, password }) => {
+    setIsLoading(true);
     api
       .authorize(email, password)
       .then((data) => {
@@ -60,6 +65,9 @@ function App() {
       .catch((err) => {
         console.log(err);
         setLoginErrorMessage(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -80,6 +88,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
+
   const checkToken = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -110,7 +119,8 @@ function App() {
     localStorage.removeItem("query");
     localStorage.removeItem("isShortFilm");
     localStorage.removeItem("searchResults");
-    checkToken()
+    localStorage.removeItem("currentPath");
+    setLoggedIn(false);
     navigate("/");
   };
 
@@ -124,10 +134,10 @@ function App() {
         console.log(err);
       });
   };
-
   useEffect(() => {
     getMovies();
   }, []);
+
 
   const handleSaveMovie = (movie) => {
     const isSaved = savedMovies.some((item) => item.movieId === movie.id);
@@ -173,8 +183,11 @@ function App() {
       .then(() => {
         setSavedMovies((savedMovies) =>
           savedMovies.filter((item) => item._id !== movie._id)
-
         );
+      })
+      .then(()=>{
+
+        getSavedMovies();
       })
       .catch((err) => {
         console.error("Ошибка при удалении фильма:", err);
@@ -205,7 +218,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        <Header loggedIn={isloggedIn} />
+        <Header loggedIn={isloggedIn}  />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route
@@ -225,7 +238,6 @@ function App() {
                 loggedIn={isloggedIn}
                 currentUser={currentUser}
                 movies={allMovies}
-                getMovies={getMovies}
                 savedMovies={savedMovies}
                 onSave={handleSaveMovie}
               />
@@ -240,6 +252,7 @@ function App() {
                 onDelete={handleDeleteMovie}
                 loggedIn={isloggedIn}
                 currentUser={currentUser}
+                getSavedMovies={getSavedMovies}
               />
             }
           />
@@ -268,6 +281,7 @@ function App() {
                 <Login
                   handleLogin={handleLogin}
                   errorMessage={loginErrorMessage}
+                  isLoading={isLoading}
                 />
               </>
             }
@@ -279,6 +293,8 @@ function App() {
                 <Register
                   handleRegister={handleRegister}
                   errorMessage={errorRegisterMessage}
+                  setErrorMessage={setRegisterErrorMessage}
+                  isLoading={isLoading}
                 />
               </>
             }

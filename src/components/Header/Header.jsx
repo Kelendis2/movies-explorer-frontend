@@ -7,6 +7,7 @@ import NavTab from "../NavTab/NavTab";
 import profileLogo from "../../images/profilemenuL.svg";
 import profileMain from "../../images/profilemain.svg"
 import Overlay from "../Overlay/Overlay";
+import { NavLink } from 'react-router-dom';
 
 function Header({ loggedIn }) {
   const location = useLocation();
@@ -61,7 +62,19 @@ function Header({ loggedIn }) {
 
   const navContent = () => {
     if (pathname === "/") {
-      if (loggedIn) {
+      if (!loggedIn){
+        return (
+          <Navigation>
+            <Link className="navigation__link" to="/signup">
+              Регистрация
+            </Link>
+            <Link className="navigation__button" to="/signin">
+              Войти
+            </Link>
+          </Navigation>
+        );
+      }
+      else {
         return (
           <Navigation className="navigation_main">
             <ul className="navigation__movie">
@@ -90,17 +103,6 @@ function Header({ loggedIn }) {
             </div>
           </Navigation>
         );
-      } else {
-        return (
-          <Navigation>
-            <Link className="navigation__link" to="/signup">
-              Регистрация
-            </Link>
-            <Link className="navigation__button" to="/signin">
-              Войти
-            </Link>
-          </Navigation>
-        );
       }
     } else if (
       pathname === "/movies" ||
@@ -119,19 +121,19 @@ function Header({ loggedIn }) {
       } else {
         return (
           <Navigation className="navigation_main">
-            <ul className="navigation__movie">
+            <ul className="navigation__movie ">
               <li className="navigation__movie-item">
-                <Link className="navigation__nav-link" to="/movies">
+                <NavLink exact="true" activeclassname="navigation__nav-link_active" className="navigation__nav-link" to="/movies">
                   Фильмы
-                </Link>
+                </NavLink>
               </li>
               <li className="navigation__movie-item">
-                <Link
-                  className="navigation__nav-link navigation__nav-link_active"
+                <NavLink exact="true" activeclassname="navigation__nav-link_active"
+                  className="navigation__nav-link"
                   to="/saved-movies"
                 >
                   Сохраненные фильмы
-                </Link>
+                </NavLink>
               </li>
             </ul>
             <div className="navigation__profile">
