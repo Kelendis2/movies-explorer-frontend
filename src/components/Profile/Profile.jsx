@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -10,23 +9,13 @@ function Profile({
   successMessage,
   isFormActivated,
   setFormActivated,
-  getUser
+  signOut
 }) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/profile");
   }, []);
-  const navigate = useNavigate();
-  useEffect(() => {
-    getUser();
-  }, []);
-  const signOut = () => {
-    localStorage.removeItem("jwt");
-    localStorage.removeItem("query");
-    localStorage.removeItem("isShortFilm");
-    localStorage.removeItem("searchResults");
-    navigate("/");
-  };
   const currentUser = useContext(CurrentUserContext);
+
   const [value, setValue] = useState({
     name: currentUser.name,
     email: currentUser.email,
@@ -34,6 +23,9 @@ function Profile({
 
   const handleActivated = () => {
     setFormActivated(true);
+  };
+  const isFormValid = () => {
+    return value.name === currentUser.name && value.email === currentUser.email;
   };
 
   React.useEffect(() => {
@@ -51,6 +43,7 @@ function Profile({
     setFormActivated(false);
     onUpdateUser(value);
   }
+
 
   return (
     <main className="profileMain">
@@ -110,7 +103,7 @@ function Profile({
             {isFormActivated && (
               <button
                 className={`profile__button-save ${
-                  isLoading ? "profile__button-disable" : ""
+                  isLoading || isFormValid() ? "profile__button-disable" : ""
                 }`}
                 type="submit"
                 onClick={handleSubmit}

@@ -53,6 +53,7 @@ function App() {
         if (data) {
           localStorage.setItem("jwt", data.token);
           setLoggedIn(true);
+          checkToken();
           navigate("/movies");
         }
       })
@@ -100,10 +101,19 @@ function App() {
   };
 
   useEffect(() => {
-    if (currentUser.isLoggedIn) {
       checkToken();
-    }
+
   }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    localStorage.removeItem("query");
+    localStorage.removeItem("isShortFilm");
+    localStorage.removeItem("searchResults");
+    checkToken()
+    navigate("/");
+  };
+
 
   const getMovies = () => {
     MoviesApi.getMovies()
@@ -191,6 +201,7 @@ function App() {
       });
   };
 
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
@@ -246,6 +257,7 @@ function App() {
                 loggedIn={isloggedIn}
                 getUser={getUser}
                 currentUser={currentUser}
+                signOut= {handleSignOut}
               />
             }
           />
