@@ -99,8 +99,9 @@ function App() {
     }
   };
   useEffect(() => {
-    if (currentUser.isLoggedIn) {
+    if (currentUser.LoggedIn) {
       checkToken();
+
     }
   }, []);
 
