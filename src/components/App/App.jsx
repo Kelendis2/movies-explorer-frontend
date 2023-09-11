@@ -36,6 +36,7 @@ function App() {
       .then((data) => {
         console.log(data);
         handleLogin( {email, password} )
+        navigate("/movies");
 
       })
       .catch((err) => {
@@ -191,7 +192,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        <Header loggedIn={loggedIn} />
+        <Header loggedIn={currentUser.loggedIn} />
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route
