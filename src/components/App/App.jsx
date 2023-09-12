@@ -29,7 +29,7 @@ function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isFormActivated, setFormActivated] = useState(false);
-  const [isErrorPage, setErrorPage] = useState(false);
+  const [isPageLoading, setIsPageLoading] = useState(true);
 
   const handleRegister = ({ name, email, password }) => {
     setIsLoading(true);
@@ -91,7 +91,7 @@ function App() {
   };
 
   const checkToken = () => {
-    const jwt = localStorage.getItem("jwt");
+    const jwt = localStorage.getItem('jwt');
     if (jwt) {
       api
         .getProfile()
@@ -101,21 +101,23 @@ function App() {
             getUser();
             getSavedMovies();
 
-            const currentPath = localStorage.getItem("currentPath");
-            if (currentPath) {
-              navigate(currentPath);
-            }
+            // const currentPath = localStorage.getItem('currentPath');
+            // if (currentPath) {
+            //   navigate(currentPath);
+            // }
           }
+
+          console.log('res');
         })
         .catch((err) => console.log(err))
         .finally(() => {
-          setErrorPage(false);
+          setIsPageLoading(false);
+          console.log('here');
         });
-        return
+      return;
     }
-    setErrorPage(false);
+    setIsPageLoading(false);
   };
-
   useEffect(() => {
       checkToken();
 
