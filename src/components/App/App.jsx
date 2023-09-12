@@ -216,8 +216,8 @@ function App() {
       });
   };
 
-  if(isErrorPage){
-    return null;
+  if (isPageLoading) {
+    return <main></main>;
   }
 
   return (
@@ -225,7 +225,7 @@ function App() {
       <div className="app">
         <Header loggedIn={isloggedIn}  />
         <Routes>
-          <Route path="*" element={<NotFound isErrorPage={isErrorPage} />} />
+          <Route path="*" element={<NotFound  />} />
           <Route
             path="/"
             element={
