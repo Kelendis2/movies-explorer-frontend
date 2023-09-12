@@ -29,6 +29,7 @@ function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isFormActivated, setFormActivated] = useState(false);
+  const [isErrorPage, setErrorPage] = useState(false);
 
   const handleRegister = ({ name, email, password }) => {
     setIsLoading(true);
@@ -106,8 +107,13 @@ function App() {
             }
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setErrorPage(false);
+        });
+        return
     }
+    setErrorPage(false);
   };
 
   useEffect(() => {
@@ -208,12 +214,16 @@ function App() {
       });
   };
 
+  if(isErrorPage){
+    return null;
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
         <Header loggedIn={isloggedIn}  />
         <Routes>
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound isErrorPage={isErrorPage} />} />
           <Route
             path="/"
             element={

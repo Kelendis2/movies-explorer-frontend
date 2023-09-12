@@ -1,11 +1,14 @@
 import React from "react";
 import "./NotFound.css";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
+
+
 
 function NotFound() {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
+
   };
   return (
     <main className="notFoundMain">
