@@ -77,8 +77,6 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     if (movies.length === 0) {
       getMovies();
       }
-
-    console.log(movies);
     let filteredMovies = movies;
     let searchResults;
 
