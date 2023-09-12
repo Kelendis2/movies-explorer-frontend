@@ -12,7 +12,6 @@ function Login({ handleLogin, errorMessage, isLoading }) {
   const [isFormValid, setIsFormValid] = useState(false);
   const [isFormEmpty, setIsFormEmpty] = useState(true);
 
-
   const goToRegistration = () => {
     navigate("/signup");
   };
@@ -80,7 +79,9 @@ function Login({ handleLogin, errorMessage, isLoading }) {
           </span>
           <button
             className={`login__form-button form__button ${
-              isLoading || isFormEmpty || !isFormValid ? "form__button-disable" : ""
+              isLoading || isFormEmpty || !isFormValid
+                ? "form__button-disable"
+                : ""
             }`}
             type="submit"
             disabled={isLoading || isFormEmpty || !isFormValid}

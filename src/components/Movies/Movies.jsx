@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Movies.css";
 import Preloader from "./Preloader/Preloader";
@@ -20,7 +20,6 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     localStorage.getItem("isShortFilm") === "true" || false
   );
 
-
   const updateQuery = (newQuery) => {
     setQuery(newQuery);
   };
@@ -37,16 +36,13 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     localStorage.setItem("isShortFilm", isShortFilm);
   }, [isShortFilm]);
 
-
   function getInitialVisibleCards() {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
       return 16;
-    }
-    else if (screenWidth >= 769) {
+    } else if (screenWidth >= 769) {
       return 12;
-    }
-    else if (screenWidth >= 768) {
+    } else if (screenWidth >= 768) {
       return 8;
     } else {
       return 5;
@@ -56,11 +52,9 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-    }
-    else if (screenWidth >= 769) {
+    } else if (screenWidth >= 769) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
-    }
-     else if (screenWidth >= 768) {
+    } else if (screenWidth >= 768) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 2);
     } else {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 1);

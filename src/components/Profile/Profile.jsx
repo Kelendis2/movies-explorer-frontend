@@ -9,7 +9,7 @@ function Profile({
   successMessage,
   isFormActivated,
   setFormActivated,
-  signOut
+  signOut,
 }) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/profile");
@@ -43,7 +43,6 @@ function Profile({
     setFormActivated(false);
     onUpdateUser(value);
   }
-
 
   return (
     <main className="profileMain">
