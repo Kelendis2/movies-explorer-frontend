@@ -10,14 +10,8 @@ function MoviesCardList({
   onSave,
   onDelete
 }) {
-  useEffect(() => {
-    console.log("Данные фильмов изменились:", moviesList);
-  }, [moviesList]);
 
-  console.log('мы пришли из локала муви', moviesList)
-  console.log('а мы сохраненые ', savedMoviesList)
   const moviesToRender = isSavedMoviesPage ? savedMoviesList : moviesList;
-
 
   return (
     <ul className="movies__list">

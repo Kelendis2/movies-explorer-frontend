@@ -20,8 +20,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     localStorage.getItem("isShortFilm") === "true" || false
   );
 
-  console.log(movies)
-  console.log(searchResults)
+
   const updateQuery = (newQuery) => {
     setQuery(newQuery);
   };
