@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
@@ -10,9 +10,11 @@ function MoviesCardList({
   onSave,
   onDelete
 }) {
+  useEffect(() => {
+    console.log("Данные фильмов изменились:", moviesList);
+  }, [moviesList]);
 
-
-  console.log('мы пришли из локала', moviesList)
+  console.log('мы пришли из локала муви', moviesList)
   console.log('а мы сохраненые ', savedMoviesList)
   const moviesToRender = isSavedMoviesPage ? savedMoviesList : moviesList;
 

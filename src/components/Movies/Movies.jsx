@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 
 import "./Movies.css";
 import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({ movies, savedMovies, onSave, getMovies}) {
+function Movies({ movies, savedMovies, onSave, getMovies }) {
+  const [searchResults, setSearchResults] = useState(
+    JSON.parse(localStorage.getItem("searchResults")) || []
+  );
   useEffect(() => {
     localStorage.setItem("currentPath", "/movies");
   }, []);
 
+
   const [query, setQuery] = useState(localStorage.getItem("query") || "");
-  const [searchResults, setSearchResults] = useState(
-    JSON.parse(localStorage.getItem("searchResults")) || []
-  );
+
   const hasDataInLocalStorage = localStorage.getItem("searchResults");
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(hasDataInLocalStorage);
@@ -39,6 +41,7 @@ function Movies({ movies, savedMovies, onSave, getMovies}) {
   useEffect(() => {
     localStorage.setItem("isShortFilm", isShortFilm);
   }, [isShortFilm]);
+
 
   function getInitialVisibleCards() {
     const screenWidth = window.innerWidth;
