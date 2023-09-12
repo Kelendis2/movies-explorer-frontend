@@ -12,13 +12,9 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   useEffect(() => {
     localStorage.setItem("currentPath", "/movies");
   }, []);
-
-
   const [query, setQuery] = useState(localStorage.getItem("query") || "");
-
-  const hasDataInLocalStorage = localStorage.getItem("searchResults");
   const [hasSearched, setHasSearched] = useState(false);
-  const [isLoading, setIsLoading] = useState(hasDataInLocalStorage);
+  const [isLoading, setIsLoading] = useState(false);
   const [visibleCards, setVisibleCards] = useState(getInitialVisibleCards());
   const [isShortFilm, setIsShortFilm] = useState(
     localStorage.getItem("isShortFilm") === "true" || false
