@@ -124,8 +124,11 @@ function Header({ loggedIn }) {
               <li className="navigation__movie-item">
                 <NavLink
                   exact="true"
-                  activeclassname="navigation__nav-link_active"
-                  className="navigation__nav-link"
+                  className={({ isActive }) =>
+                    `navigation__nav-link ${
+                      isActive ? 'navigation__nav-link_active' : ''
+                    }`
+                  }
                   to="/movies"
                 >
                   Фильмы
@@ -134,8 +137,11 @@ function Header({ loggedIn }) {
               <li className="navigation__movie-item">
                 <NavLink
                   exact="true"
-                  activeclassname="navigation__nav-link_active"
-                  className="navigation__nav-link"
+                  className={({ isActive }) =>
+                    `navigation__nav-link ${
+                      isActive ? 'navigation__nav-link_active' : ''
+                    }`
+                  }
                   to="/saved-movies"
                 >
                   Сохраненные фильмы

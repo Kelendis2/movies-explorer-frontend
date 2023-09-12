@@ -73,7 +73,12 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
-    getMovies();
+
+    if (movies.length === 0) {
+      getMovies();
+      }
+
+    console.log(movies);
     let filteredMovies = movies;
     let searchResults;
 
@@ -148,7 +153,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
             onSave={onSave}
           />
         )}
-        {visibleCards < searchResults.length ? (
+        {visibleCards < searchResults.length || !isLoading ? (
           <button
             className="addMoviesTable__button"
             type="button"
