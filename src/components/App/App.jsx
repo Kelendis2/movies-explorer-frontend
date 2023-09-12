@@ -100,19 +100,11 @@ function App() {
             setLoggedIn(true);
             getUser();
             getSavedMovies();
-
-            // const currentPath = localStorage.getItem('currentPath');
-            // if (currentPath) {
-            //   navigate(currentPath);
-            // }
           }
-
-          console.log('res');
         })
         .catch((err) => console.log(err))
         .finally(() => {
           setIsPageLoading(false);
-          console.log('here');
         });
       return;
     }
