@@ -127,6 +127,7 @@ function App() {
     return MoviesApi.getMovies()
       .then((movies) => {
         setAllMovies(movies);
+        return movies;
       })
       .catch((err) => {
         console.log(err);
