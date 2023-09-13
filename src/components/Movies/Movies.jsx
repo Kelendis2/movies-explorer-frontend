@@ -4,7 +4,6 @@ import "./Movies.css";
 import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
-import { SCREEN_WIDTH } from "../../utils/constants";
 
 function Movies({ movies, savedMovies, onSave, getMovies }) {
   const [searchResults, setSearchResults] = useState(
@@ -38,25 +37,28 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   }, [isShortFilm]);
 
   function getInitialVisibleCards() {
-    if (SCREEN_WIDTH >= 1280) {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1279) {
       return 16;
-    } else if (SCREEN_WIDTH >= 1040) {
+    } else if (screenWidth >= 769) {
       return 12;
-    } else if (SCREEN_WIDTH >= 768) {
+    } else if (screenWidth >= 641) {
       return 8;
     } else {
       return 5;
     }
   }
   const handleShowMoreClick = () => {
-    if (SCREEN_WIDTH >= 1280) {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1279) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-    } else if (SCREEN_WIDTH >= 1040) {
+    } else if (screenWidth >= 1040) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
-    } else if (SCREEN_WIDTH >= 320) {
+    } else {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 2);
     }
   };
+
   useEffect(() => {
     function handleResize() {
       setVisibleCards(getInitialVisibleCards());
@@ -70,6 +72,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
+    setVisibleCards(getInitialVisibleCards());
 
     if (movies.length === 0) {
       getMovies();
@@ -97,6 +100,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     setSearchResults(searchResults);
     setHasSearched(true);
     localStorage.setItem("searchResults", JSON.stringify(searchResults));
+
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
