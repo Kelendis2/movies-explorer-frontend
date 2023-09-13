@@ -113,7 +113,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
         );
       });
     } else {
-      searchResults = movies.filter((movie) => {
+      searchResults = filteredMovies.filter((movie) => {
         return (
           movie.nameRU.toLowerCase().includes(query.toLowerCase()) ||
           movie.nameEN.toLowerCase().includes(query.toLowerCase())
