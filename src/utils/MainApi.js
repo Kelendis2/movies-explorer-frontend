@@ -1,4 +1,4 @@
-import { BASE_MOVIE_URL, BASE_MYAPI_URL } from "../utils/constants";
+import { BASE_IMAGE_URL, BASE_MYAPI_URL } from "../utils/constants";
 export default class Api {
   constructor({ baseUrl, baseUrlMovie }) {
     this._baseUrl = baseUrl;
@@ -106,6 +106,6 @@ export default class Api {
   }
 }
 export const api = new Api({
-  baseUrlMovie: BASE_MOVIE_URL,
+  baseUrlMovie: BASE_IMAGE_URL,
   baseUrl: BASE_MYAPI_URL,
 });
