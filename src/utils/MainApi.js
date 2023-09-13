@@ -106,6 +106,6 @@ export default class Api {
   }
 }
 export const api = new Api({
-  baseUrlMovie: "https://api.nomoreparties.co",
+  baseUrlMovie: BASE_MOVIE_URL,
   baseUrl: BASE_MYAPI_URL,
 });
