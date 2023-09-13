@@ -70,7 +70,6 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
-
     if (movies.length === 0) {
       getMovies();
     }
@@ -120,6 +119,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
     setSearchResults(filteredResults);
     localStorage.setItem("searchResults", JSON.stringify(filteredResults));
+    setVisibleCards(getInitialVisibleCards());
 
     setTimeout(() => {
       setIsLoading(false);
