@@ -73,6 +73,15 @@ function Header({ loggedIn }) {
             </Link>
           </Navigation>
         );
+      } else if (isMobile) {
+        return (
+          <Navigation>
+            <button
+              className="navigation__button-menu"
+              onClick={() => setShowNavTab(true)}
+            />
+          </Navigation>
+        );
       } else {
         return (
           <Navigation className="navigation_main">
