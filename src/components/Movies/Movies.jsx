@@ -40,7 +40,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   function getInitialVisibleCards() {
     if (SCREEN_WIDTH >= 1280) {
       return 16;
-    } else if (SCREEN_WIDTH >= 769) {
+    } else if (SCREEN_WIDTH >= 1040) {
       return 12;
     } else if (SCREEN_WIDTH >= 768) {
       return 8;
@@ -70,6 +70,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
   const handleSearch = (query, isShortFilm) => {
     setIsLoading(true);
+
     if (movies.length === 0) {
       getMovies();
     }
@@ -119,7 +120,6 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
     setSearchResults(filteredResults);
     localStorage.setItem("searchResults", JSON.stringify(filteredResults));
-    setVisibleCards(getInitialVisibleCards());
 
     setTimeout(() => {
       setIsLoading(false);
