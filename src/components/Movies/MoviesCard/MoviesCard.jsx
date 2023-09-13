@@ -1,7 +1,7 @@
 import React from "react";
 import "./MoviesCard.css";
 import { Link } from "react-router-dom";
-import { BASE_MOVIE_URL } from "../../../utils/constants";
+import { BASE_IMAGE_URL } from "../../../utils/constants";
 
 function MoviesCard({
   movie,
@@ -12,7 +12,7 @@ function MoviesCard({
 }) {
   const imageUrl = isSavedMoviesPage
     ? movie.image
-    : BASE_MOVIE_URL + movie.image.url;
+    : BASE_IMAGE_URL + movie.image.url;
   const isSaved =
     !isSavedMoviesPage && savedMovies.some((item) => item.movieId === movie.id);
   const movieButtonClassName = `movies__button movies__card-checkBox ${
