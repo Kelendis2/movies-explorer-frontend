@@ -9,7 +9,6 @@ function SearchForm({
   onSearch,
   onFilter,
 }) {
-
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
@@ -29,7 +28,6 @@ function SearchForm({
       handleSubmit(event);
     }
   };
-
 
   return (
     <div className="serach">

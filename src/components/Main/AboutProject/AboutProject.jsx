@@ -1,7 +1,7 @@
 import React from "react";
 import "./AboutProject.css";
 
-function AboutProject({aboutProjectRef}) {
+function AboutProject({ aboutProjectRef }) {
   return (
     <section className="about-project section" ref={aboutProjectRef}>
       <h2 className="about-project__title section__title">О проекте</h2>

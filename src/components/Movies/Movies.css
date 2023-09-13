@@ -47,6 +47,9 @@
 .addMoviesTable__button:hover {
   opacity: 0.8;
 }
+.addMoviesTable__button_off{
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
   .addMoviesTable__button {

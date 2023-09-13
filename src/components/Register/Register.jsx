@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { EMAIL_VALID } from "../../utils/constants";
 
 function Register({ handleRegister, errorMessage, isLoading }) {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Register({ handleRegister, errorMessage, isLoading }) {
   useEffect(() => {
     const isInputValid = () => {
       const isNameValid = name.trim().length >= 2 && name.trim().length <= 20;
-      const isEmailValid = /^\S+@\S+\.\S+$/.test(email.trim());
+      const isEmailValid = EMAIL_VALID.test(email.trim());
       const isPasswordValid = password.trim().length >= 8;
 
       return isNameValid && isEmailValid && isPasswordValid;

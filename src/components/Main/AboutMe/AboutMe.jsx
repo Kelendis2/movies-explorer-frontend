@@ -22,7 +22,6 @@ function AboutMe() {
           </p>
           <Link
             className="about-me__link-github"
-
             target="_blank"
             to="https://github.com/Kelendis2"
           >

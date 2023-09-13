@@ -1,3 +1,4 @@
+import { BASE_MOVIE_URL, BASE_MYAPI_URL } from "../utils/constants";
 export default class Api {
   constructor({ baseUrl, baseUrlMovie }) {
     this._baseUrl = baseUrl;
@@ -105,7 +106,6 @@ export default class Api {
   }
 }
 export const api = new Api({
-  //baseUrl: "http://localhost:3000",
-  baseUrlMovie: "https://api.nomoreparties.co",
-  baseUrl: "https://api.movies.kelendis.nomoreparties.co",
+  baseUrlMovie: BASE_MOVIE_URL,
+  baseUrl: BASE_MYAPI_URL,
 });

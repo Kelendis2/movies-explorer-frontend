@@ -126,7 +126,7 @@ function Header({ loggedIn }) {
                   exact="true"
                   className={({ isActive }) =>
                     `navigation__nav-link ${
-                      isActive ? 'navigation__nav-link_active' : ''
+                      isActive ? "navigation__nav-link_active" : ""
                     }`
                   }
                   to="/movies"
@@ -139,7 +139,7 @@ function Header({ loggedIn }) {
                   exact="true"
                   className={({ isActive }) =>
                     `navigation__nav-link ${
-                      isActive ? 'navigation__nav-link_active' : ''
+                      isActive ? "navigation__nav-link_active" : ""
                     }`
                   }
                   to="/saved-movies"

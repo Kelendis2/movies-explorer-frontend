@@ -14,6 +14,7 @@ import NotFound from "../NotFound/NotFound";
 import { api } from "../../utils/MainApi";
 import { MoviesApi } from "../../utils/MoviesApi";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import {EEROR_MOVIE, ERROR_NOT_MOVIE, SECSESS_UPDATE_PROFILE} from "../../utils/constants"
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -37,8 +38,7 @@ function App() {
       .register({ name, email, password })
       .then((data) => {
         console.log(data);
-        handleLogin( {email, password} )
-
+        handleLogin({ email, password });
       })
       .catch((err) => {
         console.log(err);
@@ -49,7 +49,6 @@ function App() {
         setIsLoading(false);
       });
   };
-
 
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
@@ -91,7 +90,7 @@ function App() {
   };
 
   const checkToken = () => {
-    const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem("jwt");
     if (jwt) {
       api
         .getProfile()
@@ -111,8 +110,7 @@ function App() {
     setIsPageLoading(false);
   };
   useEffect(() => {
-      checkToken();
-
+    checkToken();
   }, []);
 
   const handleSignOut = () => {
@@ -125,7 +123,6 @@ function App() {
     navigate("/");
   };
 
-
   const getMovies = () => {
     MoviesApi.getMovies()
       .then((movies) => {
@@ -135,7 +132,6 @@ function App() {
         console.log(err);
       });
   };
-
 
   const handleSaveMovie = (movie) => {
     const isSaved = savedMovies.some((item) => item.movieId === movie.id);
@@ -166,12 +162,11 @@ function App() {
             );
           })
           .catch((err) => {
-            console.error("Ошибка при удалении фильма:", err);
+            console.error(EEROR_MOVIE, err);
           });
       } else {
-        console.error("Не удалось найти _id фильма для удаления.");
+        console.error(ERROR_NOT_MOVIE);
       }
-
     }
   };
 
@@ -184,7 +179,7 @@ function App() {
         );
       })
       .catch((err) => {
-        console.error("Ошибка при удалении фильма:", err);
+        console.error(EEROR_MOVIE, err);
       });
   }
   const handleUpdateUser = ({ name, email }) => {
@@ -194,7 +189,7 @@ function App() {
       .then((res) => {
         setCurrentUser(res);
         setFormActivated(false);
-        setSuccessMessage("Профиль успешно обновлен");
+        setSuccessMessage(SECSESS_UPDATE_PROFILE);
         setErrorMessage("");
       })
       .catch((err) => {
@@ -215,9 +210,9 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        <Header loggedIn={isloggedIn}  />
+        <Header loggedIn={isloggedIn} />
         <Routes>
-          <Route path="*" element={<NotFound  />} />
+          <Route path="*" element={<NotFound />} />
           <Route
             path="/"
             element={
@@ -268,7 +263,7 @@ function App() {
                 loggedIn={isloggedIn}
                 getUser={getUser}
                 currentUser={currentUser}
-                signOut= {handleSignOut}
+                signOut={handleSignOut}
               />
             }
           />

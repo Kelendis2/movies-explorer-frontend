@@ -1,10 +1,17 @@
-const isNameValid = formValue.name.length >= 2 && formValue.name.length <= 20;
-  const isEmailValid = /^\S+@\S+\.\S+$/.test(formValue.email);
-  const isPasswordValid = formValue.password.length >= 8;
+const EMAIL_VALID = /^\S+@\S+\.\S+$/;
+const BASE_MOVIE_URL = "https://api.nomoreparties.co/";
+const BASE_MYAPI_URL = "https://api.movies.kelendis.nomoreparties.co";
+const SCREEN_WIDTH = window.innerWidth;
 
-  // Проверка, что все поля обязательны и не пусты
-  const isNameNotEmpty = formValue.name.trim() !== "";
-  const isEmailNotEmpty = formValue.email.trim() !== "";
-  const isPasswordNotEmpty = formValue.password.trim() !== "";
-
-  export {isNameValid, isEmailValid, isPasswordValid, isNameNotEmpty, isEmailNotEmpty, isPasswordNotEmpty   }
+const EEROR_MOVIE = "Ошибка при удалении фильма:";
+const ERROR_NOT_MOVIE = "Не удалось найти id фильма для удаления.";
+const SECSESS_UPDATE_PROFILE = "Профиль успешно обновлен";
+module.exports = {
+  EMAIL_VALID,
+  BASE_MOVIE_URL,
+  BASE_MYAPI_URL,
+  SCREEN_WIDTH,
+  EEROR_MOVIE,
+  ERROR_NOT_MOVIE,
+  SECSESS_UPDATE_PROFILE,
+};

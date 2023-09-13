@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { EMAIL_VALID } from "../../utils/constants";
 
 function Login({ handleLogin, errorMessage, isLoading }) {
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ function Login({ handleLogin, errorMessage, isLoading }) {
   };
   useEffect(() => {
     const isInputValid = () => {
-      const isEmailValid = /^\S+@\S+\.\S+$/.test(email.trim());
+      EMAIL_VALID.test(email.trim());
       const isPasswordValid = password.trim().length >= 8;
 
-      return isEmailValid && isPasswordValid;
+      return EMAIL_VALID && isPasswordValid;
     };
 
     setIsFormValid(isInputValid());

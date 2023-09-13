@@ -1,14 +1,22 @@
 import React from "react";
 import "./MoviesCard.css";
 import { Link } from "react-router-dom";
+import { BASE_MOVIE_URL } from "../../../utils/constants";
 
-function MoviesCard({ movie, isSavedMoviesPage, savedMovies, onSave,onDelete}) {
-  const baseUrl = "https://api.nomoreparties.co/";
-  const imageUrl = isSavedMoviesPage ? movie.image : baseUrl + movie.image.url;
+function MoviesCard({
+  movie,
+  isSavedMoviesPage,
+  savedMovies,
+  onSave,
+  onDelete,
+}) {
+  const imageUrl = isSavedMoviesPage
+    ? movie.image
+    : BASE_MOVIE_URL + movie.image.url;
   const isSaved =
     !isSavedMoviesPage && savedMovies.some((item) => item.movieId === movie.id);
   const movieButtonClassName = `movies__button movies__card-checkBox ${
-    isSaved && 'movies__card-checkBox_on'
+    isSaved && "movies__card-checkBox_on"
   }`;
 
   function handleSaveClick() {
@@ -24,9 +32,6 @@ function MoviesCard({ movie, isSavedMoviesPage, savedMovies, onSave,onDelete}) {
     return `${hours} ч ${remainingMinutes} мин`;
   }
   const formattedDuration = minutesToHoursAndMinutes(movie.duration);
-
-
-
 
   return (
     <li className="movies__card" key={movie.id}>

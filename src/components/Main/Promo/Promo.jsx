@@ -13,11 +13,7 @@ function Promo({ scroll }) {
           <p className="promo__text-subtitle">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
-          <button
-            className="promo__button"
-            to="about-project"
-            onClick={scroll}
-          >
+          <button className="promo__button" to="about-project" onClick={scroll}>
             Узнать больше
           </button>
         </div>

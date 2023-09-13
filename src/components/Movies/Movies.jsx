@@ -4,6 +4,7 @@ import "./Movies.css";
 import Preloader from "./Preloader/Preloader";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
+import { SCREEN_WIDTH } from "../../utils/constants";
 
 function Movies({ movies, savedMovies, onSave, getMovies }) {
   const [searchResults, setSearchResults] = useState(
@@ -37,27 +38,23 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
   }, [isShortFilm]);
 
   function getInitialVisibleCards() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1280) {
+    if (SCREEN_WIDTH >= 1280) {
       return 16;
-    } else if (screenWidth >= 769) {
+    } else if (SCREEN_WIDTH >= 769) {
       return 12;
-    } else if (screenWidth >= 768) {
+    } else if (SCREEN_WIDTH >= 768) {
       return 8;
     } else {
       return 5;
     }
   }
   const handleShowMoreClick = () => {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1280) {
+    if (SCREEN_WIDTH >= 1280) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-    } else if (screenWidth >= 769) {
+    } else if (SCREEN_WIDTH >= 1040) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 3);
-    } else if (screenWidth >= 768) {
+    } else if (SCREEN_WIDTH >= 320) {
       setVisibleCards((prevVisibleCards) => prevVisibleCards + 2);
-    } else {
-      setVisibleCards((prevVisibleCards) => prevVisibleCards + 1);
     }
   };
   useEffect(() => {
@@ -76,7 +73,8 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
 
     if (movies.length === 0) {
       getMovies();
-      }
+    }
+    setVisibleCards(getInitialVisibleCards());
     let filteredMovies = movies;
     let searchResults;
 
@@ -151,10 +149,11 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
             onSave={onSave}
           />
         )}
-        {visibleCards < searchResults.length || !isLoading ? (
+        {searchResults === 0 || visibleCards < searchResults.length ? (
           <button
-            className="addMoviesTable__button"
-            type="button"
+            className={`addMoviesTable__button ${
+              isLoading ? "addMoviesTable__button_off" : ""
+            }`}
             onClick={handleShowMoreClick}
           >
             Еще

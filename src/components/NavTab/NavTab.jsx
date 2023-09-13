@@ -6,7 +6,6 @@ function NavTab({ showNavTab, closeNavTab }) {
   const navigate = useNavigate();
   const location = useLocation();
 
-
   const goToMain = () => {
     navigate("/");
   };
@@ -30,7 +29,7 @@ function NavTab({ showNavTab, closeNavTab }) {
         onClick={closeNavTab}
       />
       <div className="navigate__text-buttons">
-      <button
+        <button
           className={`navigate__button ${
             location.pathname === "/" ? "navigate__button_active" : ""
           }`}
@@ -50,7 +49,9 @@ function NavTab({ showNavTab, closeNavTab }) {
         </button>
         <button
           className={`navigate__button ${
-            location.pathname === "/saved-movies" ? "navigate__button_active" : ""
+            location.pathname === "/saved-movies"
+              ? "navigate__button_active"
+              : ""
           }`}
           type="button"
           onClick={goToSavedMovies}
