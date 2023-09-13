@@ -124,7 +124,7 @@ function App() {
   };
 
   const getMovies = () => {
-    MoviesApi.getMovies()
+    return MoviesApi.getMovies()
       .then((movies) => {
         setAllMovies(movies);
       })

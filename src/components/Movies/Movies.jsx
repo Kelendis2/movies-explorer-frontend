@@ -40,7 +40,7 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1279) {
       return 16;
-    } else if (screenWidth >= 769) {
+    } else if (screenWidth >= 1040) {
       return 12;
     } else if (screenWidth >= 641) {
       return 8;
@@ -70,14 +70,13 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     };
   }, []);
 
-  const handleSearch = (query, isShortFilm) => {
+  const handleSearch = async (query, isShortFilm) => {
     setIsLoading(true);
-    setVisibleCards(getInitialVisibleCards());
-
     if (movies.length === 0) {
-      getMovies();
+      await getMovies();
     }
-    setVisibleCards(getInitialVisibleCards());
+
+
     let filteredMovies = movies;
     let searchResults;
 
@@ -100,12 +99,13 @@ function Movies({ movies, savedMovies, onSave, getMovies }) {
     setSearchResults(searchResults);
     setHasSearched(true);
     localStorage.setItem("searchResults", JSON.stringify(searchResults));
+    setVisibleCards(getInitialVisibleCards());
 
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
     return;
-  };
+  }
   const filterMovies = (query, isShortFilm) => {
     setIsLoading(true);
 
