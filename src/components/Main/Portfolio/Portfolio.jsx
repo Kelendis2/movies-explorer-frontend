@@ -10,7 +10,7 @@ function Portfolio() {
           <Link
             className="portfolio__link"
             target="_blank"
-            to="https://github.com/Kelendis2/how-to-learn"
+            to="https://kelendis2.github.io/how-to-learn/"
           >
             <p className="portfolio__link-text">Статичный сайт</p>
             <div className="portfolio__link-image" />
@@ -20,7 +20,7 @@ function Portfolio() {
           <Link
             className="portfolio__link"
             target="_blank"
-            to="https://github.com/Kelendis2/russian-travel"
+            to="https://kelendis2.github.io/russian-travel/"
           >
             <p className="portfolio__link-text">Адаптивный сайт</p>
 
