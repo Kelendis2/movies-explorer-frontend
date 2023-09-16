@@ -1,9 +1,10 @@
 import React from "react";
 import "./NavTab.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function NavTab({ showNavTab, closeNavTab }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const goToMain = () => {
     navigate("/");
@@ -28,18 +29,30 @@ function NavTab({ showNavTab, closeNavTab }) {
         onClick={closeNavTab}
       />
       <div className="navigate__text-buttons">
-        <button className="navigate__button" type="button" onClick={goToMain}>
+        <button
+          className={`navigate__button ${
+            location.pathname === "/" ? "navigate__button_active" : ""
+          }`}
+          type="button"
+          onClick={goToMain}
+        >
           Главная
         </button>
         <button
-          className="navigate__button navigate__button_active"
+          className={`navigate__button ${
+            location.pathname === "/movies" ? "navigate__button_active" : ""
+          }`}
           onClick={goToMovies}
           type="button"
         >
           Фильмы
         </button>
         <button
-          className="navigate__button"
+          className={`navigate__button ${
+            location.pathname === "/saved-movies"
+              ? "navigate__button_active"
+              : ""
+          }`}
           type="button"
           onClick={goToSavedMovies}
         >

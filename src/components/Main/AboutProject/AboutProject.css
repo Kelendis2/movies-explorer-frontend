@@ -1,6 +1,6 @@
 .about-project {
   background-color: #202020;
-  margin-top: 0;
+  margin: 0 auto;
   padding: 110px 70px 108px;
   color: white;
 }
@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
 }
 .about-project__tabel-title {
   margin: 0;
@@ -144,9 +145,11 @@
   .about-project__tabel {
     flex-direction: column;
     gap: 49px;
+
   }
   .about-project__tabel-item {
     gap: 16px;
+    margin: 0 auto;
   }
 
   .about-project__tabel-title {
@@ -165,6 +168,8 @@
   }
   .about-project__line {
     margin: 53px auto 9px;
+    justify-content: center;
+
   }
   .about-project__week-one {
     margin: 0;
@@ -181,15 +186,17 @@
     line-height: 35px;
   }
   .about-project__line-caption {
-    margin: 0;
+    margin: 0 auto;
     line-height: 17px;
     font-size: 11px;
     font-weight: 400;
   }
   #line-caption_one {
-    width: 100px;
+    margin: 0 auto;
+    width: 50px;
   }
   #line-caption_two {
-    width: 184px;
+    margin: 0 auto;
+    width: 74px;
   }
 }

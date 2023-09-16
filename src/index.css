@@ -1,7 +1,15 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+}
+
 .page {
+
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -10,5 +18,11 @@
   -webkit-text-size-adjust: 100%;
   line-height: 1.15;
   background-color: #202020;
+}
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
 }
 

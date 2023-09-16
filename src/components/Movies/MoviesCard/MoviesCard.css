@@ -9,6 +9,7 @@
 }
 .movies__card-photo {
   width: 270px;
+  height: 151px;
 }
 .movies__card-about {
   margin: 10px 12px 0;
@@ -24,6 +25,7 @@
 }
 .movies__card-title {
   margin: 0;
+  height: 23px;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -38,6 +40,17 @@
 }
 .movies__card-checkBox {
   background-image: url(../../../images/saveL.svg);
+  margin: -4px;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-position:top;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.movies__card-checkBox_on {
+  background-image: url(../../../images/save8.svg);
   margin: -4px;
   width: 35px;
   background-repeat: no-repeat;

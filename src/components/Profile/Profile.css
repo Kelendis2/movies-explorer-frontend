@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   color: white;
-
 }
 .profile__title {
   margin: 74px auto 0;
@@ -55,11 +54,18 @@
   outline: none;
   border: none;
 }
-.profile__form-input:focus{
-  outline: 1px solid #4285F4;
+.profile__form-input:focus {
+  outline: 1px solid #4285f4;
+}
+.profile__form-info {
+  margin: 183px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .profile__form-button {
-  margin: 183px auto 0;
+  display: block;
+  margin: 0 auto;
   max-width: 410px;
   background-color: transparent;
   border: none;
@@ -76,7 +82,7 @@
 }
 #profile__button-exit {
   display: block;
-  margin: 15px auto 0;
+  margin: 0 auto;
   padding-bottom: 65px;
   max-width: 410px;
   background-color: transparent;
@@ -92,6 +98,36 @@
 #profile__button-exit:hover {
   opacity: 0.7;
 }
+.profile__button-save {
+  display: block;
+  border: none;
+  border-radius: 3px;
+  background: #3456f3;
+  color: white;
+  width: 410px;
+  height: 45px;
+}
+.profile__button-disable{
+  background: #F8F8F8;
+  color: #C2C2C2;
+}
+.profile__form-message {
+  display: none;
+  margin: 0 auto;
+  max-width: 414px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.form__message-error {
+  display: block;
+  color: #ee3465;
+}
+.form__message-ok {
+  display: block;
+  color: white;
+}
 
 @media screen and (max-width: 768px) {
   .profile {
@@ -103,8 +139,13 @@
   .profile__form {
     margin: 96px auto 0;
   }
-  .profile__form-button {
-    margin: 173px auto 0;
+  .profile__form-info {
+    margin: 173px auto;
+  }
+  .profile__button-save {
+
+    width: 310px;
+    height: 35px;
   }
 }
 
@@ -126,15 +167,21 @@
     margin: 68px auto;
   }
   .profile__form-button {
-    margin: 346px auto 0;
     max-width: 260px;
     font-size: 12px;
   }
   #profile__button-exit {
     display: block;
-    margin: 15px auto 0;
     padding-bottom: 40px;
     max-width: 260px;
     font-size: 12px;
+  }
+  .profile__form-info {
+    margin: 346px auto;
+  }
+  .profile__button-save {
+
+    width: 220px;
+    height: 30px;
   }
 }

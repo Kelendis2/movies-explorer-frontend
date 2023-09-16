@@ -30,7 +30,14 @@
   background-color: #2f2f2f;
   box-shadow: inset 20px 20px 0px 20px #2f2f2f;
 }
-
+.form__input:invalid {
+  border-color: #EE3465;
+  color: #EE3465;
+}
+.form__input-invalid{
+  border-color: #EE3465;
+  color: #EE3465;
+}
 .form__label {
   margin: 20px 0 10px 0;
   font-size: 10px;
@@ -41,7 +48,7 @@
   display: flex;
   gap: 6px;
 }
-.form__span-error {
+.form__error {
   color: #ee3465;
   margin: 10px 0 0 0;
   font-size: 10px;
@@ -49,6 +56,7 @@
   font-weight: 400;
   line-height: normal;
 }
+
 .form__button {
   margin: 81px 0 0 0;
   max-width: 396px;
@@ -67,16 +75,25 @@
 .form__button:hover {
   opacity: 0.8;
 }
-.form__link {
+.form__button-go {
+  margin: 0;
+  padding: 0;
   color: #4285f4;
   text-decoration: none;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background-color: transparent;
+  border: none;
 }
-.form__link:hover {
+.form__button-go:hover {
   opacity: 0.7;
+}
+.form__button-disable{
+  background: #F8F8F8;
+  color: #C2C2C2;
+  cursor: none;
 }
 .register__form-span-link {
   max-width: 250px;
@@ -94,7 +111,9 @@
   }
   .register__form-button {
     margin: 82px 0 0 0;
-
+  }
+  .form__button-go {
+    margin: 0;
   }
 }
 @media screen and (max-width: 420px) {
@@ -110,13 +129,15 @@
     margin: 168px 0 0 0;
     font-size: 12px;
   }
+  .form__button-go {
+    margin: 0;
+    font-size: 12px;
+  }
   .form__span-link {
     font-size: 12px;
     margin: 14px auto 30px;
   }
-  .form__link {
-    font-size: 12px;
-  }
+
 }
 
 input:-webkit-autofill,

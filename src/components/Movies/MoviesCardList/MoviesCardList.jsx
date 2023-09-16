@@ -2,20 +2,32 @@ import React from "react";
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList(props) {
+function MoviesCardList({
+  moviesList,
+  isSavedMoviesPage,
+  savedMovies,
+  savedMoviesList,
+  onSave,
+  onDelete,
+}) {
+  const moviesToRender = isSavedMoviesPage ? savedMoviesList : moviesList;
 
   return (
     <ul className="movies__list">
-      {props.moviesList.map((movie) => {
+      {moviesToRender.map((movie) => {
         return (
           <MoviesCard
             movie={movie}
-            key={movie.movieId}
-            isSavedMoviesPage={props.isSavedMoviesPage}
+            key={movie.id ?? movie._id}
+            isSavedMoviesPage={isSavedMoviesPage}
+            savedMovies={savedMovies}
+            onSave={onSave}
+            onDelete={onDelete}
           />
         );
       })}
     </ul>
   );
 }
+
 export default MoviesCardList;

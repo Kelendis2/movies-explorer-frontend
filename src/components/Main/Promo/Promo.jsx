@@ -1,9 +1,8 @@
 import "./Promo.css";
 import React from "react";
 import world from "../../../images//world.svg";
-import { Link } from "react-scroll";
 
-function Promo() {
+function Promo({ scroll }) {
   return (
     <section className="promo">
       <div className="promo__content">
@@ -14,11 +13,9 @@ function Promo() {
           <p className="promo__text-subtitle">
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
-          <Link className="promo__link" to="about-project" smooth={true}>
-            <div className="promo__button">
-              Узнать больше
-            </div>
-          </Link>
+          <button className="promo__button" to="about-project" onClick={scroll}>
+            Узнать больше
+          </button>
         </div>
         <img className="promo__image" alt="Мир из слов" src={world} />
       </div>

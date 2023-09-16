@@ -1,9 +1,9 @@
 import React from "react";
 import "./AboutProject.css";
 
-function AboutProject() {
+function AboutProject({ aboutProjectRef }) {
   return (
-    <section className="about-project section">
+    <section className="about-project section" ref={aboutProjectRef}>
       <h2 className="about-project__title section__title">О проекте</h2>
       <ul className="about-project__tabel">
         <li className="about-project__tabel-item">
@@ -16,9 +16,9 @@ function AboutProject() {
           </p>
         </li>
         <li className="about-project__tabel-item">
-          <h2 className="about-project__tabel-title">
+          <h3 className="about-project__tabel-title">
             На выполнение диплома ушло 5 недель
-          </h2>
+          </h3>
           <p className="about-project__tabel-text">
             У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было
             соблюдать, чтобы успешно защититься.

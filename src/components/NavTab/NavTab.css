@@ -8,7 +8,7 @@
   flex-direction: column;
   background-color: #202020;
   z-index: 1000;
-  gap: 622px;
+  justify-content: space-between;
 }
 .navigate__button-close {
   width: 22px;
@@ -36,6 +36,7 @@
 
 .navigate__button {
   background: transparent;
+  margin: 0 auto;
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -49,7 +50,7 @@
   opacity: 0.7;
 }
 .navigate__button_active {
-  text-decoration: underline;
+  border-bottom: 2px solid #FFFFFF;
 }
 
 .navigate__button-profile {
@@ -61,6 +62,7 @@
   background-color: transparent;
   border: none;
   background-position: center;
+  cursor: pointer;
 }
 .navigate__button-profile:hover {
   opacity: 0.8;
@@ -76,7 +78,6 @@
     flex-direction: column;
     background-color: #202020;
     z-index: 1000;
-    gap: 445px;
   }
   .navigate__button-profile {
     background-image: url(../../images/goprofile.svg);

@@ -2,6 +2,7 @@
   background-color: #202020;
   margin: 0 70px;
   color: #fff;
+
 }
 .footer__title {
   max-width: 1140px;
@@ -56,7 +57,7 @@
     margin: 5px 30px;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
   .footer {
     margin: 0 14px;
   }

@@ -7,6 +7,56 @@
   justify-content: center;
   max-width: 1140px;
 }
+
+.movies__loading{
+  color: white;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1140px;
+}
+.movies__info{
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1140px;
+}
+.addMoviesTable {
+  margin: 30px 0 0 0;
+}
+.addMoviesTable__button {
+  display: block;
+  width: 320px;
+  height: 36px;
+  margin: 51px auto 155px;
+  background-color: transparent;
+  border: 2px solid #424242;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+}
+.addMoviesTable__button:hover {
+  opacity: 0.8;
+}
+.addMoviesTable__button_off{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .addMoviesTable__button {
+    width: 240px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .movies{
     margin: 0px auto 3px;
